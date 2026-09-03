@@ -1,0 +1,20 @@
+# Variables de entorno
+.env
+*.env
+
+# Credenciales
+*.secret
+*.key
+*.pem
+
+# Archivos de bases de datos y respaldos
+*.bak
+*.sql
+*.mdf
+*.ldf
+*.db
+*.sqlite
+*.sqlite3
+
+# Datos persistentes
+data/
