@@ -760,20 +760,3 @@ El objetivo actual es terminar de verificar:
 * esquema correspondiente
 
 Después de terminar estas comprobaciones se podrá continuar con las siguientes etapas del proyecto según la guía, como datos iniciales, seeders, migraciones, conexión con NestJS/Sequelize y pruebas.
-
----
-
-# 23. Cómo debe usarse este contexto
-
-Para futuras conversaciones relacionadas con este proyecto, tener en cuenta que:
-
-* No quiero cambiar la estructura de la base de datos sin antes comprobar que realmente sea necesario.
-* Los cuatro motores deben mantener el mismo modelo lógico.
-* Las diferencias propias de cada motor son normales.
-* El modelo real de las tablas tiene prioridad sobre versiones anteriores de la guía.
-* `refresh_tokens` debe conservar su estructura actual.
-* No se deben agregar campos únicamente para hacer que las tablas sean físicamente idénticas.
-* DBeaver es la herramienta principal utilizada para administrar y comprobar las bases de datos.
-* El objetivo de las próximas conversaciones puede ser documentar todo el proceso realizado para elaborar informes académicos.
-* Los informes deben explicar lo realizado de forma clara y sencilla, como trabajo de un estudiante de Ingeniería de Sistemas.
-* La documentación debe diferenciar entre las herramientas utilizadas, los pasos realizados, las configuraciones y los resultados obtenidos.
