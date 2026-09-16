@@ -1,0 +1,29 @@
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-server
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    ports:
+      - "0.0.0.0:1521:1521"
+
+    volumes:
+      - ../../../data/oracle:/opt/oracle/oradata
+      - /mnt/d/academia/bd:/backups
+
+    networks:
+      - ia-lab-network
+
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 120s
+
+networks:
+  ia-lab-network:
+    external: true
