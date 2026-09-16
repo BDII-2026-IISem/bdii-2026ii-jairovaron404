@@ -14,7 +14,15 @@ Las consultas utilizadas permiten comprobar directamente la estructura existente
 
 La base de datos utilizada para esta verificación es `enlace_express`.
 
-## 2.1 PK, FK y UNIQUE
+## 2.1 Diagrama ER de MySQL
+
+A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en MySQL.
+
+> ![Diagrama ER de MySQL](../diagramas/mysql/ER-diagram.jpg)
+
+--
+
+## 2.2 PK, FK y UNIQUE
 
 La siguiente consulta permite identificar las claves primarias, claves foráneas y restricciones UNIQUE existentes en las tablas de la base de datos.
 
@@ -88,7 +96,7 @@ El resultado permite comprobar que las tablas cuentan con sus respectivas claves
 
 ---
 
-## 2.2 Índices
+## 2.3 Índices
 
 La siguiente consulta permite verificar los índices creados en las tablas de la base de datos.
 
@@ -165,7 +173,7 @@ Con este resultado se pueden comprobar los índices asociados a las claves prima
 
 ---
 
-## 2.3 CHECK constraints
+## 2.4 CHECK constraints
 
 Para comprobar si existen restricciones CHECK se utilizó la siguiente consulta:
 
@@ -194,7 +202,7 @@ En el resultado obtenido no se muestran restricciones CHECK para esta base de da
 
 ---
 
-## 2.4 Triggers
+## 2.5 Triggers
 
 La siguiente consulta permite verificar los triggers definidos en la base de datos:
 
@@ -224,7 +232,7 @@ El resultado permite comprobar los triggers asociados a las tablas y las operaci
 
 ---
 
-## 2.5 Confirmar las 18 tablas
+## 2.6 Confirmar las 18 tablas
 
 Finalmente, se verificó la existencia de las 18 tablas de la base de datos mediante:
 
@@ -271,7 +279,15 @@ El resultado confirma la existencia de las 18 tablas correspondientes al modelo 
 
 La estructura del proyecto también fue implementada en PostgreSQL utilizando el esquema `public`.
 
-## 3.1 PK, FK y UNIQUE
+## 3.1 Diagrama ER de PostgreSQL
+
+A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en PostgreSQL.
+
+> ![Diagrama ER de PostgreSQL](../diagramas/postgresql/ER-diagram.jpg)
+
+--
+
+## 3.2 PK, FK y UNIQUE
 
 ```sql
 SELECT
@@ -368,7 +384,7 @@ users           |UNIQUE         |users_username_key             |username       
 
 ---
 
-## 3.2 Índices
+## 3.3 Índices
 
 ```sql
 SELECT
@@ -456,7 +472,7 @@ users           |users_username_key               |CREATE UNIQUE INDEX users_use
 
 ---
 
-## 3.3 CHECK constraints
+## 3.4 CHECK constraints
 
 ```sql
 SELECT
@@ -570,7 +586,7 @@ El resultado permite comprobar las restricciones CHECK utilizadas en PostgreSQL 
 
 ---
 
-## 3.4 Triggers
+## 3.5 Triggers
 
 ```sql
 SELECT
@@ -603,7 +619,7 @@ rutas         |trg_rutas_updated_at         |BEFORE       |UPDATE            |EX
 
 ---
 
-## 3.5 Confirmar las 18 tablas
+## 3.6 Confirmar las 18 tablas
 
 ```sql
 SELECT
@@ -648,7 +664,15 @@ El resultado permite comprobar que las 18 tablas del proyecto se encuentran crea
 
 La base de datos de SQL Server utiliza el esquema `dbo`.
 
-## 4.1 PK, FK y UNIQUE
+## 4.1 Diagrama ER de SQL Server
+
+A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en SQL Server.
+
+> ![Diagrama ER de SQL Server](../diagramas/sql-server/ER-diagram.jpg)
+
+---
+
+## 4.2 PK, FK y UNIQUE
 
 ```sql
 SELECT
@@ -723,7 +747,7 @@ dbo         |users           |uq_users_username              |UNIQUE         |
 
 ---
 
-## 4.2 Índices
+## 4.3 Índices
 
 ```sql
 SELECT
@@ -827,7 +851,7 @@ dbo    |users           |uq_users_username              |NONCLUSTERED|username  
 
 ---
 
-## 4.3 CHECK constraints
+## 4.4 CHECK constraints
 
 ```sql
 SELECT
@@ -877,7 +901,7 @@ El resultado permite comprobar las restricciones CHECK utilizadas en SQL Server 
 
 ---
 
-## 4.4 Triggers
+## 4.5 Triggers
 
 ```sql
 SELECT
@@ -913,7 +937,7 @@ dbo    |rutas         |trg_rutas_updated_at         |          0|
 
 ---
 
-## 4.5 Confirmar esquema y las 18 tablas
+## 4.6 Confirmar esquema y las 18 tablas
 
 ```sql
 SELECT
@@ -958,7 +982,15 @@ El resultado permite comprobar que las 18 tablas fueron creadas dentro del esque
 
 La implementación de Oracle se realizó utilizando el usuario/esquema `ENLACE_EXPRESS`.
 
-## 5.1 Confirmar usuario y esquema
+## 5.1 Diagrama ER de Oracle XE
+
+A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en Oracle XE.
+
+> ![Diagrama ER de Oracle XE](../diagramas/oracle/ER-diagram.jpg)
+
+---
+
+## 5.2 Confirmar usuario y esquema
 
 Primero se verificó el usuario conectado:
 
@@ -994,7 +1026,7 @@ El resultado obtenido corresponde al esquema `ENLACE_EXPRESS`.
 
 ---
 
-## 5.2 Confirmar las 18 tablas
+## 5.3 Confirmar las 18 tablas
 
 ```sql
 SELECT
@@ -1032,7 +1064,7 @@ El resultado permite comprobar la existencia de las 18 tablas dentro del esquema
 
 ---
 
-## 5.3 PK, FK y UNIQUE
+## 5.4 PK, FK y UNIQUE
 
 ```sql
 SELECT
@@ -1104,7 +1136,7 @@ En Oracle, los tipos `P`, `R` y `U` corresponden respectivamente a claves primar
 
 ---
 
-## 5.4 Índices
+## 5.5 Índices
 
 ```sql
 SELECT
@@ -1192,7 +1224,7 @@ USERS           |UQ_USERS_USERNAME              |UNIQUE    |VALID |
 
 ---
 
-## 5.5 CHECK constraints
+## 5.6 CHECK constraints
 
 ```sql
 SELECT
@@ -1327,7 +1359,7 @@ El resultado permite comprobar las restricciones CHECK utilizadas en Oracle.
 
 ---
 
-## 5.6 Triggers
+## 5.7 Triggers
 
 ```sql
 SELECT
