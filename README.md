@@ -34,6 +34,28 @@ Los cuatro motores fueron configurados para trabajar de forma independiente y se
 
 * [Contexto del Proyecto EnlaceExpress](docs/contexto/CONTEXTO_DEL_PROYECTO_ENLEEXPRESS.md)
 
+## Servicios Docker
+
+Los archivos necesarios para ejecutar los cuatro motores mediante Docker y Docker Compose se encuentran organizados en:
+
+`services/motores-bd/`
+
+Cada motor cuenta con su propio archivo `docker-compose.yml` y documentación específica.
+
+También se incluyen scripts para facilitar la ejecución y detención de todos los servicios:
+
+* `start-all.sh` — inicia los servicios de los cuatro motores.
+* `stop-all.sh` — detiene los servicios de los cuatro motores.
+
+### Servicios disponibles
+
+* [MySQL](services/motores-bd/mysql/)
+* [PostgreSQL](services/motores-bd/postgres/)
+* [SQL Server](services/motores-bd/mssql/)
+* [Oracle](services/motores-bd/oracle/)
+
+> Los archivos `.env` utilizados para configurar las credenciales y variables de entorno no forman parte del repositorio por razones de seguridad.
+
 ## Diagramas ER
 
 Los diagramas entidad-relación de cada motor se encuentran organizados individualmente:
@@ -73,11 +95,14 @@ bdii-2026ii-jairovaron404/
 │
 ├── docs/
 │   ├── contexto/
+│   │   └── CONTEXTO_DEL_PROYECTO_ENLEEXPRESS.md
+│   │
 │   ├── diagramas/
 │   │   ├── mysql/
 │   │   ├── oracle/
 │   │   ├── postgresql/
 │   │   └── sql-server/
+│   │
 │   └── informes/
 │
 ├── evidencias/
@@ -91,6 +116,28 @@ bdii-2026ii-jairovaron404/
 │   ├── 08-persistencia/
 │   ├── 09-backups/
 │   └── 10-verificacion-final/
+│
+├── services/
+│   └── motores-bd/
+│       ├── mysql/
+│       │   ├── docker-compose.yml
+│       │   └── README.md
+│       │
+│       ├── postgres/
+│       │   ├── docker-compose.yml
+│       │   └── README.md
+│       │
+│       ├── mssql/
+│       │   ├── docker-compose.yml
+│       │   └── README.md
+│       │
+│       ├── oracle/
+│       │   ├── docker-compose.yml
+│       │   └── README.md
+│       │
+│       ├── README.md
+│       ├── start-all.sh
+│       └── stop-all.sh
 │
 ├── .gitignore
 └── README.md
