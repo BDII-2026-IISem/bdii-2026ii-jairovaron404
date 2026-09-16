@@ -267,7 +267,7 @@ Estos scripts permiten administrar los servicios sin tener que iniciar o detener
 
 A continuación se presenta la estructura real del proyecto obtenida desde WSL.
 
-> ![Estructura del proyecto](evidencias/01-estructura-proyecto.png)
+> ![Estructura del proyecto](../../evidencias/01-proyecto/01-estructura-proyecto.png)
 
 La captura muestra la organización de los servicios, archivos de configuración y scripts principales del proyecto.
 
@@ -276,7 +276,7 @@ La captura muestra la organización de los servicios, archivos de configuración
 ## 7. Implementación de MySQL
 
 <p align="center">
-  <img src="evidencias/0.1-MySQL.png" alt="Logo de MySQL" width="430">
+  <img src="../../evidencias/01-proyecto/0.1-MySQL.png" alt="Logo de MySQL" width="430">
 </p>
 
 ### 7.1 Configuración
@@ -288,7 +288,7 @@ cd ~/ia-lab/services/motores-bd/mysql
 cat docker-compose.yml
 ```
 
-> ![Configuración MySQL](evidencias/02-configuracion-mysql.png)
+> ![Configuración MySQL](../../evidencias/02-mysql/02-configuracion-mysql.png)
 
 ### 7.2 Docker Compose
 
@@ -299,7 +299,7 @@ cd ~/ia-lab/services/motores-bd/mysql
 sudo docker compose config
 ```
 
-> ![Docker Compose MySQL](evidencias/03-configuracion-docker-compose.png)
+> ![Docker Compose MySQL](../../evidencias/02-mysql/03-configuracion-docker-compose.png)
 
 ### 7.3 Variables de entorno
 
@@ -310,7 +310,7 @@ cd ~/ia-lab/services/motores-bd/mysql
 ls -la
 ```
 
-> ![Variables de entorno MySQL](evidencias/04-variables-entorno.png)
+> ![Variables de entorno MySQL](../../evidencias/02-mysql/04-variables-entorno.png)
 
 ### 7.4 Persistencia de datos
 
@@ -326,7 +326,7 @@ Esto permite conservar la información de la base de datos aunque el contenedor 
 sudo ls -lah ~/ia-lab/data/mysql
 ```
 
-> ![Persistencia de datos MySQL](evidencias/05-Persistencia-datos.png)
+> ![Persistencia de datos MySQL](../../evidencias/02-mysql/05-Persistencia-datos.png)
 
 ### 7.5 Ejecución del contenedor
 
@@ -345,7 +345,7 @@ sudo docker ps --filter "name=mysql-server" \
 
 El resultado esperado debe mostrar el contenedor activo y, después de iniciar correctamente, en estado `healthy`.
 
-> ![Ejecución del contenedor MySQL](evidencias/06-Persistencia-datos.png)
+> ![Ejecución del contenedor MySQL](../../evidencias/02-mysql/06-Persistencia-datos.png)
 
 ### 7.6 Base de datos utilizada
 
@@ -362,7 +362,7 @@ mysql -uadmin -p
 
 El comando solicitará la contraseña configurada para MySQL.
 
-> ![Base de datos MySQL](evidencias/07-base-datos-mysql.png)
+> ![Base de datos MySQL](../../evidencias/02-mysql/07-base-datos-mysql.png)
 
 ### 7.7 Conexión mediante DBeaver
 
@@ -378,7 +378,7 @@ La conexión a MySQL se realizó desde DBeaver utilizando los siguientes datos:
 
 La conexión fue comprobada desde DBeaver y se obtuvo una conexión exitosa.
 
-> ![Conexión mediante DBeaver](evidencias/07.1-DBeaver-mysql.png)
+> ![Conexión mediante DBeaver](../../evidencias/02-mysql/07.1-DBeaver-mysql.png)
 
 ### 7.8 Pruebas de funcionamiento
 
@@ -409,7 +409,7 @@ SHOW DATABASES;
 
 En el resultado se confirmó la existencia de la base de datos `tecnogua`.
 
-> ![Prueba de funcionamiento de MySQL](evidencias/08-prueba-mysql.png)
+> ![Prueba de funcionamiento de MySQL](../../evidencias/02-mysql/08-prueba-mysql.png)
 
 *La captura muestra la conexión exitosa al servidor MySQL y la disponibilidad de la base de datos `tecnogua`.*
 
@@ -418,7 +418,7 @@ En el resultado se confirmó la existencia de la base de datos `tecnogua`.
 ## 8. Implementación de PostgreSQL
 
 <p align="center">
-  <img src="evidencias/0.2-PostgreSQL.png" alt="Logo de PostgreSQL" width="430">
+  <img src="../../evidencias/01-proyecto/0.2-PostgreSQL.png" alt="Logo de PostgreSQL" width="430">
 </p>
 
 ### 8.1 Configuración
@@ -430,7 +430,7 @@ cd ~/ia-lab/services/motores-bd/postgres
 cat docker-compose.yml
 ```
 
-> ![Configuración PostgreSQL](evidencias/10-configuración-postgres.png)
+> ![Configuración PostgreSQL](../../evidencias/03-postgresql/10-configuración-postgres.png)
 
 ### 8.2 Docker Compose
 
@@ -443,7 +443,7 @@ sudo docker compose config
 
 El resultado debe mostrar la configuración del servicio sin errores.
 
-> ![Docker Compose PostgreSQL](evidencias/11-docker-compose-postgres.png)
+> ![Docker Compose PostgreSQL](../../evidencias/03-postgresql/11-docker-compose-postgres.png)
 
 ### 8.3 Variables de entorno
 
@@ -454,7 +454,7 @@ cd ~/ia-lab/services/motores-bd/postgres
 ls -la
 ```
 
-> ![Variables de entorno PostgreSQL](evidencias/12-variables-entorno-postgres.png)
+> ![Variables de entorno PostgreSQL](../../evidencias/03-postgresql/12-variables-entorno-postgres.png)
 
 ### 8.4 Persistencia de datos
 
@@ -470,7 +470,7 @@ Esto permite conservar la información de la base de datos cuando el contenedor 
 sudo ls -lah ~/ia-lab/data/postgres
 ```
 
-> ![Persistencia de datos PostgreSQL](evidencias/13-persistencia-datos-postgres.png)
+> ![Persistencia de datos PostgreSQL](../../evidencias/03-postgresql/13-persistencia-datos-postgres.png)
 
 ### 8.5 Ejecución del contenedor
 
@@ -489,7 +489,7 @@ sudo docker ps --filter "name=postgres-server" \
 
 El contenedor debe aparecer activo y, después de completar su inicio, en estado `healthy`.
 
-> ![Ejecución del contenedor PostgreSQL](evidencias/14-ejecución-contenedor-postgres.png)
+> ![Ejecución del contenedor PostgreSQL](../../evidencias/03-postgresql/14-ejecución-contenedor-postgres.png)
 
 ### 8.6 Base de datos utilizada
 
@@ -508,7 +508,7 @@ psql -U ialab -l
 
 En el resultado debe aparecer la base de datos `tecnogua`.
 
-> ![Base de datos PostgreSQL](evidencias/15-base-datos-postgres.png)
+> ![Base de datos PostgreSQL](../../evidencias/03-postgresql/15-base-datos-postgres.png)
 
 ### 8.7 Conexión mediante DBeaver
 
@@ -524,7 +524,7 @@ La conexión a PostgreSQL se realizó mediante DBeaver utilizando:
 
 La conexión fue comprobada desde DBeaver y se obtuvo una conexión exitosa.
 
-> ![Conexión mediante DBeaver](evidencias/16-DBeaver-postgres.png)
+> ![Conexión mediante DBeaver](../../evidencias/03-postgresql/16-DBeaver-postgres.png)
 
 ---
 
@@ -555,14 +555,14 @@ Resultado esperado:
 /var/run/postgresql:5432 - accepting connections
 ```
 
-> ![Pruebas de funcionamiento PostgreSQL](evidencias/17-pruebas-funcionamiento-postgres.png)
+> ![Pruebas de funcionamiento PostgreSQL](../../evidencias/03-postgresql/17-pruebas-funcionamiento-postgres.png)
 
 ---
 
 ## 9. Implementación de SQL Server
 
 <p align="center">
-  <img src="evidencias/0.3-SQLServer.png" alt="Logo de SQL Server" width="430">
+  <img src="../../evidencias/01-proyecto/0.3-SQLServer.png" alt="Logo de SQL Server" width="430">
 </p>
 
 ### 9.1 Configuración
@@ -574,7 +574,7 @@ cd ~/ia-lab/services/motores-bd/mssql
 cat docker-compose.yml
 ```
 
-> ![Configuración SQL Server](evidencias/18-configuracion-mssql.png)
+> ![Configuración SQL Server](../../evidencias/04-sql-server/18-configuracion-mssql.png)
 
 ### 9.2 Docker Compose
 
@@ -587,7 +587,7 @@ sudo docker compose config
 
 El resultado debe mostrar la configuración sin errores.
 
-> ![Docker Compose SQL Server](evidencias/19-docker-mssql.png)
+> ![Docker Compose SQL Server](../../evidencias/04-sql-server/19-docker-mssql.png)
 
 ### 9.3 Variables de entorno
 
@@ -598,7 +598,7 @@ cd ~/ia-lab/services/motores-bd/mssql
 ls -la
 ```
 
-> ![Variables de entorno SQL Server](evidencias/20-variables-entorno-mssql.png)
+> ![Variables de entorno SQL Server](../../evidencias/04-sql-server/20-variables-entorno-mssql.png)
 
 ### 9.4 Persistencia de datos
 
@@ -620,7 +620,7 @@ Para mostrar la estructura principal:
 tree -L 2 ~/ia-lab/data/mssql
 ```
 
-> ![Persistencia de datos SQL Server](evidencias/21-persistencia-datos-mssql.png)
+> ![Persistencia de datos SQL Server](../../evidencias/04-sql-server/21-persistencia-datos-mssql.png)
 
 ### 9.5 Ejecución del contenedor
 
@@ -639,7 +639,7 @@ sudo docker ps --filter "name=sqlserver-container" \
 
 El contenedor debe aparecer activo y en estado `healthy`.
 
-> ![Ejecución del contenedor SQL Server](evidencias/22-ejecucion-contenedor-mssql.png)
+> ![Ejecución del contenedor SQL Server](../../evidencias/04-sql-server/22-ejecucion-contenedor-mssql.png)
 
 ### 9.6 Base de datos utilizada
 
@@ -666,7 +666,7 @@ sudo docker exec -it sqlserver-container \
 
 El resultado permite verificar que `practica_db` se encuentra disponible en el servidor SQL Server.
 
-> ![Base de datos SQL Server](evidencias/23-base-datos-mssql.png)
+> ![Base de datos SQL Server](../../evidencias/04-sql-server/23-base-datos-mssql.png)
 
 *La captura muestra la lista de bases de datos de SQL Server, incluyendo `practica_db`.*
 
@@ -716,7 +716,7 @@ sudo docker exec -it sqlserver-container \
 
 En la salida obtenida se identificaron los campos `DatabaseName` y `BackupTypeDescription`. La primera evidencia muestra la existencia del archivo `master_backup.bak` y la ejecución de `RESTORE HEADERONLY` sobre dicho respaldo.
 
-> ![Evidencia de la existencia y lectura del backup de SQL Server](evidencias/24-backup-base-datos-mssql-1.png)
+> ![Evidencia de la existencia y lectura del backup de SQL Server](../../evidencias/04-sql-server/24-backup-base-datos-mssql-1.png)
 
 Para facilitar la interpretación de los resultados, se realizó una presentación resumida de los datos obtenidos mediante la siguiente validación:
 
@@ -729,7 +729,7 @@ BackupTypeDescription : Database
 ========================================
 ```
 
-> ![Validación del backup de SQL Server](evidencias/24-backup-base-datos-mssql-2.png)
+> ![Validación del backup de SQL Server](../../evidencias/04-sql-server/24-backup-base-datos-mssql-2.png)
 
 Los resultados permitieron confirmar que el archivo `master_backup.bak` corresponde a la base de datos `master` y que el tipo de respaldo registrado es `Database`. De esta manera, se comprobó el funcionamiento del mecanismo de backup implementado en SQL Server.
 
@@ -747,7 +747,7 @@ La conexión a SQL Server se realizó desde DBeaver utilizando:
 
 La conexión fue comprobada desde DBeaver y se obtuvo una conexión exitosa.
 
-> ![Validación del backup de SQL Server](evidencias/25-DBeaver-datos-mssql.png)
+> ![Validación del backup de SQL Server](../../evidencias/04-sql-server/25-DBeaver-datos-mssql.png)
 
 ---
 
@@ -774,14 +774,14 @@ sudo docker ps --filter "name=sqlserver-container" \
 
 El resultado debe indicar que el contenedor está `healthy`.
 
-> ![Validación del backup de SQL Server](evidencias/26-pruebas-funcionamiento-mssql.png)
+> ![Validación del backup de SQL Server](../../evidencias/04-sql-server/26-pruebas-funcionamiento-mssql.png)
 
 ---
 
 ## 10. Implementación de Oracle XE
 
 <p align="center">
-  <img src="evidencias/0.4-OracleXE.png" alt="Logo de Oracle" width="430">
+  <img src="../../evidencias/01-proyecto/0.4-OracleXE.png" alt="Logo de Oracle" width="430">
 </p>
 
 ### 10.1 Configuración
@@ -793,7 +793,7 @@ cd ~/ia-lab/services/motores-bd/oracle
 cat docker-compose.yml
 ```
 
-> ![Configuración Oracle XE](evidencias/27-configuracion-oracle.png)
+> ![Configuración Oracle XE](../../evidencias/05-oracle/27-configuracion-oracle.png)
 
 ### 10.2 Docker Compose
 
@@ -806,7 +806,7 @@ sudo docker compose config
 
 La configuración debe mostrarse sin errores.
 
-> ![Validación del backup de SQL Server](evidencias/28-docker-compose-oracle.png)
+> ![Validación del backup de SQL Server](../../evidencias/05-oracle/28-docker-compose-oracle.png)
 
 ### 10.3 Variables de entorno
 
@@ -817,7 +817,7 @@ cd ~/ia-lab/services/motores-bd/oracle
 ls -la
 ```
 
-> ![Variables de entorno Oracle XE](evidencias/29-variables-entorno-oracle.png)
+> ![Variables de entorno Oracle XE](../../evidencias/05-oracle/29-variables-entorno-oracle.png)
 
 ### 10.4 Persistencia de datos
 
@@ -839,7 +839,7 @@ Para mostrar una estructura más detallada:
 sudo tree -L 3 ~/ia-lab/data/oracle
 ```
 
-> ![Persistencia de datos Oracle XE](evidencias/30-persistencia-datos-oracle.png)
+> ![Persistencia de datos Oracle XE](../../evidencias/05-oracle/30-persistencia-datos-oracle.png)
 
 ### 10.5 Configuración del servicio
 
@@ -858,7 +858,7 @@ sudo docker ps --filter "name=oracle-server" \
 
 El contenedor debe aparecer activo y en estado `healthy`.
 
-> ![Configuración del servicio Oracle XE](evidencias/31-configuracion-servicio-oracle.png)
+> ![Configuración del servicio Oracle XE](../../evidencias/05-oracle/31-configuracion-servicio-oracle.png)
 
 ### 10.6 Usuarios y bases de datos
 
@@ -900,7 +900,7 @@ SYSRAC           OPEN
 SYSTEM           OPEN
 ```
 
-> ![Usuarios y bases de datos Oracle XE](evidencias/32-usuarios-bases-datos-oracle.png)
+> ![Usuarios y bases de datos Oracle XE](../../evidencias/05-oracle/32-usuarios-bases-datos-oracle.png)
 
 ### 10.7 DATA_PUMP_DIR
 
@@ -932,7 +932,7 @@ SQL
 
 La consulta permitió identificar el nombre del directorio y la ruta física configurada para `DATA_PUMP_DIR` dentro de la instancia de Oracle XE.
 
-> ![Validación del directorio DATA\_PUMP\_DIR de Oracle](evidencias/33-data-pump-oracle.png)
+> ![Validación del directorio DATA\_PUMP\_DIR de Oracle](../../evidencias/05-oracle/33-data-pump-oracle.png)
 
 ### 10.8 Conexión mediante DBeaver
 
@@ -948,7 +948,7 @@ La conexión a Oracle XE se realizó desde DBeaver utilizando:
 
 La conexión fue comprobada desde DBeaver y se obtuvo una conexión exitosa.
 
-> ![Validación del backup de SQL Server](evidencias/34-DBeaver-oracle.png)
+> ![Validación del backup de SQL Server](../../evidencias/05-oracle/34-DBeaver-oracle.png)
 
 ### 10.9 Pruebas de funcionamiento
 
@@ -973,7 +973,7 @@ sudo docker ps --filter "name=oracle-server" \
 
 El resultado debe indicar que el contenedor se encuentra `healthy`.
 
-> ![Pruebas de funcionamiento Oracle XE](evidencias/35-pruebas-funcionamiento-oracle.png)
+> ![Pruebas de funcionamiento Oracle XE](../../evidencias/05-oracle/35-pruebas-funcionamiento-oracle.png)
 
 ---
 
@@ -998,7 +998,7 @@ sudo docker ps \
 
 El resultado debe mostrar los cuatro servicios en ejecución y en estado `healthy`.
 
-> ![Servicios ejecutándose simultáneamente](evidencias/36-servicios-ejecutandose-simultaneamente.png)
+> ![Servicios ejecutándose simultáneamente](../../evidencias/06-entorno-general/36-servicios-ejecutandose-simultaneamente.png)
 
 ### 11.2 Puertos publicados
 
@@ -1019,7 +1019,7 @@ sudo docker ps \
 | grep -E "mysql-server|postgres-server|sqlserver-container|oracle-server"
 ```
 
-> ![Puertos publicados](evidencias/37-puertos.png)
+> ![Puertos publicados](../../evidencias/06-entorno-general/37-puertos.png)
 
 ### 11.3 Red Docker
 
@@ -1035,7 +1035,7 @@ Para revisar la red utilizada por los servicios:
 sudo docker network inspect ia-lab-network
 ```
 
-> ![Red Docker](evidencias/38-consultar-redes.png)
+> ![Red Docker](../../evidencias/06-entorno-general/38-consultar-redes.png)
 
 ### 11.4 Verificación de los contenedores
 
@@ -1066,7 +1066,7 @@ for motor in mysql postgres mssql oracle; do
 done
 ```
 
-> ![Verificación de los contenedores](evidencias/39-verificacion-contenedores.png)
+> ![Verificación de los contenedores](../../evidencias/06-entorno-general/39-verificacion-contenedores.png)
 
 ### 11.5 Verificación de los puertos
 
@@ -1104,12 +1104,12 @@ Oracle 1521:
 Connection to 127.0.0.1 1521 port [tcp/*] succeeded!
 ```
 
-> ![Verificación de los puertos](evidencias/40-verificacion-puertos.png)
+> ![Verificación de los puertos](../../evidencias/06-entorno-general/40-verificacion-puertos.png)
 
 ## 12. Conexiones mediante DBeaver
 
 <p align="center">
-  <img src="evidencias/0.5-DBeaver.png" alt="Logo de DBeaver" width="430">
+  <img src="../../evidencias/01-proyecto/0.5-DBeaver.png" alt="Logo de DBeaver" width="430">
 </p>
 
 DBeaver se utilizó como cliente gráfico para comprobar la conexión con los cuatro motores de bases de datos. Las conexiones se realizaron utilizando `127.0.0.1` y los puertos publicados por Docker.
@@ -1125,7 +1125,7 @@ Configuración utilizada:
 - Usuario: `admin`
 - Base de datos: `tecnogua`
 
-> ![Conexión MySQL](evidencias/41-01-mysql-dbeaver.png)
+> ![Conexión MySQL](../../evidencias/07-dbeaver/41-01-mysql-dbeaver.png)
 
 
 ### 12.2 Conexión a PostgreSQL
@@ -1139,7 +1139,7 @@ Configuración utilizada:
 - Usuario: `postgres`
 - Base de datos: `tecnogua`
 
-> ![Conexión PostgreSQL](evidencias/42-02-postgresql-dbeaver.png)
+> ![Conexión PostgreSQL](../../evidencias/07-dbeaver/42-02-postgresql-dbeaver.png)
 
 
 ### 12.3 Conexión a SQL Server
@@ -1153,7 +1153,7 @@ Configuración utilizada:
 - Usuario: `sa`
 - Base de datos: `master`
 
-> ![Conexión SQL Server](evidencias/43-03-sqlserver-dbeaver.png)
+> ![Conexión SQL Server](../../evidencias/07-dbeaver/43-03-sqlserver-dbeaver.png)
 
 
 ### 12.4 Conexión a Oracle XE
@@ -1167,7 +1167,7 @@ Configuración utilizada:
 - Usuario: `SYSTEM`
 - Servicio: `tecnogua`
 
-> ![Conexión Oracle XE](evidencias/44-04-oracle-dbeaver.png)
+> ![Conexión Oracle XE](../../evidencias/07-dbeaver/44-04-oracle-dbeaver.png)
 
 
 ### 12.5 Verificación final de las conexiones
@@ -1176,7 +1176,7 @@ Después de configurar las cuatro conexiones, se verificó desde DBeaver que tod
 
 El resultado esperado es que las cuatro conexiones aparezcan activas y sin errores.
 
-> ![Verificación final de conexiones](evidencias/45-05-cuatro-conexiones-dbeaver.png)
+> ![Verificación final de conexiones](../../evidencias/07-dbeaver/45-05-cuatro-conexiones-dbeaver.png)
 
 ---
 
@@ -1200,7 +1200,7 @@ Verificación del directorio:
 sudo ls -lah ~/ia-lab/data/mysql
 ```
 
-> ![Persistencia MySQL](evidencias/46-01-persistencia-mysql.png)
+> ![Persistencia MySQL](../../evidencias/08-persistencia/46-01-persistencia-mysql.png)
 
 ### 13.2 Persistencia en PostgreSQL
 
@@ -1218,7 +1218,7 @@ Verificación del directorio:
 sudo ls -lah ~/ia-lab/data/postgres
 ```
 
-> ![Persistencia PostgreSQL](evidencias/47-02-persistencia-postgresql.png)
+> ![Persistencia PostgreSQL](../../evidencias/08-persistencia/47-02-persistencia-postgresql.png)
 
 ### 13.3 Persistencia en SQL Server
 
@@ -1242,7 +1242,7 @@ También se puede comprobar el directorio de datos:
 sudo ls -lah ~/ia-lab/data/mssql/data
 ```
 
-> ![Persistencia SQL Server](evidencias/48-03-persistencia-sqlserver.png)
+> ![Persistencia SQL Server](../../evidencias/08-persistencia/48-03-persistencia-sqlserver.png)
 
 ### 13.4 Persistencia en Oracle XE
 
@@ -1260,7 +1260,7 @@ Verificación:
 sudo ls -lah ~/ia-lab/data/oracle
 ```
 
-> ![Persistencia Oracle XE](evidencias/49-04-persistencia-oracle.png)
+> ![Persistencia Oracle XE](../../evidencias/08-persistencia/49-04-persistencia-oracle.png)
 
 ### Verificación general
 
@@ -1282,7 +1282,7 @@ cd ~/ia-lab
 sudo tree -L 1 data
 ````
 
-> ![Verificación general](evidencias/50-04-persistencia-oracle.png)
+> ![Verificación general](../../evidencias/08-persistencia/50-04-persistencia-oracle.png)
 
 ---
 
@@ -1306,7 +1306,7 @@ Verificación del backup:
 sudo ls -lh ~/ia-lab/data/mssql/master_backup.bak
 ```
 
-> ![Backup SQL Server](evidencias/51-01-backup-sqlserver.png)
+> ![Backup SQL Server](../../evidencias/09-backups/51-01-backup-sqlserver.png)
 
 ### 14.2 Archivos de respaldo
 
@@ -1318,7 +1318,7 @@ Para comprobar su contenido se ejecutó:
 sudo ls -lah ~/ia-lab/data/mssql
 ```
 
-> ![Archivos de respaldo](evidencias/52-02-archivos-backup.png)
+> ![Archivos de respaldo](../../evidencias/09-backups/52-02-archivos-backup.png)
 
 ### 14.3 Directorios persistentes
 
@@ -1338,7 +1338,7 @@ cd ~/ia-lab/services/motores-bd/mssql
 sudo grep -n -A 8 -B 3 "volumes:" docker-compose.yml
 ```
 
-> ![Persistencia del backup](evidencias/53-03-persistencia-backup.png)
+> ![Persistencia del backup](../../evidencias/09-backups/53-03-persistencia-backup.png)
 
 ### 14.4 Consideraciones sobre recuperación
 
@@ -1367,7 +1367,7 @@ cd ~/ia-lab/services/motores-bd/mssql
 sudo grep -n -A 8 -B 3 "volumes:" docker-compose.yml
 ```
 
-> ![Consideraciones sobre recuperación](evidencias/54-04-persistencia-backup.png)
+> ![Consideraciones sobre recuperación](../../evidencias/09-backups/54-04-persistencia-backup.png)
 
 *El `.bak` constituye el respaldo disponible para una recuperación posterior.*
 
@@ -1394,7 +1394,7 @@ cd ~/ia-lab/services/motores-bd
 sudo cat start-all.sh
 ```
 
-> ![Script de inicio](evidencias/55-01-start-all.png)
+> ![Script de inicio](../../evidencias/10-verificacion-final/55-01-start-all.png)
 
 Para ejecutarlo:
 
@@ -1409,7 +1409,7 @@ Después se puede comprobar el estado de los contenedores:
 sudo docker ps
 ```
 
-> ![Ejecución start-all](evidencias/56-01-ejecucion-start-all.png)
+> ![Ejecución start-all](../../evidencias/10-verificacion-final/56-01-ejecucion-start-all.png)
 
 ### 15.2 stop-all.sh
 
@@ -1428,7 +1428,7 @@ cd ~/ia-lab/services/motores-bd
 cat stop-all.sh
 ```
 
-> ![Script de detención](evidencias/57-02-stop-all.png)
+> ![Script de detención](../../evidencias/10-verificacion-final/57-02-stop-all.png)
 
 Para ejecutarlo:
 
@@ -1443,7 +1443,7 @@ El estado de los servicios puede comprobarse con:
 sudo docker ps
 ```
 
-> ![Ejecución stop-all](evidencias/58-02-ejecucion-stop-all.png)
+> ![Ejecución stop-all](../../evidencias/10-verificacion-final/58-02-ejecucion-stop-all.png)
 
 ### 15.3 Comandos utilizados
 
@@ -1528,7 +1528,7 @@ SQL Server: OK
 Oracle: OK
 ```
 
-> ![Validación Docker Compose](evidencias/59-01-validacion-compose.png)
+> ![Validación Docker Compose](../../evidencias/10-verificacion-final/59-01-validacion-compose.png)
 
 ### 16.2 Estado de los contenedores
 
@@ -1551,7 +1551,7 @@ postgres-server        Up ... (healthy)
 mysql-server           Up ... (healthy)
 ```
 
-> ![Estado de los contenedores](evidencias/60-02-contenedores.png)
+> ![Estado de los contenedores](../../evidencias/10-verificacion-final/60-02-contenedores.png)
 
 ### 16.3 Estado de los puertos
 
@@ -1589,7 +1589,7 @@ Oracle 1521:
 Connection to 127.0.0.1 1521 port [tcp/*] succeeded!
 ```
 
-> ![Estado de los puertos](evidencias/61-03-puertos.png)
+> ![Estado de los puertos](../../evidencias/10-verificacion-final/61-03-puertos.png)
 
 ### 16.4 Estado de las conexiones en DBeaver
 
@@ -1604,7 +1604,7 @@ Los motores comprobados fueron:
 
 Evidencia:
 
-> ![Conexiones DBeaver](evidencias/61.1-04-dbeaver.png)
+> ![Conexiones DBeaver](../../evidencias/10-verificacion-final/61.1-04-dbeaver.png)
 
 ### 16.5 Resultado final
 
@@ -1658,7 +1658,7 @@ tree data -L 1
 
 Evidencia del directorio `data/`:
 
-> ![Estructura del directorio de datos persistentes](evidencias/62-01-estructura-data.png)
+> ![Estructura del directorio de datos persistentes](../../evidencias/10-verificacion-final/62-01-estructura-data.png)
 
 #### Directorio de servicios de los motores de bases de datos
 
@@ -1698,7 +1698,7 @@ La opción `-a` permite incluir archivos ocultos como `.env`, mientras que `-L 2
 
 Evidencia del directorio `services/motores-bd/`:
 
-> ![Estructura de los servicios de los motores de bases de datos](evidencias/62-01-estructura-servicios.png)
+> ![Estructura de los servicios de los motores de bases de datos](../../evidencias/10-verificacion-final/62-01-estructura-servicios.png)
 
 > **Nota:** Los directorios de `data/` contienen los archivos generados por los motores de bases de datos y sus respaldos. Por esta razón, en la evidencia se muestran únicamente sus directorios principales, evitando incluir el contenido interno de los datos persistentes.
 
