@@ -9,7 +9,6 @@
 
 # Archivos de bases de datos y respaldos
 *.bak
-*.sql
 *.mdf
 *.ldf
 *.db
