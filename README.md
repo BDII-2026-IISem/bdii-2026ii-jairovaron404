@@ -4,7 +4,7 @@ Proyecto académico para la **implementación, configuración, conexión, admini
 
 El proyecto forma parte del desarrollo de **EnlaceExpress**, una plataforma de mensajería corporativa orientada a la gestión de empresas, envíos, paquetes, seguimiento, rutas, tarifas, pruebas de entrega y facturación.
 
-Como parte del proyecto se implementó el mismo modelo lógico en cuatro motores de bases de datos, realizando las adaptaciones necesarias según las características de cada sistema.
+El mismo modelo lógico de **EnlaceExpress** fue implementado en cuatro motores de bases de datos, realizando las adaptaciones necesarias según las características de cada sistema.
 
 ---
 
@@ -73,7 +73,7 @@ Para cada motor se dispone de:
 | SQL Server | `enlace_express` / `dbo`    | [DDL SQL Server](database/sql-server/enlace_express_sqlserver_ddl.sql)  |
 | Oracle     | `ENLACE_EXPRESS`            | [DDL Oracle](database/oracle/enlace_express_oracle_ddl.sql)             |
 
-La documentación específica de cada implementación se encuentra en:
+Documentación específica:
 
 * [MySQL](database/mysql/)
 * [PostgreSQL](database/postgresql/)
@@ -107,7 +107,7 @@ El proyecto cuenta actualmente con **18 tablas**:
 
 Estas tablas se encuentran implementadas en los cuatro motores.
 
-El modelo incluye tanto las entidades principales del negocio como las estructuras relacionadas con autenticación, autorización y RBAC.
+El modelo incluye las entidades principales del negocio y las estructuras relacionadas con autenticación, autorización y RBAC.
 
 ---
 
@@ -151,6 +151,54 @@ La relación entre roles y recursos se realiza mediante `resource_roles`.
 
 ---
 
+# Consultas SQL Avanzadas
+
+Como parte del proyecto se desarrollaron **38 consultas SQL avanzadas** sobre la base de datos EnlaceExpress.
+
+Las consultas fueron adaptadas y ejecutadas en:
+
+* MySQL
+* PostgreSQL
+* SQL Server
+* Oracle XE
+
+Se trabajaron diferentes operaciones de SQL, entre ellas:
+
+* Filtros con `WHERE`.
+* Operadores `AND`, `IN`, `BETWEEN` y `LIKE`.
+* Ordenamiento de resultados.
+* Funciones de agregación.
+* `GROUP BY` y `HAVING`.
+* `INNER JOIN`.
+* `LEFT JOIN`.
+* Subconsultas.
+* `EXISTS`.
+* `CASE`.
+* `COALESCE`.
+* CTE.
+* Funciones de ventana.
+* `RANK`.
+* `ROW_NUMBER`.
+* `UNION`.
+* Consultas relacionadas con usuarios y roles.
+* Consultas de seguimiento y facturación.
+* Consultas de resumen y análisis de datos.
+
+La documentación completa se encuentra en:
+
+* [Consultas SQL Avanzadas](docs/CONSULTAS-AVANZADAS.md)
+
+Las evidencias están organizadas por motor:
+
+* [Evidencias MySQL](evidencias/11-consultas-avanzadas/01-mysql/)
+* [Evidencias PostgreSQL](evidencias/11-consultas-avanzadas/02-postgresql/)
+* [Evidencias SQL Server](evidencias/11-consultas-avanzadas/03-sql-server/)
+* [Evidencias Oracle](evidencias/11-consultas-avanzadas/04-oracle/)
+
+En total, se cuenta con las evidencias correspondientes a las **38 consultas ejecutadas en cada uno de los cuatro motores**.
+
+---
+
 # Documentación
 
 ## Informes
@@ -179,6 +227,7 @@ La documentación se encuentra organizada por semana:
 
 ```text
 docs/semanas/
+
 ├── semana01/
 │   ├── METODOLOGIA-MIRA-SEMANA-01.md
 │   └── README.md
@@ -301,6 +350,7 @@ Las evidencias del proyecto están organizadas por etapas:
 * [08 - Persistencia](evidencias/08-persistencia/)
 * [09 - Backups](evidencias/09-backups/)
 * [10 - Verificación final](evidencias/10-verificacion-final/)
+* [11 - Consultas SQL Avanzadas](evidencias/11-consultas-avanzadas/)
 * [GUI - Evidencias gráficas](evidencias/GUI.md)
 
 Las evidencias documentan:
@@ -309,13 +359,14 @@ Las evidencias documentan:
 * Configuración de Docker.
 * Ejecución de contenedores.
 * Conexiones mediante DBeaver.
-* Administración mediante las herramientas gráficas propias.
+* Administración mediante herramientas gráficas propias.
 * Pruebas de funcionamiento.
 * Persistencia de datos.
 * Respaldos.
 * Verificación de servicios.
 * Puertos y redes.
 * Ejecución simultánea de los motores.
+* Consultas SQL avanzadas.
 * Verificación final del entorno.
 
 ---
@@ -340,7 +391,7 @@ Las evidencias se encuentran en:
 evidencias/09-backups/
 ```
 
-Estas evidencias permiten comprobar que se realizaron pruebas relacionadas con la conservación y respaldo de la información.
+Estas evidencias permiten comprobar las pruebas realizadas sobre la conservación y respaldo de la información.
 
 ---
 
@@ -369,7 +420,7 @@ Se verificaron principalmente:
 
 ```text
 bdii-2026ii-jairovaron404/
-│
+
 ├── database/
 │   ├── mysql/
 │   │   ├── enlace_express_mysql_ddl.sql
@@ -388,6 +439,7 @@ bdii-2026ii-jairovaron404/
 │       └── README.md
 │
 ├── docs/
+│   ├── CONSULTAS-AVANZADAS.md
 │   ├── PROCESO.md
 │   │
 │   ├── contexto/
@@ -432,6 +484,11 @@ bdii-2026ii-jairovaron404/
 │   ├── 08-persistencia/
 │   ├── 09-backups/
 │   ├── 10-verificacion-final/
+│   ├── 11-consultas-avanzadas/
+│   │   ├── 01-mysql/
+│   │   ├── 02-postgresql/
+│   │   ├── 03-sql-server/
+│   │   └── 04-oracle/
 │   └── GUI.md
 │
 ├── services/
@@ -485,37 +542,12 @@ También se cuenta con:
 * Persistencia.
 * Backups.
 * Documentación.
+* Consultas SQL avanzadas.
+* 38 consultas ejecutadas por motor.
+* Evidencias de las consultas.
 * Metodología MIRIA.
 * Bitácora general del proyecto.
 * Control de versiones mediante Git.
-
----
-
-# Próximas etapas
-
-La configuración inicial de los cuatro motores se encuentra completada.
-
-Las siguientes etapas del proyecto pueden continuar con la integración de las bases de datos con el backend de EnlaceExpress y con los demás componentes definidos en la guía.
-
-Entre las actividades previstas se encuentran:
-
-* Integración con NestJS.
-* Configuración de Sequelize.
-* Migraciones.
-* Seeders.
-* Conexión con los motores.
-* Casos de uso.
-* Autenticación.
-* Autorización.
-* RBAC.
-* Pruebas unitarias.
-* Pruebas de integración.
-* Pruebas E2E.
-* Swagger.
-* Pruebas de API.
-* Verificación de portabilidad.
-
-Las nuevas actividades deberán continuar registrándose en la documentación, evidencias y control de versiones del proyecto.
 
 ---
 
