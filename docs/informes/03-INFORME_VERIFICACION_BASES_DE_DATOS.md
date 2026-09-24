@@ -18,7 +18,7 @@ La base de datos utilizada para esta verificación es `enlace_express`.
 
 A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en MySQL.
 
-> ![Diagrama ER de MySQL](../diagramas/mysql/ER-diagram.jpg)
+> ![Diagrama ER de MySQL](../evidencias/13-diagramas/mysql/ER-diagram.jpg)
 
 --
 
@@ -283,7 +283,7 @@ La estructura del proyecto también fue implementada en PostgreSQL utilizando el
 
 A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en PostgreSQL.
 
-> ![Diagrama ER de PostgreSQL](../diagramas/postgresql/ER-diagram.jpg)
+> ![Diagrama ER de PostgreSQL](../evidencias/13-diagramas/postgresql/ER-diagram.jpg)
 
 --
 
@@ -668,7 +668,7 @@ La base de datos de SQL Server utiliza el esquema `dbo`.
 
 A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en SQL Server.
 
-> ![Diagrama ER de SQL Server](../diagramas/sql-server/ER-diagram.jpg)
+> ![Diagrama ER de SQL Server](../evidencias/13-diagramas/sql-server/ER-diagram.jpg)
 
 ---
 
@@ -986,7 +986,7 @@ La implementación de Oracle se realizó utilizando el usuario/esquema `ENLACE_E
 
 A continuación se presenta el diagrama entidad-relación correspondiente a la base de datos implementada en Oracle XE.
 
-> ![Diagrama ER de Oracle XE](../diagramas/oracle/ER-diagram.jpg)
+> ![Diagrama ER de Oracle XE](../evidencias/13-diagramas/oracle/ER-diagram.jpg)
 
 ---
 
