@@ -1,0 +1,357 @@
+tabla,registro,campo1,campo2,campo3,campo4,campo5,campo6,campo7,campo8,campo9,campo10,campo11,campo12,campo13
+roles,1,ADMIN,ACTIVE
+roles,2,CLIENTE_EMPRESA,ACTIVE
+roles,3,DESPACHO,ACTIVE
+roles,4,MENSAJERO,ACTIVE
+roles,5,FACTURACION,ACTIVE
+roles,6,OPERADOR,ACTIVE
+users,1,adminexpress,admin@enlaceexpress.co,hash_admin_001,ACTIVE,
+users,2,coord.despacho,despacho@enlaceexpress.co,hash_despacho_002,ACTIVE,
+users,3,facturacion01,facturacion@enlaceexpress.co,hash_fact_003,ACTIVE,
+users,4,operador01,operador1@enlaceexpress.co,hash_operador_004,ACTIVE,
+users,5,operador02,operador2@enlaceexpress.co,hash_operador_005,ACTIVE,
+users,6,mensajero01,mensajero1@enlaceexpress.co,hash_mensajero_006,ACTIVE,
+users,7,mensajero02,mensajero2@enlaceexpress.co,hash_mensajero_007,ACTIVE,
+users,8,cliente01,cliente1@enlaceexpress.co,hash_cliente_008,ACTIVE,
+users,9,cliente02,cliente2@enlaceexpress.co,hash_cliente_009,ACTIVE,
+users,10,cliente03,cliente3@enlaceexpress.co,hash_cliente_010,ACTIVE,
+users,11,cliente04,cliente4@enlaceexpress.co,hash_cliente_011,ACTIVE,
+users,12,cliente05,cliente5@enlaceexpress.co,hash_cliente_012,ACTIVE,
+users,13,cliente06,cliente6@enlaceexpress.co,hash_cliente_013,ACTIVE,
+users,14,cliente07,cliente7@enlaceexpress.co,hash_cliente_014,ACTIVE,
+users,15,cliente08,cliente8@enlaceexpress.co,hash_cliente_015,ACTIVE,
+users,16,cliente09,cliente9@enlaceexpress.co,hash_cliente_016,ACTIVE,
+users,17,cliente10,cliente10@enlaceexpress.co,hash_cliente_017,ACTIVE,
+users,18,cliente11,cliente11@enlaceexpress.co,hash_cliente_018,ACTIVE,
+users,19,cliente12,cliente12@enlaceexpress.co,hash_cliente_019,ACTIVE,
+users,20,cliente13,cliente13@enlaceexpress.co,hash_cliente_020,ACTIVE,
+role_users,1,1,1,ACTIVE
+role_users,2,3,2,ACTIVE
+role_users,3,5,3,ACTIVE
+role_users,4,6,4,ACTIVE
+role_users,5,6,5,ACTIVE
+role_users,6,4,6,ACTIVE
+role_users,7,4,7,ACTIVE
+role_users,8,2,8,ACTIVE
+role_users,9,2,9,ACTIVE
+role_users,10,2,10,ACTIVE
+role_users,11,2,11,ACTIVE
+role_users,12,2,12,ACTIVE
+role_users,13,2,13,ACTIVE
+role_users,14,2,14,ACTIVE
+role_users,15,2,15,ACTIVE
+role_users,16,2,16,ACTIVE
+role_users,17,2,17,ACTIVE
+role_users,18,2,18,ACTIVE
+role_users,19,2,19,ACTIVE
+role_users,20,2,20,ACTIVE
+resources,1,/api/auth/login,POST,ACTIVE
+resources,2,/api/auth/logout,POST,ACTIVE
+resources,3,/api/users,GET,ACTIVE
+resources,4,/api/users,POST,ACTIVE
+resources,5,/api/empresas,GET,ACTIVE
+resources,6,/api/empresas,POST,ACTIVE
+resources,7,/api/envios,GET,ACTIVE
+resources,8,/api/envios,POST,ACTIVE
+resources,9,/api/envios/{id},GET,ACTIVE
+resources,10,/api/envios/{id},PUT,ACTIVE
+resources,11,/api/envios/{id}/tracking,GET,ACTIVE
+resources,12,/api/tracking,POST,ACTIVE
+resources,13,/api/mensajeros,GET,ACTIVE
+resources,14,/api/mensajeros,POST,ACTIVE
+resources,15,/api/rutas,GET,ACTIVE
+resources,16,/api/rutas,POST,ACTIVE
+resources,17,/api/tarifas,GET,ACTIVE
+resources,18,/api/facturas,GET,ACTIVE
+resources,19,/api/facturas,POST,ACTIVE
+resources,20,/api/auditoria,GET,ACTIVE
+resource_roles,1,1,1,ACTIVE
+resource_roles,2,2,1,ACTIVE
+resource_roles,3,3,1,ACTIVE
+resource_roles,4,4,1,ACTIVE
+resource_roles,5,5,1,ACTIVE
+resource_roles,6,6,1,ACTIVE
+resource_roles,7,7,2,ACTIVE
+resource_roles,8,8,2,ACTIVE
+resource_roles,9,9,2,ACTIVE
+resource_roles,10,10,3,ACTIVE
+resource_roles,11,11,2,ACTIVE
+resource_roles,12,12,4,ACTIVE
+resource_roles,13,13,3,ACTIVE
+resource_roles,14,14,1,ACTIVE
+resource_roles,15,15,3,ACTIVE
+resource_roles,16,16,3,ACTIVE
+resource_roles,17,17,5,ACTIVE
+resource_roles,18,18,5,ACTIVE
+resource_roles,19,19,5,ACTIVE
+resource_roles,20,20,1,ACTIVE
+empresas,1,901701001-1,"Distribuciones del Cesar S.A.S.",Carlos Mendoza,ACTIVE
+empresas,2,901701002-2,"Comercializadora Valledupar S.A.S.",Laura Pineda,ACTIVE
+empresas,3,901701003-3,"Servicios del Caribe S.A.S.",Andrés Molina,ACTIVE
+empresas,4,901701004-4,"Insumos La Guajira S.A.S.",María Torres,ACTIVE
+empresas,5,901701005-5,"Mercados del Norte S.A.S.",Julián Castro,ACTIVE
+empresas,6,901701006-6,"Tecnología Integral S.A.S.",Paula Herrera,ACTIVE
+empresas,7,901701007-7,"Soluciones Empresariales S.A.S.",Ricardo Díaz,ACTIVE
+empresas,8,901701008-8,"Alimentos Santa Marta S.A.S.",Natalia Gómez,ACTIVE
+empresas,9,901701009-9,"Logística Magdalena S.A.S.",Felipe Rojas,ACTIVE
+empresas,10,901701010-0,"Ferretería Central S.A.S.",Sandra López,ACTIVE
+empresas,11,901701011-1,"Papelería del Valle S.A.S.",Miguel Arias,ACTIVE
+empresas,12,901701012-2,"Farmacéutica Regional S.A.S.",Diana Vargas,ACTIVE
+empresas,13,901701013-3,"Electrodomésticos del Caribe S.A.S.",Oscar Ramírez,ACTIVE
+empresas,14,901701014-4,"Construcciones del Norte S.A.S.",Camilo Suárez,ACTIVE
+empresas,15,901701015-5,"Textiles del Cesar S.A.S.",Valentina Ruiz,ACTIVE
+empresas,16,901701016-6,"Agroinsumos del Caribe S.A.S.",Sergio Martínez,ACTIVE
+empresas,17,901701017-7,"Muebles y Diseño S.A.S.",Daniela Pérez,ACTIVE
+empresas,18,901701018-8,"Importadora Regional S.A.S.",Juan Beltrán,ACTIVE
+empresas,19,901701019-9,"Repuestos del Norte S.A.S.",Alejandro Silva,ACTIVE
+empresas,20,901701020-0,"Comercial Caribe Express S.A.S.",Carolina Méndez,INACTIVE
+contactos,1,1,Carlos Mendoza,Contacto administrativo principal,ACTIVE
+contactos,2,2,Laura Pineda,Contacto de operaciones,ACTIVE
+contactos,3,3,Andrés Molina,Contacto de logística,ACTIVE
+contactos,4,4,María Torres,Contacto de despachos,ACTIVE
+contactos,5,5,Julián Castro,Contacto comercial,ACTIVE
+contactos,6,6,Paula Herrera,Contacto de tecnología,ACTIVE
+contactos,7,7,Ricardo Díaz,Contacto administrativo,ACTIVE
+contactos,8,8,Natalia Gómez,Contacto de distribución,ACTIVE
+contactos,9,9,Felipe Rojas,Contacto logístico,ACTIVE
+contactos,10,10,Sandra López,Contacto de bodega,ACTIVE
+contactos,11,11,Miguel Arias,Contacto comercial,ACTIVE
+contactos,12,12,Diana Vargas,Contacto de compras,ACTIVE
+contactos,13,13,Oscar Ramírez,Contacto de operaciones,ACTIVE
+contactos,14,14,Camilo Suárez,Contacto de proyectos,ACTIVE
+contactos,15,15,Valentina Ruiz,Contacto comercial,ACTIVE
+contactos,16,16,Sergio Martínez,Contacto de almacén,ACTIVE
+contactos,17,17,Daniela Pérez,Contacto administrativo,ACTIVE
+contactos,18,18,Juan Beltrán,Contacto de importaciones,ACTIVE
+contactos,19,19,Alejandro Silva,Contacto de repuestos,ACTIVE
+contactos,20,20,Carolina Méndez,Contacto comercial,INACTIVE
+direcciones,1,1,Bodega Principal,"Cra. 9 #18-42, Valledupar",ACTIVE
+direcciones,2,1,Oficina Norte,"Calle 12 #7-31, Valledupar",ACTIVE
+direcciones,3,2,Sede Centro,"Calle 16 #10-25, Valledupar",ACTIVE
+direcciones,4,2,Bodega Comercial,"Cra. 11 #21-18, Valledupar",ACTIVE
+direcciones,5,3,Sede Caribe,"Calle 35 #8-17, Barranquilla",ACTIVE
+direcciones,6,3,Centro Logístico,"Cra. 44 #72-30, Barranquilla",ACTIVE
+direcciones,7,4,Bodega Riohacha,"Cra. 7 #14-26, Riohacha",ACTIVE
+direcciones,8,4,Oficina Principal,"Calle 5 #9-40, Riohacha",ACTIVE
+direcciones,9,5,Sucursal Sincelejo,"Calle 22 #18-11, Sincelejo",ACTIVE
+direcciones,10,5,Bodega Norte,"Cra. 20 #25-18, Sincelejo",ACTIVE
+direcciones,11,6,Sede Tecnología,"Cra. 27 #45-16, Valledupar",ACTIVE
+direcciones,12,6,Centro Técnico,"Calle 30 #19-22, Valledupar",ACTIVE
+direcciones,13,7,Oficina Empresarial,"Cra. 15 #33-08, Montería",ACTIVE
+direcciones,14,7,Bodega Industrial,"Calle 41 #12-29, Montería",ACTIVE
+direcciones,15,8,Planta Principal,"Cra. 5 #26-44, Santa Marta",ACTIVE
+direcciones,16,8,Centro de Distribución,"Calle 18 #9-33, Santa Marta",ACTIVE
+direcciones,17,9,Terminal Logística,"Cra. 32 #14-55, Santa Marta",ACTIVE
+direcciones,18,9,Oficina Magdalena,"Calle 24 #15-10, Santa Marta",ACTIVE
+direcciones,19,10,Ferretería Central,"Cra. 6 #19-28, Valledupar",ACTIVE
+direcciones,20,10,Bodega Materiales,"Calle 9 #11-17, Valledupar",ACTIVE
+direcciones,21,11,Papelería Centro,"Calle 13 #6-22, Valledupar",ACTIVE
+direcciones,22,11,Bodega Papelería,"Cra. 8 #17-36, Valledupar",ACTIVE
+direcciones,23,12,Centro Farmacéutico,"Cra. 10 #28-19, Barranquilla",ACTIVE
+direcciones,24,12,Bodega Medicamentos,"Calle 40 #21-15, Barranquilla",ACTIVE
+direcciones,25,13,Sede Electro,"Cra. 46 #68-24, Barranquilla",ACTIVE
+direcciones,26,13,Centro de Servicio,"Calle 70 #39-12, Barranquilla",ACTIVE
+direcciones,27,14,Oficina Construcción,"Cra. 4 #32-16, Montería",ACTIVE
+direcciones,28,14,Bodega Obras,"Calle 27 #8-44, Montería",ACTIVE
+direcciones,29,15,Sede Textil,"Cra. 19 #24-17, Valledupar",ACTIVE
+direcciones,30,15,Bodega Textil,"Calle 8 #15-32, Valledupar",ACTIVE
+direcciones,31,16,Agrocentro,"Cra. 12 #17-25, Sincelejo",ACTIVE
+direcciones,32,16,Bodega Agro,"Calle 19 #13-40, Sincelejo",ACTIVE
+direcciones,33,17,Muebles Principal,"Cra. 21 #35-18, Valledupar",ACTIVE
+direcciones,34,17,Sala de Distribución,"Calle 29 #17-22, Valledupar",ACTIVE
+direcciones,35,18,Importadora Centro,"Cra. 51 #74-20, Barranquilla",ACTIVE
+direcciones,36,18,Bodega Importaciones,"Calle 78 #45-17, Barranquilla",ACTIVE
+direcciones,37,19,Repuestos Norte,"Cra. 8 #20-12, Riohacha",ACTIVE
+direcciones,38,19,Bodega Repuestos,"Calle 11 #6-35, Riohacha",ACTIVE
+direcciones,39,20,Comercial Express,"Cra. 3 #9-15, Cartagena",INACTIVE
+direcciones,40,20,Bodega Express,"Calle 10 #4-22, Cartagena",INACTIVE
+mensajeros,1,Mateo Hernández,Mensajero urbano,ACTIVE
+mensajeros,2,Samuel Torres,Mensajero regional,ACTIVE
+mensajeros,3,David Castillo,Mensajero urbano,ACTIVE
+mensajeros,4,Nicolás Vargas,Mensajero regional,ACTIVE
+mensajeros,5,Esteban Ríos,Mensajero urbano,ACTIVE
+mensajeros,6,Tomás Mendoza,Mensajero urbano,ACTIVE
+mensajeros,7,Gabriel Fuentes,Mensajero regional,ACTIVE
+mensajeros,8,Sebastián Lara,Mensajero urbano,ACTIVE
+mensajeros,9,Daniel Moreno,Mensajero urbano,ACTIVE
+mensajeros,10,Andrés Salcedo,Mensajero regional,ACTIVE
+mensajeros,11,Juan Carlos Peña,Mensajero urbano,ACTIVE
+mensajeros,12,Luis Fernando Díaz,Mensajero urbano,ACTIVE
+mensajeros,13,Manuel Ortega,Mensajero regional,ACTIVE
+mensajeros,14,Kevin Rodríguez,Mensajero urbano,ACTIVE
+mensajeros,15,Cristian Molina,Mensajero urbano,ACTIVE
+mensajeros,16,Brayan Gómez,Mensajero regional,ACTIVE
+mensajeros,17,Santiago Pérez,Mensajero urbano,ACTIVE
+mensajeros,18,Jorge Ramírez,Mensajero urbano,ACTIVE
+mensajeros,19,Felipe Navarro,Mensajero regional,ACTIVE
+mensajeros,20,Héctor Suárez,Mensajero temporal,INACTIVE
+rutas,1,Ruta Valledupar Centro,Recorrido por zona centro de Valledupar,ACTIVE
+rutas,2,Ruta Valledupar Norte,Recorrido zona norte de Valledupar,ACTIVE
+rutas,3,Ruta Valledupar Sur,Recorrido zona sur de Valledupar,ACTIVE
+rutas,4,Ruta Riohacha Centro,Recorrido urbano en Riohacha,ACTIVE
+rutas,5,Ruta Riohacha Norte,Recorrido norte de Riohacha,ACTIVE
+rutas,6,Ruta Barranquilla Centro,Recorrido centro de Barranquilla,ACTIVE
+rutas,7,Ruta Barranquilla Norte,Recorrido zona norte de Barranquilla,ACTIVE
+rutas,8,Ruta Barranquilla Sur,Recorrido zona sur de Barranquilla,ACTIVE
+rutas,9,Ruta Santa Marta Centro,Recorrido urbano Santa Marta,ACTIVE
+rutas,10,Ruta Santa Marta Norte,Recorrido norte Santa Marta,ACTIVE
+rutas,11,Ruta Sincelejo Centro,Recorrido urbano Sincelejo,ACTIVE
+rutas,12,Ruta Sincelejo Sur,Recorrido sur de Sincelejo,ACTIVE
+rutas,13,Ruta Montería Centro,Recorrido centro de Montería,ACTIVE
+rutas,14,Ruta Montería Norte,Recorrido norte de Montería,ACTIVE
+rutas,15,Ruta Cartagena Centro,Recorrido urbano Cartagena,ACTIVE
+rutas,16,Ruta Caribe Empresarial,Ruta regional empresarial,ACTIVE
+rutas,17,Ruta Industrial,Ruta para zonas industriales,ACTIVE
+rutas,18,Ruta Comercial,Ruta para establecimientos comerciales,ACTIVE
+rutas,19,Ruta Regional Norte,Conexión entre ciudades del norte,ACTIVE
+rutas,20,Ruta Especial,Ruta temporal de distribución,INACTIVE
+tarifas,1,Tarifa Básica Urbana,Hasta 5 kg dentro de la ciudad,8500.00,2026-01-01,,ACTIVE
+tarifas,2,Tarifa Urbana Plus,Hasta 10 kg dentro de la ciudad,10500.00,2026-01-01,,ACTIVE
+tarifas,3,Tarifa Regional Corta,Envíos regionales hasta 50 km,14500.00,2026-01-01,,ACTIVE
+tarifas,4,Tarifa Regional Media,Envíos regionales hasta 150 km,18500.00,2026-01-01,,ACTIVE
+tarifas,5,Tarifa Regional Larga,Envíos regionales hasta 300 km,24000.00,2026-01-01,,ACTIVE
+tarifas,6,Tarifa Empresarial 1,Paquetes empresariales estándar,12500.00,2026-02-01,,ACTIVE
+tarifas,7,Tarifa Empresarial 2,Paquetes empresariales medianos,17500.00,2026-02-01,,ACTIVE
+tarifas,8,Tarifa Empresarial 3,Paquetes empresariales grandes,28500.00,2026-02-01,,ACTIVE
+tarifas,9,Tarifa Express,Entrega prioritaria urbana,22000.00,2026-01-15,,ACTIVE
+tarifas,10,Tarifa Express Regional,Entrega prioritaria regional,32000.00,2026-01-15,,ACTIVE
+tarifas,11,Tarifa Documentos,Documentos hasta 1 kg,7000.00,2026-01-01,,ACTIVE
+tarifas,12,Tarifa Pequeño,Paquetes pequeños,9000.00,2026-01-01,,ACTIVE
+tarifas,13,Tarifa Mediano,Paquetes medianos,16000.00,2026-01-01,,ACTIVE
+tarifas,14,Tarifa Grande,Paquetes grandes,26000.00,2026-01-01,,ACTIVE
+tarifas,15,Tarifa Especial,Carga especial,35000.00,2026-03-01,,ACTIVE
+tarifas,16,Tarifa Comercial,Envíos comerciales,19000.00,2026-02-15,,ACTIVE
+tarifas,17,Tarifa Corporativa,Convenio corporativo,15500.00,2026-02-01,,ACTIVE
+tarifas,18,Tarifa Nocturna,Servicio nocturno,27000.00,2026-02-01,,ACTIVE
+tarifas,19,Tarifa Antigua,Tarifa reemplazada,11000.00,2025-01-01,2025-12-31,INACTIVE
+tarifas,20,Tarifa Temporal,Tarifa temporal,30000.00,2025-06-01,2025-12-31,INACTIVE
+envios,1,1,1,1,1,1,1,EX-2026-001,Documentos administrativos,ENTREGADO,NORMAL,2026-08-01 08:15:00,2026-08-01 14:20:00,ACTIVE
+envios,2,1,2,2,6,1,2,EX-2026-002,Paquete de suministros,EN_TRANSITO,ALTA,2026-08-03 09:10:00,,ACTIVE
+envios,3,2,3,3,2,3,4,EX-2026-003,Material promocional,EN_ENTREGA,URGENTE,2026-08-05 10:30:00,,ACTIVE
+envios,4,2,4,16,9,3,4,EX-2026-004,Documentos comerciales,ENTREGADO,NORMAL,2026-08-06 07:50:00,2026-08-06 16:10:00,ACTIVE
+envios,5,3,5,6,4,5,6,EX-2026-005,Equipos de oficina,ASIGNADO,ALTA,2026-08-08 11:00:00,,ACTIVE
+envios,6,3,6,7,7,5,6,EX-2026-006,Material publicitario,EN_RECOGIDA,NORMAL,2026-08-09 08:40:00,,ACTIVE
+envios,7,4,7,4,3,7,8,EX-2026-007,Insumos empresariales,ENTREGADO,NORMAL,2026-08-10 09:20:00,2026-08-10 15:35:00,ACTIVE
+envios,8,5,8,11,5,9,10,EX-2026-008,Mercancía para sucursal,CANCELADO,BAJA,2026-08-11 13:15:00,,ACTIVE
+envios,9,6,9,1,8,11,12,EX-2026-009,Componentes tecnológicos,ENTREGADO,URGENTE,2026-08-12 07:30:00,2026-08-12 12:45:00,ACTIVE
+envios,10,7,10,13,10,13,14,EX-2026-010,Documentación empresarial,EN_TRANSITO,NORMAL,2026-08-13 10:05:00,,ACTIVE
+envios,11,8,11,9,13,15,16,EX-2026-011,Productos alimenticios,ENTREGADO,ALTA,2026-08-14 06:50:00,2026-08-14 13:25:00,ACTIVE
+envios,12,9,12,10,14,17,18,EX-2026-012,Equipos logísticos,CON_NOVEDAD,URGENTE,2026-08-15 09:45:00,,ACTIVE
+envios,13,10,13,18,16,19,20,EX-2026-013,Herramientas industriales,ENTREGADO,NORMAL,2026-08-16 08:20:00,2026-08-16 15:00:00,ACTIVE
+envios,14,11,14,1,11,21,22,EX-2026-014,Papelería corporativa,CREADO,BAJA,2026-08-17 14:30:00,,ACTIVE
+envios,15,12,15,6,15,23,24,EX-2026-015,Medicamentos autorizados,EN_ENTREGA,URGENTE,2026-08-18 07:40:00,,ACTIVE
+envios,16,13,16,7,17,25,26,EX-2026-016,Electrodomésticos pequeños,ENTREGADO,NORMAL,2026-08-19 09:15:00,2026-08-19 17:20:00,ACTIVE
+envios,17,14,17,13,18,27,28,EX-2026-017,Material de construcción,EN_TRANSITO,ALTA,2026-08-20 08:00:00,,ACTIVE
+envios,18,15,18,3,1,29,30,EX-2026-018,Muestras textiles,ENTREGADO,NORMAL,2026-08-21 10:10:00,2026-08-21 14:40:00,ACTIVE
+envios,19,16,19,12,5,31,32,EX-2026-019,Productos agrícolas,ASIGNADO,ALTA,2026-08-22 11:25:00,,ACTIVE
+envios,20,17,1,1,1,33,34,EX-2026-020,Muebles empresariales,EN_ENTREGA,URGENTE,2026-08-23 08:35:00,,ACTIVE
+paquetes,1,1,PKG-VE-001,Caja de documentos,1.20,30,22,8,Documentos,ENTREGADO,ACTIVE
+paquetes,2,2,PKG-VE-002,Caja de suministros,4.50,40,30,20,Suministros,EN_TRANSITO,ACTIVE
+paquetes,3,3,PKG-VE-003,Material promocional,2.80,35,25,15,Publicidad,EN_TRANSITO,ACTIVE
+paquetes,4,4,PKG-VE-004,Documentos comerciales,1.00,30,20,7,Documentos,ENTREGADO,ACTIVE
+paquetes,5,5,PKG-VE-005,Equipos de oficina,8.60,55,40,30,Electrónica,REGISTRADO,ACTIVE
+paquetes,6,6,PKG-VE-006,Material publicitario,3.20,45,35,18,Publicidad,REGISTRADO,ACTIVE
+paquetes,7,7,PKG-VE-007,Insumos empresariales,5.40,50,35,25,Insumos,ENTREGADO,ACTIVE
+paquetes,8,8,PKG-VE-008,Mercancía comercial,7.10,60,40,30,Mercancía,DEVUELTO,ACTIVE
+paquetes,9,9,PKG-VE-009,Componentes tecnológicos,6.30,45,35,25,Tecnología,ENTREGADO,ACTIVE
+paquetes,10,10,PKG-VE-010,Documentación,1.40,32,22,9,Documentos,EN_TRANSITO,ACTIVE
+paquetes,11,11,PKG-VE-011,Productos alimenticios,9.50,60,45,35,Alimentos,ENTREGADO,ACTIVE
+paquetes,12,12,PKG-VE-012,Equipos logísticos,12.20,70,50,40,Equipos,CON_NOVEDAD,ACTIVE
+paquetes,13,13,PKG-VE-013,Herramientas,10.40,65,45,30,Herramientas,ENTREGADO,ACTIVE
+paquetes,14,14,PKG-VE-014,Papelería,3.80,45,30,20,Papelería,REGISTRADO,ACTIVE
+paquetes,15,15,PKG-VE-015,Medicamentos,4.20,40,30,20,Medicamentos,EN_TRANSITO,ACTIVE
+paquetes,16,16,PKG-VE-016,Electrodomésticos,11.50,70,55,40,Electrodomésticos,ENTREGADO,ACTIVE
+paquetes,17,17,PKG-VE-017,Material construcción,15.80,80,60,45,Construcción,EN_TRANSITO,ACTIVE
+paquetes,18,18,PKG-VE-018,Muestras textiles,2.60,40,30,15,Textiles,ENTREGADO,ACTIVE
+paquetes,19,19,PKG-VE-019,Productos agrícolas,13.40,75,55,40,Agroinsumos,REGISTRADO,ACTIVE
+paquetes,20,20,PKG-VE-020,Muebles empresariales,18.20,90,65,50,Muebles,EN_TRANSITO,ACTIVE
+eventos_tracking,1,1,1,CREADO,Solicitud registrada,10.46314,-73.25322,2026-08-01 08:15:00,ACTIVE
+eventos_tracking,2,2,2,ASIGNADO,Mensajero asignado al envío,10.47021,-73.25180,2026-08-03 09:30:00,ACTIVE
+eventos_tracking,3,3,3,EN_ENTREGA,Envío en ruta de entrega,10.47650,-73.24510,2026-08-05 13:10:00,ACTIVE
+eventos_tracking,4,4,4,ENTREGADO,Entrega confirmada,10.96540,-74.79630,2026-08-06 16:10:00,ACTIVE
+eventos_tracking,5,5,5,ASIGNADO,Mensajero asignado,10.98210,-74.80120,2026-08-08 11:20:00,ACTIVE
+eventos_tracking,6,6,6,EN_RECOGIDA,Mensajero dirigiéndose al punto,10.99020,-74.81240,2026-08-09 09:10:00,ACTIVE
+eventos_tracking,7,7,7,ENTREGADO,Paquete recibido por cliente,11.54420,-72.90710,2026-08-10 15:35:00,ACTIVE
+eventos_tracking,8,8,8,CANCELADO,Solicitud cancelada por cliente,9.30470,-75.39780,2026-08-11 15:00:00,ACTIVE
+eventos_tracking,9,9,9,ENTREGADO,Entrega completada,10.46780,-73.25120,2026-08-12 12:45:00,ACTIVE
+eventos_tracking,10,10,10,EN_TRANSITO,Paquete trasladado a centro regional,8.75750,-75.88580,2026-08-13 12:20:00,ACTIVE
+eventos_tracking,11,11,11,ENTREGADO,Entrega confirmada,11.24080,-74.19900,2026-08-14 13:25:00,ACTIVE
+eventos_tracking,12,12,12,CON_NOVEDAD,Retraso por inconveniente logístico,11.24500,-74.19020,2026-08-15 14:10:00,ACTIVE
+eventos_tracking,13,13,13,ENTREGADO,Paquete recibido,10.47110,-73.25440,2026-08-16 15:00:00,ACTIVE
+eventos_tracking,14,14,14,CREADO,Solicitud registrada,10.47280,-73.24910,2026-08-17 14:30:00,ACTIVE
+eventos_tracking,15,15,15,EN_ENTREGA,Mensajero en destino,10.98200,-74.80220,2026-08-18 11:50:00,ACTIVE
+eventos_tracking,16,16,16,ENTREGADO,Entrega confirmada,10.99050,-74.80510,2026-08-19 17:20:00,ACTIVE
+eventos_tracking,17,17,17,EN_TRANSITO,Carga trasladándose,8.75020,-75.88900,2026-08-20 13:40:00,ACTIVE
+eventos_tracking,18,18,18,ENTREGADO,Entrega realizada,10.46990,-73.25050,2026-08-21 14:40:00,ACTIVE
+eventos_tracking,19,19,19,ASIGNADO,Mensajero asignado,9.29820,-75.39210,2026-08-22 12:00:00,ACTIVE
+eventos_tracking,20,20,1,EN_ENTREGA,Envío próximo al destino,10.47540,-73.24770,2026-08-23 13:50:00,ACTIVE
+facturas,1,1,1,FE-2026-0001,8500.00,1615.00,10115.00,PAGADA,2026-08-01 15:00:00,2026-08-31 23:59:00,ACTIVE
+facturas,2,1,2,FE-2026-0002,12500.00,2375.00,14875.00,EMITIDA,2026-08-03 10:00:00,2026-09-02 23:59:00,ACTIVE
+facturas,3,2,3,FE-2026-0003,10500.00,1995.00,12495.00,PENDIENTE,2026-08-05 11:00:00,2026-09-04 23:59:00,ACTIVE
+facturas,4,2,4,FE-2026-0004,22000.00,4180.00,26180.00,PAGADA,2026-08-06 17:00:00,2026-09-05 23:59:00,ACTIVE
+facturas,5,3,5,FE-2026-0005,17500.00,3325.00,20825.00,EMITIDA,2026-08-08 12:00:00,2026-09-07 23:59:00,ACTIVE
+facturas,6,3,6,FE-2026-0006,14500.00,2755.00,17255.00,PENDIENTE,2026-08-09 10:00:00,2026-09-08 23:59:00,ACTIVE
+facturas,7,4,7,FE-2026-0007,14500.00,2755.00,17255.00,PAGADA,2026-08-10 16:00:00,2026-09-09 23:59:00,ACTIVE
+facturas,8,5,8,FE-2026-0008,24000.00,4560.00,28560.00,ANULADA,2026-08-11 16:00:00,2026-09-10 23:59:00,ACTIVE
+facturas,9,6,9,FE-2026-0009,28500.00,5415.00,33915.00,PAGADA,2026-08-12 13:00:00,2026-09-11 23:59:00,ACTIVE
+facturas,10,7,10,FE-2026-0010,32000.00,6080.00,38080.00,EMITIDA,2026-08-13 13:00:00,2026-09-12 23:59:00,ACTIVE
+facturas,11,8,11,FE-2026-0011,16000.00,3040.00,19040.00,PAGADA,2026-08-14 14:00:00,2026-09-13 23:59:00,ACTIVE
+facturas,12,9,12,FE-2026-0012,26000.00,4940.00,30940.00,VENCIDA,2026-08-15 15:00:00,2026-09-01 23:59:00,ACTIVE
+facturas,13,10,13,FE-2026-0013,19000.00,3610.00,22610.00,PAGADA,2026-08-16 16:00:00,2026-09-15 23:59:00,ACTIVE
+facturas,14,11,14,FE-2026-0014,7000.00,1330.00,8330.00,PENDIENTE,2026-08-17 15:00:00,2026-09-16 23:59:00,ACTIVE
+facturas,15,12,15,FE-2026-0015,35000.00,6650.00,41650.00,EMITIDA,2026-08-18 12:00:00,2026-09-17 23:59:00,ACTIVE
+facturas,16,13,16,FE-2026-0016,15500.00,2945.00,18445.00,PAGADA,2026-08-19 18:00:00,2026-09-18 23:59:00,ACTIVE
+facturas,17,14,17,FE-2026-0017,26000.00,4940.00,30940.00,EMITIDA,2026-08-20 14:00:00,2026-09-19 23:59:00,ACTIVE
+facturas,18,15,18,FE-2026-0018,9000.00,1710.00,10710.00,PAGADA,2026-08-21 15:00:00,2026-09-20 23:59:00,ACTIVE
+facturas,19,16,19,FE-2026-0019,24000.00,4560.00,28560.00,PENDIENTE,2026-08-22 13:00:00,2026-09-21 23:59:00,ACTIVE
+facturas,20,17,20,FE-2026-0020,27000.00,5130.00,32130.00,EMITIDA,2026-08-23 14:00:00,2026-09-22 23:59:00,ACTIVE
+pruebas_entrega,1,1,FIRMA,firma_001.png,Entrega recibida correctamente,Carlos Pérez,CC1001001,2026-08-01 14:20:00,ACTIVE
+pruebas_entrega,2,2,FOTO,foto_002.jpg,Paquete en tránsito,Laura Gómez,CC1001002,2026-08-03 09:30:00,ACTIVE
+pruebas_entrega,3,3,CODIGO,codigo_003.txt,Código de entrega generado,Andrés Ruiz,CC1001003,2026-08-05 13:10:00,ACTIVE
+pruebas_entrega,4,4,FIRMA,firma_004.png,Entrega confirmada,María López,CC1001004,2026-08-06 16:10:00,ACTIVE
+pruebas_entrega,5,5,FOTO,foto_005.jpg,Paquete asignado,Jorge Castro,CC1001005,2026-08-08 11:20:00,ACTIVE
+pruebas_entrega,6,6,DOCUMENTO,doc_006.pdf,Documento de despacho,Paula Díaz,CC1001006,2026-08-09 09:10:00,ACTIVE
+pruebas_entrega,7,7,FIRMA,firma_007.png,Entrega completada,Sofía Torres,CC1001007,2026-08-10 15:35:00,ACTIVE
+pruebas_entrega,8,8,OTRA,cancelado_008.txt,Solicitud cancelada,Miguel Rojas,CC1001008,2026-08-11 15:00:00,ACTIVE
+pruebas_entrega,9,9,FOTO,foto_009.jpg,Entrega registrada,Daniel Herrera,CC1001009,2026-08-12 12:45:00,ACTIVE
+pruebas_entrega,10,10,DOCUMENTO,doc_010.pdf,Documento de transporte,Camila Vargas,CC1001010,2026-08-13 12:20:00,ACTIVE
+pruebas_entrega,11,11,FIRMA,firma_011.png,Cliente recibió mercancía,Pedro Molina,CC1001011,2026-08-14 13:25:00,ACTIVE
+pruebas_entrega,12,12,FOTO,foto_012.jpg,Novedad registrada,Andrea Peña,CC1001012,2026-08-15 14:10:00,ACTIVE
+pruebas_entrega,13,13,FIRMA,firma_013.png,Entrega realizada,Luis Castillo,CC1001013,2026-08-16 15:00:00,ACTIVE
+pruebas_entrega,14,14,DOCUMENTO,doc_014.pdf,Solicitud creada,Valeria Arias,CC1001014,2026-08-17 14:30:00,ACTIVE
+pruebas_entrega,15,15,CODIGO,codigo_015.txt,Código validado en entrega,Juan Torres,CC1001015,2026-08-18 11:50:00,ACTIVE
+pruebas_entrega,16,16,FIRMA,firma_016.png,Entrega confirmada,Natalia Ríos,CC1001016,2026-08-19 17:20:00,ACTIVE
+pruebas_entrega,17,17,FOTO,foto_017.jpg,Carga en traslado,Mateo Gómez,CC1001017,2026-08-20 13:40:00,ACTIVE
+pruebas_entrega,18,18,FIRMA,firma_018.png,Entrega confirmada,Daniela Castro,CC1001018,2026-08-21 14:40:00,ACTIVE
+pruebas_entrega,19,19,DOCUMENTO,doc_019.pdf,Orden de despacho,Sergio López,CC1001019,2026-08-22 12:00:00,ACTIVE
+pruebas_entrega,20,20,CODIGO,codigo_020.txt,Código de entrega generado,Carolina Ruiz,CC1001020,2026-08-23 13:50:00,ACTIVE
+refresh_tokens,1,1,token_pg_001_admin,2026-12-31 23:59:59,
+refresh_tokens,2,2,token_pg_002_despacho,2026-12-31 23:59:59,
+refresh_tokens,3,3,token_pg_003_facturacion,2026-12-31 23:59:59,
+refresh_tokens,4,4,token_pg_004_operador,2026-12-31 23:59:59,
+refresh_tokens,5,5,token_pg_005_operador,2026-12-31 23:59:59,
+refresh_tokens,6,6,token_pg_006_mensajero,2026-12-31 23:59:59,
+refresh_tokens,7,7,token_pg_007_mensajero,2026-12-31 23:59:59,
+refresh_tokens,8,8,token_pg_008_cliente,2026-12-31 23:59:59,
+refresh_tokens,9,9,token_pg_009_cliente,2026-12-31 23:59:59,
+refresh_tokens,10,10,token_pg_010_cliente,2026-12-31 23:59:59,
+auditoria,1,empresas,1,INSERT,Empresa registrada en el sistema,2026-08-01 08:00:00
+auditoria,2,empresas,2,INSERT,Empresa registrada en el sistema,2026-08-01 08:05:00
+auditoria,3,envios,1,INSERT,Envío creado,2026-08-01 08:15:00
+auditoria,4,envios,2,INSERT,Envío creado,2026-08-03 09:10:00
+auditoria,5,envios,3,INSERT,Envío creado,2026-08-05 10:30:00
+auditoria,6,envios,4,UPDATE,Estado del envío actualizado,2026-08-06 16:10:00
+auditoria,7,envios,7,UPDATE,Entrega registrada,2026-08-10 15:35:00
+auditoria,8,envios,8,UPDATE,Envío cancelado,2026-08-11 15:00:00
+auditoria,9,envios,9,UPDATE,Entrega registrada,2026-08-12 12:45:00
+auditoria,10,envios,11,UPDATE,Entrega registrada,2026-08-14 13:25:00
+auditoria,11,envios,12,UPDATE,Novedad registrada,2026-08-15 14:10:00
+auditoria,12,envios,13,UPDATE,Entrega registrada,2026-08-16 15:00:00
+auditoria,13,envios,16,UPDATE,Entrega registrada,2026-08-19 17:20:00
+auditoria,14,envios,18,UPDATE,Entrega registrada,2026-08-21 14:40:00
+auditoria,15,facturas,1,INSERT,Factura generada,2026-08-01 15:00:00
+auditoria,16,facturas,4,UPDATE,Factura marcada como pagada,2026-08-06 17:00:00
+auditoria,17,facturas,8,UPDATE,Factura anulada,2026-08-11 16:00:00
+auditoria,18,facturas,12,UPDATE,Factura marcada como vencida,2026-08-15 15:00:00
+auditoria,19,users,1,LOGIN,Inicio de sesión administrativo,2026-08-23 07:30:00
+auditoria,20,users,4,LOGIN,Inicio de sesión de operador,2026-08-23 08:00:00
