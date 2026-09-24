@@ -26,6 +26,8 @@ Se verificó:
 * Ejecución de scripts.
 * Estructura de las bases de datos.
 * Persistencia de datos.
+* Inserción de datos.
+* Ejecución de consultas.
 * Respaldos.
 * Ejecución simultánea.
 * Administración mediante DBeaver.
@@ -56,11 +58,13 @@ La estructura de **EnlaceExpress** se encuentra implementada en los cuatro motor
 Para cada motor se dispone de:
 
 1. **Script DDL:** contiene la definición de la estructura de la base de datos.
-2. **Administración mediante DBeaver:** utilizada para conexión, ejecución y verificación.
-3. **Administración mediante la GUI propia del motor:** utilizada para una segunda comprobación.
-4. **Documentación específica:** explica la configuración de cada motor.
-5. **Evidencias:** organizadas por motor y por etapa del proyecto.
-6. **Diagrama ER:** representa visualmente la estructura implementada.
+2. **Script de inserción:** contiene los datos utilizados para poblar las tablas de cada motor.
+3. **Archivo CSV:** contiene los datos utilizados como base para las consultas SQL avanzadas y la validación de resultados.
+4. **Administración mediante DBeaver:** utilizada para conexión, ejecución y verificación.
+5. **Administración mediante la GUI propia del motor:** utilizada para una segunda comprobación.
+6. **Documentación específica:** explica la configuración de cada motor.
+7. **Evidencias:** organizadas por motor y por etapa del proyecto.
+8. **Diagrama ER:** representa visualmente la estructura implementada.
 
 ---
 
@@ -73,7 +77,34 @@ Para cada motor se dispone de:
 | SQL Server | `enlace_express` / `dbo`    | [DDL SQL Server](database/sql-server/enlace_express_sqlserver_ddl.sql)  |
 | Oracle     | `ENLACE_EXPRESS`            | [DDL Oracle](database/oracle/enlace_express_oracle_ddl.sql)             |
 
-Documentación específica:
+---
+
+## Datos e inserciones
+
+Cada motor cuenta con los archivos necesarios para reproducir la carga de datos utilizada durante las pruebas y consultas.
+
+| Motor      | Datos CSV                                                                                      | Script de inserción                                                |
+| ---------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| MySQL      | [datos_enlace_express_mysql.csv](database/mysql/datos_enlace_express_mysql.csv)                | [inserts_mysql.sql](database/mysql/inserts_mysql.sql)              |
+| PostgreSQL | [datos_enlace_express_postgresql.csv](database/postgresql/datos_enlace_express_postgresql.csv) | [insert_postgresql.sql](database/postgresql/insert_postgresql.sql) |
+| SQL Server | [datos_enlace_express_sqlserver.csv](database/sql-server/datos_enlace_express_sqlserver.csv)   | [insert_sqlserver.sql](database/sql-server/insert_sqlserver.sql)   |
+| Oracle     | [datos_enlace_express_oracle.csv](database/oracle/datos_enlace_express_oracle.csv)             | [inserts_oracle.sql](database/oracle/inserts_oracle.sql)           |
+
+### Propósito de los archivos
+
+Los archivos cumplen funciones diferentes:
+
+* **`.sql` DDL:** crea la estructura de tablas, claves, relaciones y demás elementos de la base de datos.
+* **`insert*.sql`:** contiene los registros que fueron insertados en cada motor.
+* **`.csv`:** contiene los datos utilizados como referencia para realizar y validar las consultas SQL avanzadas.
+
+De esta manera, cada motor cuenta con su propia estructura y con los datos necesarios para reproducir las pruebas realizadas durante el proyecto.
+
+---
+
+## Documentación específica
+
+La documentación de cada motor se encuentra organizada en:
 
 * [MySQL](database/mysql/)
 * [PostgreSQL](database/postgresql/)
@@ -140,8 +171,11 @@ Algunos ejemplos son:
 
 ```text
 POST /envios
+
 POST /asignaciones
+
 POST /tracking
+
 POST /facturas/consolidar
 ```
 
@@ -196,6 +230,8 @@ Las evidencias están organizadas por motor:
 * [Evidencias Oracle](evidencias/11-consultas-avanzadas/04-oracle/)
 
 En total, se cuenta con las evidencias correspondientes a las **38 consultas ejecutadas en cada uno de los cuatro motores**.
+
+Los archivos CSV almacenados en `database/` contienen los datos utilizados como referencia para estas consultas, mientras que los scripts de inserción permiten reproducir la carga de datos utilizada en cada motor.
 
 ---
 
@@ -361,12 +397,13 @@ Las evidencias documentan:
 * Conexiones mediante DBeaver.
 * Administración mediante herramientas gráficas propias.
 * Pruebas de funcionamiento.
+* Inserción y consulta de datos.
 * Persistencia de datos.
 * Respaldos.
 * Verificación de servicios.
 * Puertos y redes.
 * Ejecución simultánea de los motores.
-* Consultas SQL avanzadas.
+* Ejecución de consultas SQL avanzadas.
 * Verificación final del entorno.
 
 ---
@@ -424,18 +461,26 @@ bdii-2026ii-jairovaron404/
 ├── database/
 │   ├── mysql/
 │   │   ├── enlace_express_mysql_ddl.sql
+│   │   ├── inserts_mysql.sql
+│   │   ├── datos_enlace_express_mysql.csv
 │   │   └── README.md
 │   │
 │   ├── oracle/
 │   │   ├── enlace_express_oracle_ddl.sql
+│   │   ├── inserts_oracle.sql
+│   │   ├── datos_enlace_express_oracle.csv
 │   │   └── README.md
 │   │
 │   ├── postgresql/
 │   │   ├── enlace_express_postgresql_ddl.sql
+│   │   ├── insert_postgresql.sql
+│   │   ├── datos_enlace_express_postgresql.csv
 │   │   └── README.md
 │   │
 │   └── sql-server/
 │       ├── enlace_express_sqlserver_ddl.sql
+│       ├── insert_sqlserver.sql
+│       ├── datos_enlace_express_sqlserver.csv
 │       └── README.md
 │
 ├── docs/
@@ -539,6 +584,9 @@ También se cuenta con:
 * Herramientas gráficas nativas.
 * Diagramas ER.
 * Evidencias.
+* Datos de prueba.
+* Scripts de inserción para los cuatro motores.
+* Archivos CSV utilizados como referencia para las consultas.
 * Persistencia.
 * Backups.
 * Documentación.
