@@ -1,0 +1,167 @@
+tabla,registro,campo1,campo2,campo3,campo4,campo5,campo6,campo7,campo8,campo9,campo10,campo11,campo12,campo13
+roles,1,ADMIN,ACTIVE
+roles,2,CLIENTE_EMPRESA,ACTIVE
+roles,3,DESPACHO,ACTIVE
+roles,4,MENSAJERO,ACTIVE
+roles,5,FACTURACION,ACTIVE
+roles,6,OPERADOR,ACTIVE
+users,1,admin01,admin01@enlaceexpress.com,123456,ACTIVE,
+users,2,admin02,admin02@enlaceexpress.com,123456,ACTIVE,
+users,3,cliente01,cliente01@empresa.com,123456,ACTIVE,
+users,4,cliente02,cliente02@empresa.com,123456,ACTIVE,
+users,5,cliente03,cliente03@empresa.com,123456,ACTIVE,
+users,6,cliente04,cliente04@empresa.com,123456,ACTIVE,
+users,7,despacho01,despacho01@enlaceexpress.com,123456,ACTIVE,
+users,8,despacho02,despacho02@enlaceexpress.com,123456,ACTIVE,
+users,9,mensajero01,mensajero01@enlaceexpress.com,123456,ACTIVE,
+users,10,mensajero02,mensajero02@enlaceexpress.com,123456,ACTIVE,
+users,11,mensajero03,mensajero03@enlaceexpress.com,123456,ACTIVE,
+users,12,mensajero04,mensajero04@enlaceexpress.com,123456,INACTIVE,
+users,13,facturacion01,facturacion01@enlaceexpress.com,123456,ACTIVE,
+users,14,facturacion02,facturacion02@enlaceexpress.com,123456,ACTIVE,
+users,15,operador01,operador01@enlaceexpress.com,123456,ACTIVE,
+users,16,operador02,operador02@enlaceexpress.com,123456,ACTIVE,
+users,17,operador03,operador03@enlaceexpress.com,123456,ACTIVE,
+users,18,consulta01,consulta01@enlaceexpress.com,123456,ACTIVE,
+users,19,consulta02,consulta02@enlaceexpress.com,123456,ACTIVE,
+users,20,consulta03,consulta03@enlaceexpress.com,123456,INACTIVE,
+role_users,1,1,1,ACTIVE
+role_users,2,1,2,ACTIVE
+role_users,3,2,3,ACTIVE
+role_users,4,2,4,ACTIVE
+role_users,5,2,5,ACTIVE
+role_users,6,2,6,ACTIVE
+role_users,7,3,7,ACTIVE
+role_users,8,3,8,ACTIVE
+role_users,9,4,9,ACTIVE
+role_users,10,4,10,ACTIVE
+role_users,11,4,11,ACTIVE
+role_users,12,4,12,ACTIVE
+role_users,13,5,13,ACTIVE
+role_users,14,5,14,ACTIVE
+role_users,15,6,15,ACTIVE
+role_users,16,6,16,ACTIVE
+role_users,17,6,17,ACTIVE
+role_users,18,6,18,ACTIVE
+role_users,19,6,19,ACTIVE
+role_users,20,6,20,ACTIVE
+resources,1,/api/empresas,GET,ACTIVE
+resources,2,/api/empresas,POST,ACTIVE
+resources,3,/api/empresas/{id},GET,ACTIVE
+resources,4,/api/empresas/{id},PUT,ACTIVE
+resources,5,/api/envios,GET,ACTIVE
+resources,6,/api/envios,POST,ACTIVE
+resources,7,/api/envios/{id},GET,ACTIVE
+resources,8,/api/envios/{id},PUT,ACTIVE
+resources,9,/api/envios/{id}/tracking,GET,ACTIVE
+resources,10,/api/tracking,POST,ACTIVE
+resources,11,/api/paquetes,GET,ACTIVE
+resources,12,/api/paquetes,POST,ACTIVE
+resources,13,/api/mensajeros,GET,ACTIVE
+resources,14,/api/rutas,GET,ACTIVE
+resources,15,/api/tarifas,GET,ACTIVE
+resources,16,/api/facturas,GET,ACTIVE
+resources,17,/api/facturas,POST,ACTIVE
+resources,18,/api/usuarios,GET,ACTIVE
+resources,19,/api/reportes,GET,ACTIVE
+resources,20,/api/auditoria,GET,ACTIVE
+resource_roles,1,1,1,ACTIVE
+resource_roles,2,2,1,ACTIVE
+resource_roles,3,3,1,ACTIVE
+resource_roles,4,4,1,ACTIVE
+resource_roles,5,5,2,ACTIVE
+resource_roles,6,6,2,ACTIVE
+resource_roles,7,7,2,ACTIVE
+resource_roles,8,8,3,ACTIVE
+resource_roles,9,9,2,ACTIVE
+resource_roles,10,10,4,ACTIVE
+resource_roles,11,11,4,ACTIVE
+resource_roles,12,12,4,ACTIVE
+resource_roles,13,13,3,ACTIVE
+resource_roles,14,14,3,ACTIVE
+resource_roles,15,15,5,ACTIVE
+resource_roles,16,16,5,ACTIVE
+resource_roles,17,17,5,ACTIVE
+resource_roles,18,18,1,ACTIVE
+resource_roles,19,19,6,ACTIVE
+resource_roles,20,20,1,ACTIVE
+empresas,1,900100001-1,Tecnologias del Caribe SAS,Carlos Mendoza,ACTIVE
+empresas,2,900100002-2,Distribuciones La Guajira SAS,Laura Gonzalez,ACTIVE
+empresas,3,900100003-3,Comercializadora del Norte SAS,Andres Rodriguez,ACTIVE
+empresas,4,900100004-4,Servicios Empresariales del Caribe,Maria Torres,ACTIVE
+empresas,5,900100005-5,Inversiones Riohacha SAS,Jorge Martinez,ACTIVE
+empresas,6,900100006-6,Soluciones Digitales SAS,Camila Herrera,ACTIVE
+empresas,7,900100007-7,Alimentos del Cesar SAS,Daniel Perez,ACTIVE
+empresas,8,900100008-8,Transportes del Norte SAS,Sofia Ramirez,ACTIVE
+empresas,9,900100009-9,Importadora Caribe SAS,Miguel Castro,ACTIVE
+empresas,10,900100010-0,Comercial La Guajira,Valentina Diaz,ACTIVE
+empresas,11,900100011-1,Farmaceutica del Caribe,Juan Lopez,ACTIVE
+empresas,12,900100012-2,Papeleria Nacional SAS,Natalia Vargas,ACTIVE
+empresas,13,900100013-3,Construcciones Guajira SAS,Felipe Rojas,ACTIVE
+empresas,14,900100014-4,Tecnologia y Redes SAS,Paula Moreno,ACTIVE
+empresas,15,900100015-5,Distribuciones Wayuu SAS,Luis Epiayu,ACTIVE
+empresas,16,900100016-6,Comercio Express SAS,Diana Brito,ACTIVE
+empresas,17,900100017-7,Productos del Caribe SAS,Sebastian Acosta,ACTIVE
+empresas,18,900100018-8,Servicios Logisticos SAS,Andrea Jimenez,ACTIVE
+empresas,19,900100019-9,Mercado Regional SAS,Oscar Medina,ACTIVE
+empresas,20,900100020-0,Soluciones Empresariales SAS,Carolina Suarez,INACTIVE
+contactos,1,1,Carlos Mendoza,Contacto administrativo,ACTIVE
+contactos,2,2,Laura Gonzalez,Contacto de operaciones,ACTIVE
+contactos,3,3,Andres Rodriguez,Contacto comercial,ACTIVE
+contactos,4,4,Maria Torres,Contacto principal,ACTIVE
+contactos,5,5,Jorge Martinez,Gerente administrativo,ACTIVE
+contactos,6,6,Camila Herrera,Contacto de tecnologia,ACTIVE
+contactos,7,7,Daniel Perez,Coordinador logistico,ACTIVE
+contactos,8,8,Sofia Ramirez,Jefe de operaciones,ACTIVE
+contactos,9,9,Miguel Castro,Contacto comercial,ACTIVE
+contactos,10,10,Valentina Diaz,Administradora,ACTIVE
+contactos,11,11,Juan Lopez,Contacto financiero,ACTIVE
+contactos,12,12,Natalia Vargas,Contacto administrativo,ACTIVE
+contactos,13,13,Felipe Rojas,Director de proyectos,ACTIVE
+contactos,14,14,Paula Moreno,Coordinadora TI,ACTIVE
+contactos,15,15,Luis Epiayu,Gerente general,ACTIVE
+contactos,16,16,Diana Brito,Coordinadora comercial,ACTIVE
+contactos,17,17,Sebastian Acosta,Jefe logistico,ACTIVE
+contactos,18,18,Andrea Jimenez,Administradora,ACTIVE
+contactos,19,19,Oscar Medina,Gerente comercial,ACTIVE
+contactos,20,20,Carolina Suarez,Contacto principal,INACTIVE
+direcciones,1,1,Sede Principal,Calle 10 # 8-20, Riohacha,ACTIVE
+direcciones,2,1,Bodega,Carrera 7 # 15-30, Riohacha,ACTIVE
+direcciones,3,2,Sede Principal,Calle 12 # 9-15, Riohacha,ACTIVE
+direcciones,4,2,Bodega,Carrera 15 # 20-10, Riohacha,ACTIVE
+direcciones,5,3,Sede Principal,Calle 5 # 6-40, Valledupar,ACTIVE
+direcciones,6,3,Bodega,Carrera 11 # 18-25, Valledupar,ACTIVE
+direcciones,7,4,Sede Principal,Calle 9 # 12-18, Barranquilla,ACTIVE
+direcciones,8,4,Bodega,Carrera 22 # 30-12, Barranquilla,ACTIVE
+direcciones,9,5,Sede Principal,Calle 14 # 10-22, Riohacha,ACTIVE
+direcciones,10,5,Bodega,Carrera 5 # 16-40, Riohacha,ACTIVE
+direcciones,11,6,Sede Principal,Calle 18 # 7-11, Riohacha,ACTIVE
+direcciones,12,6,Bodega,Carrera 9 # 25-15, Riohacha,ACTIVE
+direcciones,13,7,Sede Principal,Calle 20 # 14-30, Valledupar,ACTIVE
+direcciones,14,7,Bodega,Carrera 19 # 8-50, Valledupar,ACTIVE
+direcciones,15,8,Sede Principal,Calle 30 # 20-18, Santa Marta,ACTIVE
+direcciones,16,8,Bodega,Carrera 12 # 35-20, Santa Marta,ACTIVE
+direcciones,17,9,Sede Principal,Calle 22 # 15-10, Barranquilla,ACTIVE
+direcciones,18,9,Bodega,Carrera 40 # 25-12, Barranquilla,ACTIVE
+direcciones,19,10,Sede Principal,Calle 8 # 7-14, Maicao,ACTIVE
+direcciones,20,10,Bodega,Carrera 10 # 12-22, Maicao,ACTIVE
+direcciones,21,11,Sede Principal,Calle 16 # 9-10, Riohacha,ACTIVE
+direcciones,22,11,Bodega,Carrera 8 # 20-16, Riohacha,ACTIVE
+direcciones,23,12,Sede Principal,Calle 11 # 13-25, Valledupar,ACTIVE
+direcciones,24,12,Bodega,Carrera 17 # 22-14, Valledupar,ACTIVE
+direcciones,25,13,Sede Principal,Calle 25 # 10-12, Riohacha,ACTIVE
+direcciones,26,13,Bodega,Carrera 6 # 28-30, Riohacha,ACTIVE
+direcciones,27,14,Sede Principal,Calle 19 # 8-16, Barranquilla,ACTIVE
+direcciones,28,14,Bodega,Carrera 21 # 40-18, Barranquilla,ACTIVE
+direcciones,29,15,Sede Principal,Calle 6 # 5-20, Uribia,ACTIVE
+direcciones,30,15,Bodega,Carrera 4 # 10-15, Uribia,ACTIVE
+direcciones,31,16,Sede Principal,Calle 13 # 6-12, Riohacha,ACTIVE
+direcciones,32,16,Bodega,Carrera 9 # 18-20, Riohacha,ACTIVE
+direcciones,33,17,Sede Principal,Calle 17 # 12-10, Santa Marta,ACTIVE
+direcciones,34,17,Bodega,Carrera 16 # 24-20, Santa Marta,ACTIVE
+direcciones,35,18,Sede Principal,Calle 21 # 11-18, Barranquilla,ACTIVE
+direcciones,36,18,Bodega,Carrera 30 # 32-15, Barranquilla,ACTIVE
+direcciones,37,19,Sede Principal,Calle 10 # 15-20, Valledupar,ACTIVE
+direcciones,38,19,Bodega,Carrera 18 # 14-30, Valledupar,ACTIVE
+direcciones,39,20,Sede Principal,Calle 9 # 10-10, Riohacha,INACTIVE
+direcciones,40,20,Bodega,Carrera 7 # 19-25, Riohacha,INACTIVE
