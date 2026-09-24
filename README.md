@@ -1,562 +1,449 @@
-# Motores de Bases de Datos
+# EnlaceExpress — Multimotor Database
 
-Proyecto académico para la **implementación, configuración, conexión, administración y validación de cuatro motores de bases de datos** utilizando Docker, Docker Compose, WSL y DBeaver.
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)](https://www.docker.com/)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge\&logo=ubuntu\&logoColor=white)](https://ubuntu.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)](https://www.mysql.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-316192?style=for-the-badge\&logo=postgresql\&logoColor=white)](https://www.postgresql.org/)
+[![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-CC292B?style=for-the-badge\&logo=microsoftsqlserver\&logoColor=white)](https://www.microsoft.com/sql-server)
+[![Oracle](https://img.shields.io/badge/Oracle-XE%2021c-F80000?style=for-the-badge\&logo=oracle\&logoColor=white)](https://www.oracle.com/database/)
+[![DBeaver](https://img.shields.io/badge/DBeaver-372923?style=for-the-badge\&logo=dbeaver\&logoColor=white)](https://dbeaver.io/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)](https://git-scm.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/)
 
-El proyecto forma parte del desarrollo de **EnlaceExpress**, una plataforma de mensajería corporativa orientada a la gestión de empresas, envíos, paquetes, seguimiento, rutas, tarifas, pruebas de entrega y facturación.
+> Proyecto académico de implementación, configuración, documentación y verificación de una base de datos multimotor para **EnlaceExpress**.
 
-El mismo modelo lógico de **EnlaceExpress** fue implementado en cuatro motores de bases de datos, realizando las adaptaciones necesarias según las características de cada sistema.
+---
+
+## Contenido
+
+- [EnlaceExpress — Multimotor Database](#enlaceexpress--multimotor-database)
+  - [Contenido](#contenido)
+  - [Descripción](#descripción)
+  - [Arquitectura general](#arquitectura-general)
+  - [Motores implementados](#motores-implementados)
+  - [Acceso rápido](#acceso-rápido)
+    - [Base de datos](#base-de-datos)
+    - [Documentación](#documentación)
+    - [Infraestructura](#infraestructura)
+  - [Base de datos](#base-de-datos-1)
+    - [Modelo de acceso](#modelo-de-acceso)
+  - [RBAC](#rbac)
+  - [Consultas avanzadas](#consultas-avanzadas)
+  - [Interfaces gráficas](#interfaces-gráficas)
+  - [Diagramas](#diagramas)
+  - [Infraestructura Docker](#infraestructura-docker)
+    - [Servicios](#servicios)
+  - [Documentación](#documentación-1)
+  - [Evidencias](#evidencias)
+  - [Estructura del repositorio](#estructura-del-repositorio)
+  - [Estado del proyecto](#estado-del-proyecto)
+  - [Entorno utilizado](#entorno-utilizado)
+  - [Autor](#autor)
+
+---
+
+## Descripción
+
+**EnlaceExpress** es un proyecto de base de datos desarrollado bajo un enfoque multimotor, utilizando la misma estructura lógica en cuatro sistemas gestores de bases de datos:
+
+| Motor                | Versión | Esquema                   |
+| -------------------- | ------: | ------------------------- |
+| MySQL                |     8.0 | `enlace_express`          |
+| PostgreSQL           |      17 | `enlace_express / public` |
+| Microsoft SQL Server |    2022 | `enlace_express / dbo`    |
+| Oracle Database      |  XE 21c | `ENLACE_EXPRESS`          |
+
+El proyecto incluye:
+
+* Diseño e implementación de **18 tablas**.
+* Claves primarias, foráneas y restricciones `UNIQUE`.
+* Relaciones entre entidades.
+* Control de usuarios y roles mediante RBAC.
+* Triggers de actualización y auditoría.
+* Datos de prueba.
+* Consultas SQL de diferentes niveles.
+* Diagramas entidad-relación.
+* Verificación mediante herramientas gráficas.
+* Contenedores Docker independientes para cada motor.
+* Documentación del proceso de implementación.
+
+---
+
+## Arquitectura general
+
+```mermaid
+flowchart TD
+    A["EnlaceExpress"] --> B["Base de datos multimotor"]
+
+    B --> C["MySQL 8.0"]
+    B --> D["PostgreSQL 17"]
+    B --> E["SQL Server 2022"]
+    B --> F["Oracle XE 21c"]
+
+    C --> G["DDL + Datos + Consultas"]
+    D --> H["DDL + Datos + Consultas"]
+    E --> I["DDL + Datos + Consultas"]
+    F --> J["DDL + Datos + Consultas"]
+
+    K["Docker / Docker Compose"] --> C
+    K --> D
+    K --> E
+    K --> F
+
+    L["DBeaver"] --> C
+    L --> D
+    L --> E
+    L --> F
+```
 
 ---
 
 ## Motores implementados
 
-Los cuatro motores de bases de datos implementados son:
-
-* **MySQL 8.0**
-* **PostgreSQL 17**
-* **SQL Server 2022**
-* **Oracle Database XE 21c**
-
-Los motores fueron configurados como servicios independientes.
-
-Se verificó:
-
-* Funcionamiento.
-* Conectividad.
-* Ejecución de scripts.
-* Estructura de las bases de datos.
-* Persistencia de datos.
-* Inserción de datos.
-* Ejecución de consultas.
-* Respaldos.
-* Ejecución simultánea.
-* Administración mediante DBeaver.
-* Administración mediante herramientas gráficas propias de cada motor.
+| Motor           |    Estado    | DDL                                                          | Datos                                                 | Documentación                           |
+| --------------- | :----------: | ------------------------------------------------------------ | ----------------------------------------------------- | --------------------------------------- |
+| MySQL 8.0       | `COMPLETADO` | [DDL](database/mysql/enlace_express_mysql_ddl.sql)           | [Inserts](database/mysql/inserts_mysql.sql)           | [README](database/mysql/README.md)      |
+| PostgreSQL 17   | `COMPLETADO` | [DDL](database/postgresql/enlace_express_postgresql_ddl.sql) | [Inserts](database/postgresql/inserts_postgresql.sql) | [README](database/postgresql/README.md) |
+| SQL Server 2022 | `COMPLETADO` | [DDL](database/sql-server/enlace_express_sqlserver_ddl.sql)  | [Inserts](database/sql-server/inserts_sqlserver.sql)  | [README](database/sql-server/README.md) |
+| Oracle XE 21c   | `COMPLETADO` | [DDL](database/oracle/enlace_express_oracle_ddl.sql)         | [Inserts](database/oracle/inserts_oracle.sql)         | [README](database/oracle/README.md)     |
 
 ---
 
-## Herramientas utilizadas
+## Acceso rápido
 
-* Docker
-* Docker Compose
-* WSL / Ubuntu
-* DBeaver
-* MySQL Workbench
-* pgAdmin 4
-* SQL Server Management Studio (SSMS)
-* Oracle SQL Developer
-* Git
-* GitHub
-* Visual Studio Code
+### Base de datos
 
----
+| Recurso                                        | Descripción                     |
+| ---------------------------------------------- | ------------------------------- |
+| [`database/`](database/)                       | Scripts SQL y archivos de datos |
+| [`database/mysql/`](database/mysql/)           | Implementación MySQL            |
+| [`database/postgresql/`](database/postgresql/) | Implementación PostgreSQL       |
+| [`database/sql-server/`](database/sql-server/) | Implementación SQL Server       |
+| [`database/oracle/`](database/oracle/)         | Implementación Oracle           |
 
-# Bases de datos
+### Documentación
 
-La estructura de **EnlaceExpress** se encuentra implementada en los cuatro motores solicitados.
+| Documento                                                    | Descripción                               |
+| ------------------------------------------------------------ | ----------------------------------------- |
+| [`docs/PROCESO.md`](docs/PROCESO.md)                         | Proceso general del proyecto              |
+| [`docs/GUI.md`](docs/GUI.md)                                 | Verificación mediante interfaces gráficas |
+| [`docs/CONSULTAS-AVANZADAS.md`](docs/CONSULTAS-AVANZADAS.md) | Consultas SQL realizadas                  |
+| [`docs/contexto/`](docs/contexto/)                           | Contexto y definición del proyecto        |
+| [`docs/informes/`](docs/informes/)                           | Informes académicos                       |
+| [`docs/semanas/`](docs/semanas/)                             | Metodología y trabajo por semanas         |
 
-Para cada motor se dispone de:
+### Infraestructura
 
-1. **Script DDL:** contiene la definición de la estructura de la base de datos.
-2. **Script de inserción:** contiene los datos utilizados para poblar las tablas de cada motor.
-3. **Archivo CSV:** contiene los datos utilizados como base para las consultas SQL avanzadas y la validación de resultados.
-4. **Administración mediante DBeaver:** utilizada para conexión, ejecución y verificación.
-5. **Administración mediante la GUI propia del motor:** utilizada para una segunda comprobación.
-6. **Documentación específica:** explica la configuración de cada motor.
-7. **Evidencias:** organizadas por motor y por etapa del proyecto.
-8. **Diagrama ER:** representa visualmente la estructura implementada.
-
----
-
-## Implementaciones DDL
-
-| Motor      | Base de datos / esquema     | DDL                                                                     |
-| ---------- | --------------------------- | ----------------------------------------------------------------------- |
-| MySQL      | `enlace_express`            | [DDL MySQL](database/mysql/enlace_express_mysql_ddl.sql)                |
-| PostgreSQL | `enlace_express` / `public` | [DDL PostgreSQL](database/postgresql/enlace_express_postgresql_ddl.sql) |
-| SQL Server | `enlace_express` / `dbo`    | [DDL SQL Server](database/sql-server/enlace_express_sqlserver_ddl.sql)  |
-| Oracle     | `ENLACE_EXPRESS`            | [DDL Oracle](database/oracle/enlace_express_oracle_ddl.sql)             |
+| Recurso                                                                | Descripción                            |
+| ---------------------------------------------------------------------- | -------------------------------------- |
+| [`services/motores-bd/`](services/motores-bd/)                         | Servicios Docker de los cuatro motores |
+| [`services/motores-bd/start-all.sh`](services/motores-bd/start-all.sh) | Inicia todos los motores               |
+| [`services/motores-bd/stop-all.sh`](services/motores-bd/stop-all.sh)   | Detiene todos los motores              |
 
 ---
 
-## Datos e inserciones
+## Base de datos
 
-Cada motor cuenta con los archivos necesarios para reproducir la carga de datos utilizada durante las pruebas y consultas.
-
-| Motor      | Datos CSV                                                                                      | Script de inserción                                                |
-| ---------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| MySQL      | [datos_enlace_express_mysql.csv](database/mysql/datos_enlace_express_mysql.csv)                | [inserts_mysql.sql](database/mysql/inserts_mysql.sql)              |
-| PostgreSQL | [datos_enlace_express_postgresql.csv](database/postgresql/datos_enlace_express_postgresql.csv) | [insert_postgresql.sql](database/postgresql/insert_postgresql.sql) |
-| SQL Server | [datos_enlace_express_sqlserver.csv](database/sql-server/datos_enlace_express_sqlserver.csv)   | [insert_sqlserver.sql](database/sql-server/insert_sqlserver.sql)   |
-| Oracle     | [datos_enlace_express_oracle.csv](database/oracle/datos_enlace_express_oracle.csv)             | [inserts_oracle.sql](database/oracle/inserts_oracle.sql)           |
-
-### Propósito de los archivos
-
-Los archivos cumplen funciones diferentes:
-
-* **`.sql` DDL:** crea la estructura de tablas, claves, relaciones y demás elementos de la base de datos.
-* **`insert*.sql`:** contiene los registros que fueron insertados en cada motor.
-* **`.csv`:** contiene los datos utilizados como referencia para realizar y validar las consultas SQL avanzadas.
-
-De esta manera, cada motor cuenta con su propia estructura y con los datos necesarios para reproducir las pruebas realizadas durante el proyecto.
-
----
-
-## Documentación específica
-
-La documentación de cada motor se encuentra organizada en:
-
-* [MySQL](database/mysql/)
-* [PostgreSQL](database/postgresql/)
-* [SQL Server](database/sql-server/)
-* [Oracle](database/oracle/)
-
----
-
-# Estructura de la base de datos
-
-El proyecto cuenta actualmente con **18 tablas**:
-
-1. `auditoria`
-2. `contactos`
-3. `direcciones`
-4. `empresas`
-5. `envios`
-6. `eventos_tracking`
-7. `facturas`
-8. `mensajeros`
-9. `paquetes`
-10. `pruebas_entrega`
-11. `refresh_tokens`
-12. `resource_roles`
-13. `resources`
-14. `role_users`
-15. `roles`
-16. `rutas`
-17. `tarifas`
-18. `users`
-
-Estas tablas se encuentran implementadas en los cuatro motores.
-
-El modelo incluye las entidades principales del negocio y las estructuras relacionadas con autenticación, autorización y RBAC.
-
----
-
-# Usuarios y RBAC
-
-El proyecto incluye un sistema de usuarios y control de acceso basado en roles.
-
-Las principales tablas relacionadas son:
-
-* `users`
-* `roles`
-* `role_users`
-* `resources`
-* `resource_roles`
-* `refresh_tokens`
-* `auditoria`
-
-Los roles definidos son:
-
-* `ADMIN`
-* `CLIENTE_EMPRESA`
-* `DESPACHO`
-* `MENSAJERO`
-* `FACTURACION`
-* `OPERADOR`
-
-Los recursos representan rutas y métodos de la API.
-
-Algunos ejemplos son:
+La estructura principal está compuesta por **18 tablas**:
 
 ```text
-POST /envios
-
-POST /asignaciones
-
-POST /tracking
-
-POST /facturas/consolidar
+auditoria
+contactos
+direcciones
+empresas
+envios
+eventos_tracking
+facturas
+mensajeros
+paquetes
+pruebas_entrega
+refresh_tokens
+resource_roles
+resources
+role_users
+roles
+rutas
+tarifas
+users
 ```
 
-La relación entre usuarios y roles se realiza mediante `role_users`.
+### Modelo de acceso
 
-La relación entre roles y recursos se realiza mediante `resource_roles`.
+```mermaid
+erDiagram
+    USERS ||--o{ ROLE_USERS : asigna
+    ROLES ||--o{ ROLE_USERS : contiene
 
----
+    ROLES ||--o{ RESOURCE_ROLES : permite
+    RESOURCES ||--o{ RESOURCE_ROLES : protege
 
-# Consultas SQL Avanzadas
+    USERS ||--o{ REFRESH_TOKENS : genera
 
-Como parte del proyecto se desarrollaron **38 consultas SQL avanzadas** sobre la base de datos EnlaceExpress.
+    EMPRESAS ||--o{ CONTACTOS : posee
+    EMPRESAS ||--o{ DIRECCIONES : registra
+    EMPRESAS ||--o{ ENVIOS : realiza
 
-Las consultas fueron adaptadas y ejecutadas en:
+    ENVIOS ||--o{ PAQUETES : contiene
+    ENVIOS ||--o{ EVENTOS_TRACKING : registra
+    ENVIOS ||--o{ PRUEBAS_ENTREGA : genera
+    ENVIOS ||--o| FACTURAS : factura
 
-* MySQL
-* PostgreSQL
-* SQL Server
-* Oracle XE
-
-Se trabajaron diferentes operaciones de SQL, entre ellas:
-
-* Filtros con `WHERE`.
-* Operadores `AND`, `IN`, `BETWEEN` y `LIKE`.
-* Ordenamiento de resultados.
-* Funciones de agregación.
-* `GROUP BY` y `HAVING`.
-* `INNER JOIN`.
-* `LEFT JOIN`.
-* Subconsultas.
-* `EXISTS`.
-* `CASE`.
-* `COALESCE`.
-* CTE.
-* Funciones de ventana.
-* `RANK`.
-* `ROW_NUMBER`.
-* `UNION`.
-* Consultas relacionadas con usuarios y roles.
-* Consultas de seguimiento y facturación.
-* Consultas de resumen y análisis de datos.
-
-La documentación completa se encuentra en:
-
-* [Consultas SQL Avanzadas](docs/CONSULTAS-AVANZADAS.md)
-
-Las evidencias están organizadas por motor:
-
-* [Evidencias MySQL](evidencias/11-consultas-avanzadas/01-mysql/)
-* [Evidencias PostgreSQL](evidencias/11-consultas-avanzadas/02-postgresql/)
-* [Evidencias SQL Server](evidencias/11-consultas-avanzadas/03-sql-server/)
-* [Evidencias Oracle](evidencias/11-consultas-avanzadas/04-oracle/)
-
-En total, se cuenta con las evidencias correspondientes a las **38 consultas ejecutadas en cada uno de los cuatro motores**.
-
-Los archivos CSV almacenados en `database/` contienen los datos utilizados como referencia para estas consultas, mientras que los scripts de inserción permiten reproducir la carga de datos utilizada en cada motor.
+    MENSAJEROS ||--o{ ENVIOS : transporta
+    RUTAS ||--o{ ENVIOS : utiliza
+    TARIFAS ||--o{ ENVIOS : aplica
+```
 
 ---
 
-# Documentación
+## RBAC
 
-## Informes
+El proyecto incorpora un modelo de **control de acceso basado en roles (RBAC)**.
 
-Los informes académicos se encuentran en:
+```mermaid
+flowchart LR
+    U["users"] --> RU["role_users"]
+    RU --> R["roles"]
 
-* [01 - Implementación de Motores de Base de Datos](docs/informes/01-INFORME_IMPLEMENTACIÓN_MOTORES_BASE_DATOS.md)
-* [02 - Informe Inicial del Proyecto Integrador](docs/informes/02-INFORME_INICIAL_PROYECTO_INTEGRADOR.md)
-* [03 - Verificación de Bases de Datos](docs/informes/03-INFORME_VERIFICACION_BASES_DE_DATOS.md)
+    R --> RR["resource_roles"]
+    RR --> RE["resources"]
+
+    U --> RT["refresh_tokens"]
+```
+
+Roles utilizados:
+
+| Rol               |
+| ----------------- |
+| `ADMIN`           |
+| `CLIENTE_EMPRESA` |
+| `DESPACHO`        |
+| `MENSAJERO`       |
+| `FACTURACION`     |
+| `OPERADOR`        |
 
 ---
 
-## Contexto del proyecto
+## Consultas avanzadas
 
-La información general del dominio, arquitectura, entidades, relaciones y estado actual del proyecto se encuentra en:
+Las consultas están organizadas por motor dentro de:
 
-* [Contexto del Proyecto EnlaceExpress](docs/contexto/CONTEXTO_DEL_PROYECTO_ENLEEXPRESS.md)
+[`docs/CONSULTAS-AVANZADAS.md`](docs/CONSULTAS-AVANZADAS.md)
 
----
-
-# Metodología MIRIA
-
-El proyecto también cuenta con documentación relacionada con la metodología **MIRIA – Integración Responsable de IA para el Aprendizaje**.
-
-La documentación se encuentra organizada por semana:
+También se encuentran las evidencias individuales:
 
 ```text
-docs/semanas/
-
-├── semana01/
-│   ├── METODOLOGIA-MIRA-SEMANA-01.md
-│   └── README.md
-│
-├── semana02/
-│   ├── METODOLOGIA-MIRA-SEMANA-02.md
-│   └── README.md
-│
-└── semana03/
-    ├── METODOLOGIA-MIRA-SEMANA-03.md
-    └── README.md
+evidencias/
+└── 11-consultas-avanzadas/
+    ├── 01-mysql/
+    ├── 02-postgresql/
+    ├── 03-sql-server/
+    └── 04-oracle/
 ```
 
-Cada semana documenta:
+Se trabajaron operaciones como:
 
-* Objetivo.
-* Requisitos.
-* Criterios de aceptación.
-* Actividades.
-* Evidencias.
-* Issues.
-* Gate semanal.
-* Gate Learning.
-* Retrospectiva.
-* Uso de IA.
-* Verificación humana.
-* Estado final.
-
----
-
-## Bitácora general
-
-El proceso general del proyecto se registra en:
-
-* [Bitácora general del proyecto](docs/PROCESO.md)
-
-La bitácora registra:
-
-* Propósito.
-* Decisiones.
-* Cambios.
-* Pruebas.
-* Problemas encontrados.
-* Soluciones.
-* Uso de IA.
-* Verificación humana.
-* Estado del proyecto.
-* Próximas acciones.
+* `SELECT`
+* `WHERE`
+* `AND / IN`
+* `BETWEEN`
+* `LIKE`
+* `ORDER BY`
+* `COUNT`
+* `SUM`
+* `AVG`
+* `MIN / MAX`
+* `GROUP BY`
+* `HAVING`
+* `JOIN`
+* `LEFT JOIN`
+* Subconsultas
+* `EXISTS`
+* `CASE`
+* `COALESCE`
+* CTE
+* Funciones de ventana
+* `RANK`
+* `ROW_NUMBER`
+* `UNION`
 
 ---
 
-# Evidencias de GUI
+## Interfaces gráficas
 
-Las evidencias de administración y verificación gráfica de los cuatro motores se encuentran documentadas en:
+La estructura de la base de datos fue revisada mediante los gestores gráficos correspondientes:
 
-* [Evidencias de GUI – DBeaver y herramientas propias](evidencias/GUI.md)
+| Motor      | Herramienta                  |
+| ---------- | ---------------------------- |
+| MySQL      | MySQL Workbench              |
+| PostgreSQL | pgAdmin 4                    |
+| SQL Server | SQL Server Management Studio |
+| Oracle     | Oracle SQL Developer         |
+| Multimotor | DBeaver                      |
 
-Este documento reúne evidencias realizadas mediante:
+La documentación completa de esta verificación se encuentra en:
 
-* DBeaver.
-* MySQL Workbench.
-* pgAdmin 4.
-* SQL Server Management Studio.
-* Oracle SQL Developer.
+[**GUI.md — Verificación de estructuras y tablas**](docs/GUI.md)
+
+Las evidencias están organizadas en:
+
+```text
+evidencias/
+├── 02-mysql/
+├── 03-postgresql/
+├── 04-sql-server/
+├── 05-oracle/
+├── 07-dbeaver/
+└── 12-GUI/
+```
 
 ---
 
-# Servicios Docker
+## Diagramas
 
-Los archivos necesarios para ejecutar los cuatro motores mediante Docker y Docker Compose se encuentran organizados en:
+Cada motor cuenta con su propio diagrama entidad-relación:
+
+```text
+evidencias/
+└── 13-diagramas/
+    ├── mysql/
+    │   └── ER-diagram.jpg
+    ├── postgresql/
+    │   └── ER-diagram.jpg
+    ├── sql-server/
+    │   └── ER-diagram.jpg
+    └── oracle/
+        └── ER-diagram.jpg
+```
+
+| Motor      | Diagrama                                                            |
+| ---------- | ------------------------------------------------------------------- |
+| MySQL      | [Ver ER Diagram](evidencias/13-diagramas/mysql/ER-diagram.jpg)      |
+| PostgreSQL | [Ver ER Diagram](evidencias/13-diagramas/postgresql/ER-diagram.jpg) |
+| SQL Server | [Ver ER Diagram](evidencias/13-diagramas/sql-server/ER-diagram.jpg) |
+| Oracle     | [Ver ER Diagram](evidencias/13-diagramas/oracle/ER-diagram.jpg)     |
+
+---
+
+## Infraestructura Docker
+
+Los cuatro motores se ejecutan mediante contenedores independientes.
+
+```mermaid
+flowchart TB
+    A["WSL / Ubuntu"] --> B["Docker"]
+
+    B --> C["MySQL"]
+    B --> D["PostgreSQL"]
+    B --> E["SQL Server"]
+    B --> F["Oracle"]
+
+    C --> C1["3306"]
+    D --> D1["5432"]
+    E --> E1["1433"]
+    F --> F1["1521"]
+```
+
+### Servicios
+
+| Servicio   | Puerto |
+| ---------- | -----: |
+| MySQL      | `3306` |
+| PostgreSQL | `5432` |
+| SQL Server | `1433` |
+| Oracle     | `1521` |
+
+Los archivos de configuración se encuentran en:
 
 ```text
 services/motores-bd/
+├── mysql/
+├── postgres/
+├── mssql/
+├── oracle/
+├── start-all.sh
+├── stop-all.sh
+└── README.md
 ```
 
-Cada motor cuenta con su propio archivo `docker-compose.yml` y documentación específica.
+---
 
-También se incluyen scripts para facilitar la ejecución y detención de los servicios:
+## Documentación
 
-* `start-all.sh` — inicia los servicios de los cuatro motores.
-* `stop-all.sh` — detiene los servicios de los cuatro motores.
+El repositorio mantiene separadas la implementación, las evidencias y la documentación:
+
+```mermaid
+flowchart LR
+    A["Proyecto"] --> B["database"]
+    A --> C["docs"]
+    A --> D["evidencias"]
+    A --> E["services"]
+
+    B --> B1["DDL"]
+    B --> B2["Inserts"]
+    B --> B3["CSV"]
+
+    C --> C1["Informes"]
+    C --> C2["Consultas"]
+    C --> C3["Proceso"]
+
+    D --> D1["Capturas"]
+    D --> D2["Diagramas"]
+
+    E --> E1["Docker Compose"]
+    E --> E2["Scripts"]
+```
 
 ---
 
-## Servicios disponibles
+## Evidencias
 
-* [MySQL](services/motores-bd/mysql/)
-* [PostgreSQL](services/motores-bd/postgres/)
-* [SQL Server](services/motores-bd/mssql/)
-* [Oracle](services/motores-bd/oracle/)
-
-> Los archivos `.env` utilizados para configurar credenciales y variables de entorno no forman parte del repositorio por razones de seguridad.
-
----
-
-# Diagramas ER
-
-Los diagramas entidad-relación de cada motor se encuentran organizados individualmente:
-
-* [MySQL](docs/diagramas/mysql/ER-diagram.jpg)
-* [PostgreSQL](docs/diagramas/postgresql/ER-diagram.jpg)
-* [SQL Server](docs/diagramas/sql-server/ER-diagram.jpg)
-* [Oracle XE](docs/diagramas/oracle/ER-diagram.jpg)
-
-Los diagramas permiten visualizar las tablas y relaciones principales de cada implementación.
-
----
-
-# Evidencias
-
-Las evidencias del proyecto están organizadas por etapas:
-
-* [01 - Proyecto](evidencias/01-proyecto/)
-* [02 - MySQL](evidencias/02-mysql/)
-* [03 - PostgreSQL](evidencias/03-postgresql/)
-* [04 - SQL Server](evidencias/04-sql-server/)
-* [05 - Oracle](evidencias/05-oracle/)
-* [06 - Entorno general](evidencias/06-entorno-general/)
-* [07 - DBeaver](evidencias/07-dbeaver/)
-* [08 - Persistencia](evidencias/08-persistencia/)
-* [09 - Backups](evidencias/09-backups/)
-* [10 - Verificación final](evidencias/10-verificacion-final/)
-* [11 - Consultas SQL Avanzadas](evidencias/11-consultas-avanzadas/)
-* [GUI - Evidencias gráficas](evidencias/GUI.md)
-
-Las evidencias documentan:
-
-* Configuración de los motores.
-* Configuración de Docker.
-* Ejecución de contenedores.
-* Conexiones mediante DBeaver.
-* Administración mediante herramientas gráficas propias.
-* Pruebas de funcionamiento.
-* Inserción y consulta de datos.
-* Persistencia de datos.
-* Respaldos.
-* Verificación de servicios.
-* Puertos y redes.
-* Ejecución simultánea de los motores.
-* Ejecución de consultas SQL avanzadas.
-* Verificación final del entorno.
-
----
-
-# Persistencia y respaldos
-
-El proyecto incluye evidencias específicas relacionadas con la conservación de los datos y los procesos de respaldo.
-
-## Persistencia
-
-Las evidencias se encuentran en:
+Las evidencias están organizadas por etapas:
 
 ```text
-evidencias/08-persistencia/
+evidencias/
+├── 01-proyecto
+├── 02-mysql
+├── 03-postgresql
+├── 04-sql-server
+├── 05-oracle
+├── 06-entorno-general
+├── 07-dbeaver
+├── 08-persistencia
+├── 09-backups
+├── 10-verificacion-final
+├── 11-consultas-avanzadas
+├── 12-GUI
+└── 13-diagramas
 ```
 
-## Backups
-
-Las evidencias se encuentran en:
-
-```text
-evidencias/09-backups/
-```
-
-Estas evidencias permiten comprobar las pruebas realizadas sobre la conservación y respaldo de la información.
+Esto permite consultar de manera independiente la configuración, ejecución, persistencia, consultas, interfaces gráficas y verificación de cada motor.
 
 ---
 
-# Verificación final
-
-Las verificaciones generales del entorno se encuentran en:
-
-```text
-evidencias/10-verificacion-final/
-```
-
-Se verificaron principalmente:
-
-* Servicios Docker.
-* Contenedores.
-* Puertos.
-* Estructura de directorios.
-* Datos.
-* Conexiones.
-* DBeaver.
-* Scripts de inicio y detención.
-
----
-
-# Estructura del proyecto
+## Estructura del repositorio
 
 ```text
 bdii-2026ii-jairovaron404/
-
+│
 ├── database/
 │   ├── mysql/
-│   │   ├── enlace_express_mysql_ddl.sql
-│   │   ├── inserts_mysql.sql
-│   │   ├── datos_enlace_express_mysql.csv
-│   │   └── README.md
-│   │
-│   ├── oracle/
-│   │   ├── enlace_express_oracle_ddl.sql
-│   │   ├── inserts_oracle.sql
-│   │   ├── datos_enlace_express_oracle.csv
-│   │   └── README.md
-│   │
 │   ├── postgresql/
-│   │   ├── enlace_express_postgresql_ddl.sql
-│   │   ├── insert_postgresql.sql
-│   │   ├── datos_enlace_express_postgresql.csv
-│   │   └── README.md
-│   │
-│   └── sql-server/
-│       ├── enlace_express_sqlserver_ddl.sql
-│       ├── insert_sqlserver.sql
-│       ├── datos_enlace_express_sqlserver.csv
-│       └── README.md
+│   ├── sql-server/
+│   └── oracle/
 │
 ├── docs/
-│   ├── CONSULTAS-AVANZADAS.md
-│   ├── PROCESO.md
-│   │
 │   ├── contexto/
-│   │   └── CONTEXTO_DEL_PROYECTO_ENLEEXPRESS.md
-│   │
-│   ├── diagramas/
-│   │   ├── mysql/
-│   │   │   └── ER-diagram.jpg
-│   │   ├── oracle/
-│   │   │   └── ER-diagram.jpg
-│   │   ├── postgresql/
-│   │   │   └── ER-diagram.jpg
-│   │   └── sql-server/
-│   │       └── ER-diagram.jpg
-│   │
 │   ├── informes/
-│   │   ├── 01-INFORME_IMPLEMENTACIÓN_MOTORES_BASE_DATOS.md
-│   │   ├── 02-INFORME_INICIAL_PROYECTO_INTEGRADOR.md
-│   │   └── 03-INFORME_VERIFICACION_BASES_DE_DATOS.md
-│   │
 │   └── semanas/
-│       ├── semana01/
-│       │   ├── METODOLOGIA-MIRA-SEMANA-01.md
-│       │   └── README.md
-│       │
-│       ├── semana02/
-│       │   ├── METODOLOGIA-MIRA-SEMANA-02.md
-│       │   └── README.md
-│       │
-│       └── semana03/
-│           ├── METODOLOGIA-MIRA-SEMANA-03.md
-│           └── README.md
 │
 ├── evidencias/
-│   ├── 01-proyecto/
-│   ├── 02-mysql/
-│   ├── 03-postgresql/
-│   ├── 04-sql-server/
-│   ├── 05-oracle/
-│   ├── 06-entorno-general/
-│   ├── 07-dbeaver/
-│   ├── 08-persistencia/
-│   ├── 09-backups/
-│   ├── 10-verificacion-final/
-│   ├── 11-consultas-avanzadas/
-│   │   ├── 01-mysql/
-│   │   ├── 02-postgresql/
-│   │   ├── 03-sql-server/
-│   │   └── 04-oracle/
-│   └── GUI.md
+│   ├── configuracion/
+│   ├── consultas/
+│   ├── GUI/
+│   └── diagramas/
 │
 ├── services/
 │   └── motores-bd/
-│       ├── mssql/
-│       │   ├── docker-compose.yml
-│       │   └── README.md
-│       │
-│       ├── mysql/
-│       │   ├── docker-compose.yml
-│       │   └── README.md
-│       │
-│       ├── oracle/
-│       │   ├── docker-compose.yml
-│       │   └── README.md
-│       │
-│       ├── postgres/
-│       │   ├── docker-compose.yml
-│       │   └── README.md
-│       │
-│       ├── README.md
-│       ├── start-all.sh
-│       └── stop-all.sh
 │
 ├── .gitignore
 └── README.md
@@ -564,43 +451,61 @@ bdii-2026ii-jairovaron404/
 
 ---
 
-# Estado actual
+## Estado del proyecto
 
-Los cuatro motores requeridos se encuentran configurados y verificados:
-
-| Motor      | Versión | Estado                   |
-| ---------- | ------- | ------------------------ |
-| MySQL      | 8.0     | Configurado y verificado |
-| PostgreSQL | 17      | Configurado y verificado |
-| SQL Server | 2022    | Configurado y verificado |
-| Oracle     | XE 21c  | Configurado y verificado |
-
-Actualmente los cuatro motores cuentan con las **18 tablas principales de EnlaceExpress**, sus estructuras correspondientes y sus respectivos scripts DDL.
-
-También se cuenta con:
-
-* Servicios Docker.
-* Conexiones mediante DBeaver.
-* Herramientas gráficas nativas.
-* Diagramas ER.
-* Evidencias.
-* Datos de prueba.
-* Scripts de inserción para los cuatro motores.
-* Archivos CSV utilizados como referencia para las consultas.
-* Persistencia.
-* Backups.
-* Documentación.
-* Consultas SQL avanzadas.
-* 38 consultas ejecutadas por motor.
-* Evidencias de las consultas.
-* Metodología MIRIA.
-* Bitácora general del proyecto.
-* Control de versiones mediante Git.
+| Componente              |    Estado    |
+| ----------------------- | :----------: |
+| MySQL 8.0               | `COMPLETADO` |
+| PostgreSQL 17           | `COMPLETADO` |
+| SQL Server 2022         | `COMPLETADO` |
+| Oracle XE 21c           | `COMPLETADO` |
+| Estructura de 18 tablas | `COMPLETADO` |
+| Datos de prueba         | `COMPLETADO` |
+| RBAC                    | `COMPLETADO` |
+| Triggers                | `COMPLETADO` |
+| Consultas SQL           | `COMPLETADO` |
+| Diagramas ER            | `COMPLETADO` |
+| Verificación GUI        | `COMPLETADO` |
+| Docker Compose          | `COMPLETADO` |
+| Persistencia            | `COMPLETADO` |
+| Backups                 | `COMPLETADO` |
+| Documentación           | `COMPLETADO` |
 
 ---
 
-# Autor
+## Entorno utilizado
+
+```text
+Sistema operativo
+└── Windows 11
+    └── WSL / Ubuntu
+        └── Docker
+            ├── MySQL 8.0
+            ├── PostgreSQL 17
+            ├── SQL Server 2022
+            └── Oracle XE 21c
+```
+
+Herramientas principales:
+
+| Herramienta     | Uso                       |
+| --------------- | ------------------------- |
+| Docker          | Contenedores              |
+| Docker Compose  | Orquestación de servicios |
+| WSL / Ubuntu    | Entorno Linux             |
+| DBeaver         | Administración multimotor |
+| MySQL Workbench | Verificación MySQL        |
+| pgAdmin 4       | Verificación PostgreSQL   |
+| SSMS            | Verificación SQL Server   |
+| SQL Developer   | Verificación Oracle       |
+| Git / GitHub    | Control de versiones      |
+
+---
+
+## Autor
 
 **Jairo de Jesús Varón Hernández**
 
-Proyecto académico — Ingeniería de Sistemas
+Ingeniería de Sistemas
+Universidad de La Guajira
+2026
