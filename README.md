@@ -1,150 +1,171 @@
-# EnlaceExpress — Multimotor Database
+<!-- ==================== HEADER ==================== -->
 
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white)](https://www.docker.com/)
-[![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge\&logo=ubuntu\&logoColor=white)](https://ubuntu.com/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)](https://www.mysql.com/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-316192?style=for-the-badge\&logo=postgresql\&logoColor=white)](https://www.postgresql.org/)
-[![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-CC292B?style=for-the-badge\&logo=microsoftsqlserver\&logoColor=white)](https://www.microsoft.com/sql-server)
-[![Oracle](https://img.shields.io/badge/Oracle-XE%2021c-F80000?style=for-the-badge\&logo=oracle\&logoColor=white)](https://www.oracle.com/database/)
-[![DBeaver](https://img.shields.io/badge/DBeaver-372923?style=for-the-badge\&logo=dbeaver\&logoColor=white)](https://dbeaver.io/)
-[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)](https://git-scm.com/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/)
+<div align="center">
 
-> Proyecto académico de implementación, configuración, documentación y verificación de una base de datos multimotor para **EnlaceExpress**.
+<img src="https://capsule-render.vercel.app/api?type=waving&height=220&section=header&text=EnlaceExpress&fontSize=55&fontColor=FFFFFF&fontAlignY=38&desc=Multimotor%20Database%20%7C%20Base%20de%20Datos%20II&descAlignY=60&theme=tokyonight" width="100%"/>
 
----
+<br>
 
-## Contenido
+<img src="https://img.shields.io/badge/Proyecto-Académico-7C3AED?style=for-the-badge" alt="Proyecto académico"/>
+<img src="https://img.shields.io/badge/Base%20de%20Datos-II-2563EB?style=for-the-badge" alt="Base de Datos II"/>
+<img src="https://img.shields.io/badge/Estado-Completado-16A34A?style=for-the-badge" alt="Estado"/>
 
-- [EnlaceExpress — Multimotor Database](#enlaceexpress--multimotor-database)
-  - [Contenido](#contenido)
-  - [Descripción](#descripción)
-  - [Arquitectura general](#arquitectura-general)
-  - [Motores implementados](#motores-implementados)
-  - [Acceso rápido](#acceso-rápido)
-    - [Base de datos](#base-de-datos)
-    - [Documentación](#documentación)
-    - [Infraestructura](#infraestructura)
-  - [Base de datos](#base-de-datos-1)
-    - [Modelo de acceso](#modelo-de-acceso)
-  - [RBAC](#rbac)
-  - [Consultas avanzadas](#consultas-avanzadas)
-  - [Interfaces gráficas](#interfaces-gráficas)
-  - [Diagramas](#diagramas)
-  - [Infraestructura Docker](#infraestructura-docker)
-    - [Servicios](#servicios)
-  - [Documentación](#documentación-1)
-  - [Evidencias](#evidencias)
-  - [Estructura del repositorio](#estructura-del-repositorio)
-  - [Estado del proyecto](#estado-del-proyecto)
-  - [Entorno utilizado](#entorno-utilizado)
-  - [Autor](#autor)
+<br><br>
+
+<strong>Sistema de gestión de envíos, seguimiento y facturación</strong>
+
+<br>
+
+<em>Un mismo modelo lógico implementado en cuatro motores de bases de datos.</em>
+
+</div>
 
 ---
 
-## Descripción
+## Sobre el proyecto
 
-**EnlaceExpress** es un proyecto de base de datos desarrollado bajo un enfoque multimotor, utilizando la misma estructura lógica en cuatro sistemas gestores de bases de datos:
+**EnlaceExpress** es un proyecto académico desarrollado para la asignatura **Base de Datos II**.
 
-| Motor                | Versión | Esquema                   |
-| -------------------- | ------: | ------------------------- |
-| MySQL                |     8.0 | `enlace_express`          |
-| PostgreSQL           |      17 | `enlace_express / public` |
-| Microsoft SQL Server |    2022 | `enlace_express / dbo`    |
-| Oracle Database      |  XE 21c | `ENLACE_EXPRESS`          |
+El sistema representa una plataforma para empresas de mensajería y distribución, permitiendo administrar:
 
-El proyecto incluye:
+* Empresas y contactos.
+* Direcciones.
+* Envíos y paquetes.
+* Rutas y mensajeros.
+* Seguimiento de envíos.
+* Pruebas de entrega.
+* Tarifas y facturación.
+* Usuarios, roles y permisos.
+* Sesiones y autenticación.
+* Auditoría.
 
-* Diseño e implementación de **18 tablas**.
-* Claves primarias, foráneas y restricciones `UNIQUE`.
-* Relaciones entre entidades.
-* Control de usuarios y roles mediante RBAC.
-* Triggers de actualización y auditoría.
-* Datos de prueba.
-* Consultas SQL de diferentes niveles.
-* Diagramas entidad-relación.
-* Verificación mediante herramientas gráficas.
-* Contenedores Docker independientes para cada motor.
-* Documentación del proceso de implementación.
+El modelo fue implementado en:
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-17-4169E1?style=flat-square&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQL%20Server-2022-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white"/>
+<img src="https://img.shields.io/badge/Oracle-XE%2021c-F80000?style=flat-square&logo=oracle&logoColor=white"/>
+
+</div>
 
 ---
 
-## Arquitectura general
+## Características principales
 
-```mermaid
-flowchart TD
-    A["EnlaceExpress"] --> B["Base de datos multimotor"]
+<table align="center">
+<tr>
+<td align="center" width="25%">
 
-    B --> C["MySQL 8.0"]
-    B --> D["PostgreSQL 17"]
-    B --> E["SQL Server 2022"]
-    B --> F["Oracle XE 21c"]
+### **Envíos**
 
-    C --> G["DDL + Datos + Consultas"]
-    D --> H["DDL + Datos + Consultas"]
-    E --> I["DDL + Datos + Consultas"]
-    F --> J["DDL + Datos + Consultas"]
+Registro y gestión de envíos, paquetes y estados.
 
-    K["Docker / Docker Compose"] --> C
-    K --> D
-    K --> E
-    K --> F
+</td>
 
-    L["DBeaver"] --> C
-    L --> D
-    L --> E
-    L --> F
+<td align="center" width="25%">
+
+### **Tracking**
+
+Seguimiento mediante eventos, ubicación y estados.
+
+</td>
+
+<td align="center" width="25%">
+
+### **Facturación**
+
+Tarifas, facturas y estados de facturación.
+
+</td>
+
+<td align="center" width="25%">
+
+### **RBAC**
+
+Usuarios, roles, recursos y permisos.
+
+</td>
+</tr>
+</table>
+
+---
+
+## Arquitectura del proyecto
+
+```text
+                         ┌───────────────────────┐
+                         │     ENLACEEXPRESS      │
+                         │   Sistema de envíos   │
+                         └───────────┬───────────┘
+                                     │
+                  ┌──────────────────┼─────────────────┐
+                  │                  │                 │
+                  ▼                  ▼                 ▼
+              OPERACIÓN          SEGURIDAD        FACTURACIÓN
+                  │                  │                 │
+        ┌─────────┼─────────┐        │         ┌───────┴───────┐
+        │         │         │        │         │               │
+      Envíos   Paquetes  Tracking   RBAC     Tarifas       Facturas
+        │         │         │        │
+        └─────────┼─────────┘        │
+                  │                  │
+                  ▼                  ▼
+             PostgreSQL           Usuarios
+             MySQL                Roles
+             SQL Server           Recursos
+             Oracle               Sesiones
 ```
 
 ---
 
-## Motores implementados
+## Cuatro motores, un mismo modelo
 
-| Motor           |    Estado    | DDL                                                          | Datos                                                 | Documentación                           |
-| --------------- | :----------: | ------------------------------------------------------------ | ----------------------------------------------------- | --------------------------------------- |
-| MySQL 8.0       | `COMPLETADO` | [DDL](database/mysql/enlace_express_mysql_ddl.sql)           | [Inserts](database/mysql/inserts_mysql.sql)           | [README](database/mysql/README.md)      |
-| PostgreSQL 17   | `COMPLETADO` | [DDL](database/postgresql/enlace_express_postgresql_ddl.sql) | [Inserts](database/postgresql/inserts_postgresql.sql) | [README](database/postgresql/README.md) |
-| SQL Server 2022 | `COMPLETADO` | [DDL](database/sql-server/enlace_express_sqlserver_ddl.sql)  | [Inserts](database/sql-server/inserts_sqlserver.sql)  | [README](database/sql-server/README.md) |
-| Oracle XE 21c   | `COMPLETADO` | [DDL](database/oracle/enlace_express_oracle_ddl.sql)         | [Inserts](database/oracle/inserts_oracle.sql)         | [README](database/oracle/README.md)     |
+<div align="center">
 
----
+|     | Motor          | Versión | Esquema          |
+| :-: | -------------- | :-----: | ---------------- |
+|  🐬 | **MySQL**      |   8.0   | `enlace_express` |
+|  🐘 | **PostgreSQL** |    17   | `enlace_express` |
+|  🪟 | **SQL Server** |   2022  | `dbo`            |
+|  🔴 | **Oracle**     |  XE 21c | `ENLACE_EXPRESS` |
 
-## Acceso rápido
+</div>
 
-### Base de datos
+### Adaptación por motor
 
-| Recurso                                        | Descripción                     |
-| ---------------------------------------------- | ------------------------------- |
-| [`database/`](database/)                       | Scripts SQL y archivos de datos |
-| [`database/mysql/`](database/mysql/)           | Implementación MySQL            |
-| [`database/postgresql/`](database/postgresql/) | Implementación PostgreSQL       |
-| [`database/sql-server/`](database/sql-server/) | Implementación SQL Server       |
-| [`database/oracle/`](database/oracle/)         | Implementación Oracle           |
+```text
+                    MODELO LÓGICO
+                          │
+            ┌─────────────┼─────────────┐
+            │             │             │
+            ▼             ▼             ▼
+         MySQL       PostgreSQL    SQL Server
+            │             │             │
+            │             └──────┬──────┘
+            │                    │
+            └────────────┬───────┘
+                         ▼
+                       Oracle
 
-### Documentación
-
-| Documento                                                    | Descripción                               |
-| ------------------------------------------------------------ | ----------------------------------------- |
-| [`docs/PROCESO.md`](docs/PROCESO.md)                         | Proceso general del proyecto              |
-| [`docs/GUI.md`](docs/GUI.md)                                 | Verificación mediante interfaces gráficas |
-| [`docs/CONSULTAS-AVANZADAS.md`](docs/CONSULTAS-AVANZADAS.md) | Consultas SQL realizadas                  |
-| [`docs/contexto/`](docs/contexto/)                           | Contexto y definición del proyecto        |
-| [`docs/informes/`](docs/informes/)                           | Informes académicos                       |
-| [`docs/semanas/`](docs/semanas/)                             | Metodología y trabajo por semanas         |
-
-### Infraestructura
-
-| Recurso                                                                | Descripción                            |
-| ---------------------------------------------------------------------- | -------------------------------------- |
-| [`services/motores-bd/`](services/motores-bd/)                         | Servicios Docker de los cuatro motores |
-| [`services/motores-bd/start-all.sh`](services/motores-bd/start-all.sh) | Inicia todos los motores               |
-| [`services/motores-bd/stop-all.sh`](services/motores-bd/stop-all.sh)   | Detiene todos los motores              |
+       Misma lógica + adaptación del dialecto SQL
+```
 
 ---
 
-## Base de datos
+## Modelo de datos
 
-La estructura principal está compuesta por **18 tablas**:
+El sistema está compuesto por **18 tablas**.
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/18-Tablas-6366F1?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/4-Motores-0891B2?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/6-Roles-F59E0B?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/16-Casos%20de%20uso-10B981?style=for-the-badge"/>
+
+</div>
 
 ```text
 auditoria
@@ -167,345 +188,527 @@ tarifas
 users
 ```
 
-### Modelo de acceso
-
-```mermaid
-erDiagram
-    USERS ||--o{ ROLE_USERS : asigna
-    ROLES ||--o{ ROLE_USERS : contiene
-
-    ROLES ||--o{ RESOURCE_ROLES : permite
-    RESOURCES ||--o{ RESOURCE_ROLES : protege
-
-    USERS ||--o{ REFRESH_TOKENS : genera
-
-    EMPRESAS ||--o{ CONTACTOS : posee
-    EMPRESAS ||--o{ DIRECCIONES : registra
-    EMPRESAS ||--o{ ENVIOS : realiza
-
-    ENVIOS ||--o{ PAQUETES : contiene
-    ENVIOS ||--o{ EVENTOS_TRACKING : registra
-    ENVIOS ||--o{ PRUEBAS_ENTREGA : genera
-    ENVIOS ||--o| FACTURAS : factura
-
-    MENSAJEROS ||--o{ ENVIOS : transporta
-    RUTAS ||--o{ ENVIOS : utiliza
-    TARIFAS ||--o{ ENVIOS : aplica
-```
-
----
-
-## RBAC
-
-El proyecto incorpora un modelo de **control de acceso basado en roles (RBAC)**.
-
-```mermaid
-flowchart LR
-    U["users"] --> RU["role_users"]
-    RU --> R["roles"]
-
-    R --> RR["resource_roles"]
-    RR --> RE["resources"]
-
-    U --> RT["refresh_tokens"]
-```
-
-Roles utilizados:
-
-| Rol               |
-| ----------------- |
-| `ADMIN`           |
-| `CLIENTE_EMPRESA` |
-| `DESPACHO`        |
-| `MENSAJERO`       |
-| `FACTURACION`     |
-| `OPERADOR`        |
-
----
-
-## Consultas avanzadas
-
-Las consultas están organizadas por motor dentro de:
-
-[`docs/CONSULTAS-AVANZADAS.md`](docs/CONSULTAS-AVANZADAS.md)
-
-También se encuentran las evidencias individuales:
+### Relaciones principales
 
 ```text
-evidencias/
-└── 11-consultas-avanzadas/
-    ├── 01-mysql/
-    ├── 02-postgresql/
-    ├── 03-sql-server/
-    └── 04-oracle/
+EMPRESAS
+ ├── CONTACTOS
+ ├── DIRECCIONES
+ ├── ENVIOS
+ └── FACTURAS
+
+ENVIOS
+ ├── PAQUETES
+ ├── EVENTOS_TRACKING
+ ├── PRUEBAS_ENTREGA
+ ├── RUTAS
+ ├── MENSAJEROS
+ └── TARIFAS
+
+USERS
+ ├── ROLE_USERS ─── ROLES
+ │                    │
+ │                    └── RESOURCE_ROLES ─── RESOURCES
+ │
+ └── REFRESH_TOKENS
+
+AUDITORIA
 ```
 
-Se trabajaron operaciones como:
+**Modelo completo:** [`docs/DOMINIO.md`](docs/DOMINIO.md)
 
-* `SELECT`
-* `WHERE`
-* `AND / IN`
-* `BETWEEN`
-* `LIKE`
-* `ORDER BY`
-* `COUNT`
-* `SUM`
-* `AVG`
-* `MIN / MAX`
-* `GROUP BY`
-* `HAVING`
-* `JOIN`
-* `LEFT JOIN`
-* Subconsultas
-* `EXISTS`
-* `CASE`
-* `COALESCE`
-* CTE
-* Funciones de ventana
-* `RANK`
-* `ROW_NUMBER`
-* `UNION`
+**Diagramas ER:** `evidencias/13-diagramas/`
+
+> Los diagramas se mantienen como evidencia independiente para cada motor y no se cargan directamente en este README.
 
 ---
 
-## Interfaces gráficas
+## Control de acceso RBAC
 
-La estructura de la base de datos fue revisada mediante los gestores gráficos correspondientes:
+EnlaceExpress utiliza un modelo de **Role-Based Access Control**.
 
-| Motor      | Herramienta                  |
-| ---------- | ---------------------------- |
-| MySQL      | MySQL Workbench              |
-| PostgreSQL | pgAdmin 4                    |
-| SQL Server | SQL Server Management Studio |
-| Oracle     | Oracle SQL Developer         |
-| Multimotor | DBeaver                      |
+<div align="center">
 
-La documentación completa de esta verificación se encuentra en:
+<img src="https://img.shields.io/badge/ADMIN-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/CLIENTE_EMPRESA-2563EB?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/DESPACHO-0891B2?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/MENSAJERO-059669?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/FACTURACION-D97706?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/OPERADOR-DC2626?style=for-the-badge"/>
 
-[**GUI.md — Verificación de estructuras y tablas**](docs/GUI.md)
-
-Las evidencias están organizadas en:
+</div>
 
 ```text
-evidencias/
-├── 02-mysql/
-├── 03-postgresql/
-├── 04-sql-server/
-├── 05-oracle/
-├── 07-dbeaver/
-└── 12-GUI/
+                    ┌──────────────┐
+                    │    USERS     │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │  ROLE_USERS   │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │    ROLES     │
+                    └──────┬───────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │  RESOURCE_ROLES   │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │   RESOURCES  │
+                    └──────────────┘
 ```
 
 ---
 
-## Diagramas
-
-Cada motor cuenta con su propio diagrama entidad-relación:
+## Flujo principal del sistema
 
 ```text
-evidencias/
-└── 13-diagramas/
-    ├── mysql/
-    │   └── ER-diagram.jpg
-    ├── postgresql/
-    │   └── ER-diagram.jpg
-    ├── sql-server/
-    │   └── ER-diagram.jpg
-    └── oracle/
-        └── ER-diagram.jpg
+┌───────────────┐
+│    EMPRESA    │
+└───────┬───────┘
+        │
+        │ Solicita envío
+        ▼
+┌───────────────┐
+│     ENVÍO     │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│   ASIGNACIÓN  │
+│    DE RUTA    │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│   MENSAJERO   │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│   TRACKING    │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│    PAQUETE    │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│    ENTREGA    │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│    FACTURA    │
+└───────────────┘
 ```
 
-| Motor      | Diagrama                                                            |
-| ---------- | ------------------------------------------------------------------- |
-| MySQL      | [Ver ER Diagram](evidencias/13-diagramas/mysql/ER-diagram.jpg)      |
-| PostgreSQL | [Ver ER Diagram](evidencias/13-diagramas/postgresql/ER-diagram.jpg) |
-| SQL Server | [Ver ER Diagram](evidencias/13-diagramas/sql-server/ER-diagram.jpg) |
-| Oracle     | [Ver ER Diagram](evidencias/13-diagramas/oracle/ER-diagram.jpg)     |
+---
+
+## Estados del sistema
+
+### Envíos
+
+<div align="center">
+
+`CREADO` → `ASIGNADO` → `EN_RECOGIDA` → `EN_TRANSITO` → `EN_ENTREGA` → `ENTREGADO`
+
+</div>
+
+Estados adicionales:
+
+`CANCELADO` · `CON_NOVEDAD`
+
+### Paquetes
+
+`REGISTRADO` · `EN_TRANSITO` · `ENTREGADO` · `DEVUELTO` · `CON_NOVEDAD`
+
+### Facturas
+
+`PENDIENTE` · `EMITIDA` · `PAGADA` · `ANULADA` · `VENCIDA`
+
+### Prioridades
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/BAJA-94A3B8?style=flat-square"/>
+<img src="https://img.shields.io/badge/NORMAL-3B82F6?style=flat-square"/>
+<img src="https://img.shields.io/badge/ALTA-F59E0B?style=flat-square"/>
+<img src="https://img.shields.io/badge/URGENTE-EF4444?style=flat-square"/>
+
+</div>
+
+---
+
+## Tecnologías y herramientas
+
+### Bases de datos
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=mysql,postgres,oracle" height="55"/>
+
+</div>
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white"/>
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+<img src="https://img.shields.io/badge/DBeaver-382923?style=for-the-badge&logo=dbeaver&logoColor=white"/>
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+
+</div>
+
+### Herramientas gráficas
+
+```text
+DBeaver
+├── MySQL
+├── PostgreSQL
+├── SQL Server
+└── Oracle
+
+Herramientas nativas
+├── MySQL Workbench
+├── pgAdmin 4
+├── SQL Server Management Studio
+└── Oracle SQL Developer
+```
 
 ---
 
 ## Infraestructura Docker
 
-Los cuatro motores se ejecutan mediante contenedores independientes.
-
-```mermaid
-flowchart TB
-    A["WSL / Ubuntu"] --> B["Docker"]
-
-    B --> C["MySQL"]
-    B --> D["PostgreSQL"]
-    B --> E["SQL Server"]
-    B --> F["Oracle"]
-
-    C --> C1["3306"]
-    D --> D1["5432"]
-    E --> E1["1433"]
-    F --> F1["1521"]
-```
-
-### Servicios
-
-| Servicio   | Puerto |
-| ---------- | -----: |
-| MySQL      | `3306` |
-| PostgreSQL | `5432` |
-| SQL Server | `1433` |
-| Oracle     | `1521` |
-
-Los archivos de configuración se encuentran en:
+Los motores están separados en servicios independientes:
 
 ```text
-services/motores-bd/
-├── mysql/
-├── postgres/
-├── mssql/
-├── oracle/
-├── start-all.sh
-├── stop-all.sh
-└── README.md
+services/
+└── motores-bd/
+    ├── mysql/
+    │   └── docker-compose.yml
+    │
+    ├── postgres/
+    │   └── docker-compose.yml
+    │
+    ├── mssql/
+    │   └── docker-compose.yml
+    │
+    ├── oracle/
+    │   └── docker-compose.yml
+    │
+    ├── start-all.sh
+    └── stop-all.sh
+```
+
+### Flujo de infraestructura
+
+```text
+               Docker
+                 │
+      ┌──────────┼──────────┐
+      │          │          │
+      ▼          ▼          ▼
+    MySQL    PostgreSQL   SQL Server
+      │          │          │
+      └──────────┼──────────┘
+                 │
+                 ▼
+               Oracle
 ```
 
 ---
 
-## Documentación
+## Consultas avanzadas
 
-El repositorio mantiene separadas la implementación, las evidencias y la documentación:
+Se implementaron consultas para comprobar el funcionamiento del modelo en los cuatro motores.
 
-```mermaid
-flowchart LR
-    A["Proyecto"] --> B["database"]
-    A --> C["docs"]
-    A --> D["evidencias"]
-    A --> E["services"]
+<div align="center">
 
-    B --> B1["DDL"]
-    B --> B2["Inserts"]
-    B --> B3["CSV"]
+<img src="https://img.shields.io/badge/38-Consultas-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/4-Motores-0891B2?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/SQL-Avanzado-059669?style=for-the-badge"/>
 
-    C --> C1["Informes"]
-    C --> C2["Consultas"]
-    C --> C3["Proceso"]
+</div>
 
-    D --> D1["Capturas"]
-    D --> D2["Diagramas"]
+Incluyen:
 
-    E --> E1["Docker Compose"]
-    E --> E2["Scripts"]
+```text
+SELECT / WHERE / IN / BETWEEN / LIKE
+ORDER BY
+COUNT / SUM / AVG
+GROUP BY / HAVING
+JOIN
+Subconsultas
+EXISTS
+CASE
+COALESCE
+CTE
+RANK
+ROW_NUMBER
+RBAC
+UNION
 ```
+
+**Documento:** [`docs/CONSULTAS-AVANZADAS.md`](docs/CONSULTAS-AVANZADAS.md)
+
+**Evidencias:** `evidencias/11-consultas-avanzadas/`
 
 ---
 
-## Evidencias
+## Casos de uso
 
-Las evidencias están organizadas por etapas:
+El proyecto cuenta con **16 casos de uso**.
 
 ```text
-evidencias/
-├── 01-proyecto
-├── 02-mysql
-├── 03-postgresql
-├── 04-sql-server
-├── 05-oracle
-├── 06-entorno-general
-├── 07-dbeaver
-├── 08-persistencia
-├── 09-backups
-├── 10-verificacion-final
-├── 11-consultas-avanzadas
-├── 12-GUI
-└── 13-diagramas
+Usuarios y roles
+├── Gestionar usuarios
+├── Gestionar roles
+└── Gestionar recursos
+
+Envíos
+├── Registrar envío
+├── Consultar envío
+├── Asignar mensajero
+└── Gestionar rutas
+
+Seguimiento
+├── Registrar evento de tracking
+└── Consultar seguimiento
+
+Entregas
+├── Gestionar paquetes
+└── Registrar prueba de entrega
+
+Facturación
+├── Gestionar tarifas
+├── Generar factura
+└── Consultar factura
+
+Administración
+├── Consultar auditoría
+└── Gestionar sesión y autenticación
 ```
 
-Esto permite consultar de manera independiente la configuración, ejecución, persistencia, consultas, interfaces gráficas y verificación de cada motor.
+**Documento:** [`docs/CASOS-DE-USO.md`](docs/CASOS-DE-USO.md)
+
+**Evidencias:** `evidencias/14-casos-de-uso/`
 
 ---
 
 ## Estructura del repositorio
 
 ```text
-bdii-2026ii-jairovaron404/
+EnlaceExpress/
 │
-├── database/
+├── 📁 database/
 │   ├── mysql/
 │   ├── postgresql/
 │   ├── sql-server/
 │   └── oracle/
 │
-├── docs/
-│   ├── contexto/
-│   ├── informes/
-│   └── semanas/
-│
-├── evidencias/
-│   ├── configuracion/
-│   ├── consultas/
-│   ├── GUI/
-│   └── diagramas/
-│
-├── services/
+├── 📁 services/
 │   └── motores-bd/
 │
-├── .gitignore
-└── README.md
+├── 📁 docs/
+│   ├── 📄 DOMINIO.md
+│   ├── 📄 CASOS-DE-USO.md
+│   ├── 📄 CONSULTAS-AVANZADAS.md
+│   ├── 📄 REPOSITORIOS.md
+│   ├── 📄 GUI.md
+│   ├── 📄 PROCESO.md
+│   ├── 📁 contexto/
+│   ├── 📁 informes/
+│   └── 📁 semanas/
+│
+├── 📁 evidencias/
+│   ├── 01-proyecto/
+│   ├── 02-mysql/
+│   ├── 03-postgresql/
+│   ├── 04-sql-server/
+│   ├── 05-oracle/
+│   ├── 06-entorno-general/
+│   ├── 07-dbeaver/
+│   ├── 08-persistencia/
+│   ├── 09-backups/
+│   ├── 10-verificacion-final/
+│   ├── 11-consultas-avanzadas/
+│   ├── 12-GUI/
+│   ├── 13-diagramas/
+│   ├── 14-casos-de-uso/
+│   └── 15-repositorios/
+│
+├── 📄 .gitignore
+└── 📄 README.md
 ```
+
+---
+
+## Documentación
+
+<div align="center">
+
+|                       Documento                       | Contenido                   |
+| :---------------------------------------------------: | --------------------------- |
+|                [Dominio](docs/DOMINIO.md)             | Modelo y reglas del sistema |
+|           [Casos de uso](docs/CASOS-DE-USO.md)        | Funcionalidades principales |
+|    [Consultas avanzadas](docs/CONSULTAS-AVANZADAS.md) | Consultas SQL               |
+|           [Repositorios](docs/REPOSITORIOS.md)        | Organización del proyecto   |
+|                     [GUI](docs/GUI.md)                | Herramientas gráficas       |
+|                [Proceso](docs/PROCESO.md)             | Bitácora del proyecto       |
+|                [Informes](docs/informes/)             | Informes académicos         |
+|                 [Semanas](docs/semanas/)              | Trabajo por semanas         |
+
+</div>
+
+---
+
+## Evidencias
+
+Toda la evidencia se encuentra organizada dentro de:
+
+```text
+evidencias/
+```
+
+### Principales grupos
+
+```text
+01 → Proyecto
+02 → MySQL
+03 → PostgreSQL
+04 → SQL Server
+05 → Oracle
+06 → Entorno general
+07 → DBeaver
+08 → Persistencia
+09 → Backups
+10 → Verificación final
+11 → Consultas avanzadas
+12 → Herramientas GUI
+13 → Diagramas
+14 → Casos de uso
+15 → Repositorios
+```
+
+**Diagramas ER:** `evidencias/13-diagramas/`
+
+**Evidencias GUI:** `evidencias/12-GUI/`
+
+**Consultas:** `evidencias/11-consultas-avanzadas/`
 
 ---
 
 ## Estado del proyecto
 
-| Componente              |    Estado    |
-| ----------------------- | :----------: |
-| MySQL 8.0               | `COMPLETADO` |
-| PostgreSQL 17           | `COMPLETADO` |
-| SQL Server 2022         | `COMPLETADO` |
-| Oracle XE 21c           | `COMPLETADO` |
-| Estructura de 18 tablas | `COMPLETADO` |
-| Datos de prueba         | `COMPLETADO` |
-| RBAC                    | `COMPLETADO` |
-| Triggers                | `COMPLETADO` |
-| Consultas SQL           | `COMPLETADO` |
-| Diagramas ER            | `COMPLETADO` |
-| Verificación GUI        | `COMPLETADO` |
-| Docker Compose          | `COMPLETADO` |
-| Persistencia            | `COMPLETADO` |
-| Backups                 | `COMPLETADO` |
-| Documentación           | `COMPLETADO` |
+<div align="center">
+
+| Componente          | Estado |
+| :------------------ | :----: |
+| Modelo lógico       |    ✅   |
+| MySQL               |    ✅   |
+| PostgreSQL          |    ✅   |
+| SQL Server          |    ✅   |
+| Oracle              |    ✅   |
+| Datos de prueba     |    ✅   |
+| Consultas avanzadas |    ✅   |
+| RBAC                |    ✅   |
+| Diagramas ER        |    ✅   |
+| Casos de uso        |    ✅   |
+| Evidencias          |    ✅   |
+| Documentación       |    ✅   |
+| Docker              |    ✅   |
+
+</div>
 
 ---
 
-## Entorno utilizado
+## Metodología
+
+El desarrollo utiliza **MIRIA — Integración Responsable de IA para el Aprendizaje** como apoyo para organizar y documentar el proceso.
+
+La documentación registra:
 
 ```text
-Sistema operativo
-└── Windows 11
-    └── WSL / Ubuntu
-        └── Docker
-            ├── MySQL 8.0
-            ├── PostgreSQL 17
-            ├── SQL Server 2022
-            └── Oracle XE 21c
+Objetivos
+   ↓
+Requisitos
+   ↓
+Implementación
+   ↓
+Pruebas
+   ↓
+Evidencias
+   ↓
+Verificación humana
+   ↓
+Documentación
 ```
 
-Herramientas principales:
+📄 [`docs/PROCESO.md`](docs/PROCESO.md)
 
-| Herramienta     | Uso                       |
-| --------------- | ------------------------- |
-| Docker          | Contenedores              |
-| Docker Compose  | Orquestación de servicios |
-| WSL / Ubuntu    | Entorno Linux             |
-| DBeaver         | Administración multimotor |
-| MySQL Workbench | Verificación MySQL        |
-| pgAdmin 4       | Verificación PostgreSQL   |
-| SSMS            | Verificación SQL Server   |
-| SQL Developer   | Verificación Oracle       |
-| Git / GitHub    | Control de versiones      |
+---
+
+## Resumen del proyecto
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/18-Tablas-6366F1?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/4-Motores-0891B2?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/38-Consultas-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/16-Casos%20de%20uso-10B981?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/6-Roles-F59E0B?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
+
+</div>
+
+```text
+                ENLACEEXPRESS
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+        ▼            ▼            ▼
+     MODELO        DATOS       EVIDENCIAS
+        │            │            │
+        └────────────┼────────────┘
+                     │
+                     ▼
+             4 MOTORES SQL
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+      MySQL     PostgreSQL    SQL Server
+                     │
+                     ▼
+                   Oracle
+```
 
 ---
 
 ## Autor
 
-**Jairo de Jesús Varón Hernández**
+<div align="center">
 
-Ingeniería de Sistemas
+### Jairo Varón
+
+**Ingeniería de Sistemas**
 Universidad de La Guajira
-2026
+
+Base de Datos II
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&theme=tokyonight" width="100%"/>
+
+</div>
