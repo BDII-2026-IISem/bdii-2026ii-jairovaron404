@@ -26,3 +26,6 @@ backend/.coverage
 backend/htmlcov/
 backend/staticfiles/
 backend/media/
+
+# Respaldos locales de configuracion inicial
+/backend/.iss01-backup/
