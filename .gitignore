@@ -17,3 +17,12 @@
 
 # Datos persistentes
 data/
+backend/.venv/
+**/__pycache__/
+*.py[cod]
+*.log
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/staticfiles/
+backend/media/
