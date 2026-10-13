@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "drf_spectacular",
+    "api.apps.ApiConfig",
 ]
 
 MIDDLEWARE = [
@@ -115,3 +118,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # En desarrollo, los correos se imprimen en la consola.
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ],
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "EnlaceExpress API",
+    "DESCRIPTION": "API de consulta para la plataforma de logística EnlaceExpress.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
