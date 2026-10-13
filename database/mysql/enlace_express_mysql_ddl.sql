@@ -144,7 +144,7 @@ CREATE TABLE `envios` (
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`admin`@`%`*/ /*!50003 TRIGGER `after_envio_insert` AFTER INSERT ON `envios` FOR EACH ROW INSERT INTO auditoria (
+/*!50003 CREATE*/ /*!50003 TRIGGER `after_envio_insert` AFTER INSERT ON `envios` FOR EACH ROW INSERT INTO auditoria (
     tabla_afectada,
     registro_id,
     accion,
@@ -170,7 +170,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`admin`@`%`*/ /*!50003 TRIGGER `after_envio_update` AFTER UPDATE ON `envios` FOR EACH ROW INSERT INTO auditoria (
+/*!50003 CREATE*/ /*!50003 TRIGGER `after_envio_update` AFTER UPDATE ON `envios` FOR EACH ROW INSERT INTO auditoria (
     tabla_afectada,
     registro_id,
     accion,
@@ -303,7 +303,7 @@ CREATE TABLE `paquetes` (
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`admin`@`%`*/ /*!50003 TRIGGER `after_paquete_insert` AFTER INSERT ON `paquetes` FOR EACH ROW INSERT INTO auditoria (
+/*!50003 CREATE*/ /*!50003 TRIGGER `after_paquete_insert` AFTER INSERT ON `paquetes` FOR EACH ROW INSERT INTO auditoria (
     tabla_afectada,
     registro_id,
     accion,
@@ -518,7 +518,7 @@ CREATE TABLE `users` (
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`admin`@`%` PROCEDURE `buscar_envio`(IN p_referencia VARCHAR(100))
+CREATE PROCEDURE `buscar_envio`(IN p_referencia VARCHAR(100))
 SELECT *
 FROM envios
 WHERE referencia = p_referencia ;;
@@ -537,8 +537,8 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`admin`@`%` PROCEDURE `envios_por_empresa`(IN p_empresa_id INT)
-SELECT 
+CREATE PROCEDURE `envios_por_empresa`(IN p_empresa_id INT)
+SELECT
     id,
     referencia,
     descripcion,
@@ -563,7 +563,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`admin`@`%` PROCEDURE `registrar_evento_tracking`(
+CREATE PROCEDURE `registrar_evento_tracking`(
     IN p_envio_id INT,
     IN p_mensajero_id INT,
     IN p_estado VARCHAR(30),

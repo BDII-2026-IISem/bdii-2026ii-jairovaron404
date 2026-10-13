@@ -2,7 +2,6 @@
 -- PostgreSQL database dump
 --
 
-\restrict 8mU6JGVwsJ3rVPaAAkjQHIHn38KTILbSUUKJdLU8wWrnTOjjtRnFYfuMDzhhax2
 
 -- Dumped from database version 17.11 (Debian 17.11-1.pgdg13+2)
 -- Dumped by pg_dump version 17.11 (Debian 17.11-1.pgdg13+2)
@@ -25,8 +24,6 @@ SET row_security = off;
 
 -- *not* creating schema, since initdb creates it
 
-
-ALTER SCHEMA public OWNER TO postgres;
 
 --
 -- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
@@ -162,8 +159,6 @@ END;
 $$;
 
 
-ALTER FUNCTION public.actualizar_updated_at() OWNER TO postgres;
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -181,8 +176,6 @@ CREATE TABLE public.auditoria (
     fecha_evento timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.auditoria OWNER TO postgres;
 
 --
 -- Name: auditoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -213,8 +206,6 @@ CREATE TABLE public.contactos (
 );
 
 
-ALTER TABLE public.contactos OWNER TO postgres;
-
 --
 -- Name: contactos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -244,8 +235,6 @@ CREATE TABLE public.direcciones (
 );
 
 
-ALTER TABLE public.direcciones OWNER TO postgres;
-
 --
 -- Name: direcciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -274,8 +263,6 @@ CREATE TABLE public.empresas (
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.empresas OWNER TO postgres;
 
 --
 -- Name: empresas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -315,8 +302,6 @@ CREATE TABLE public.envios (
 );
 
 
-ALTER TABLE public.envios OWNER TO postgres;
-
 --
 -- Name: envios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -348,8 +333,6 @@ CREATE TABLE public.eventos_tracking (
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.eventos_tracking OWNER TO postgres;
 
 --
 -- Name: eventos_tracking_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -386,8 +369,6 @@ CREATE TABLE public.facturas (
 );
 
 
-ALTER TABLE public.facturas OWNER TO postgres;
-
 --
 -- Name: facturas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -415,8 +396,6 @@ CREATE TABLE public.mensajeros (
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.mensajeros OWNER TO postgres;
 
 --
 -- Name: mensajeros_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -453,8 +432,6 @@ CREATE TABLE public.paquetes (
 );
 
 
-ALTER TABLE public.paquetes OWNER TO postgres;
-
 --
 -- Name: paquetes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -487,8 +464,6 @@ CREATE TABLE public.pruebas_entrega (
 );
 
 
-ALTER TABLE public.pruebas_entrega OWNER TO postgres;
-
 --
 -- Name: pruebas_entrega_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -516,8 +491,6 @@ CREATE TABLE public.refresh_tokens (
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.refresh_tokens OWNER TO postgres;
 
 --
 -- Name: refresh_tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -547,8 +520,6 @@ CREATE TABLE public.resource_roles (
 );
 
 
-ALTER TABLE public.resource_roles OWNER TO postgres;
-
 --
 -- Name: resource_roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -577,8 +548,6 @@ CREATE TABLE public.resources (
 );
 
 
-ALTER TABLE public.resources OWNER TO postgres;
-
 --
 -- Name: resources_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -605,8 +574,6 @@ CREATE TABLE public.role_users (
 );
 
 
-ALTER TABLE public.role_users OWNER TO postgres;
-
 --
 -- Name: role_users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -631,8 +598,6 @@ CREATE TABLE public.roles (
     is_active public.estado_rol DEFAULT 'ACTIVE'::public.estado_rol NOT NULL
 );
 
-
-ALTER TABLE public.roles OWNER TO postgres;
 
 --
 -- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -661,8 +626,6 @@ CREATE TABLE public.rutas (
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP
 );
 
-
-ALTER TABLE public.rutas OWNER TO postgres;
 
 --
 -- Name: rutas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -693,8 +656,6 @@ CREATE TABLE public.tarifas (
 );
 
 
-ALTER TABLE public.tarifas OWNER TO postgres;
-
 --
 -- Name: tarifas_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -722,8 +683,6 @@ CREATE TABLE public.users (
     avatar character varying(255)
 );
 
-
-ALTER TABLE public.users OWNER TO postgres;
 
 --
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -1330,6 +1289,3 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-
-\unrestrict 8mU6JGVwsJ3rVPaAAkjQHIHn38KTILbSUUKJdLU8wWrnTOjjtRnFYfuMDzhhax2
-

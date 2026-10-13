@@ -372,20 +372,20 @@ Los cuatro motores cuentan con datos cargados sobre el modelo de EnlaceExpress, 
 
 Después de implementar las estructuras y cargar los datos en los cuatro motores, se desarrolló una etapa específica de consultas SQL avanzadas.
 
-Se definieron y ejecutaron **38 consultas en cada motor de base de datos**.
+Se documentaron consultas SQL avanzadas para los cuatro motores de bases de datos. El inventario actual de archivos contiene 39 bloques de consulta para MySQL y 38 para cada uno de los otros tres motores.
 
-En total se trabajó con:
+El registro histórico del proyecto indica 152 ejecuciones documentadas. Este dato se conserva como registro de la etapa anterior y queda pendiente de conciliación con el inventario actual.
 
-```text
-38 consultas × 4 motores = 152 ejecuciones
-```
+Inventario actual de bloques de consulta:
 
-Los motores utilizados fueron:
+- MySQL: 39.
+- PostgreSQL: 38.
+- SQL Server: 38.
+- Oracle XE: 38.
 
-* MySQL.
-* PostgreSQL.
-* SQL Server.
-* Oracle XE.
+Total: 153 bloques de consulta documentados.
+
+**Nota:** la cantidad de bloques o archivos de evidencia no demuestra por sí sola el número de ejecuciones realizadas.
 
 ## Propósito
 
@@ -444,7 +444,7 @@ Por esta razón, las consultas fueron verificadas de manera independiente en cad
 
 ## Documentación
 
-Las 38 consultas se documentaron en:
+Las consultas SQL avanzadas se documentaron en:
 
 ```text
 docs/CONSULTAS-AVANZADAS.md
@@ -470,11 +470,11 @@ evidencias/11-consultas-avanzadas/
 └── 04-oracle/
 ```
 
-Cada directorio contiene las capturas correspondientes a las consultas ejecutadas.
+El inventario actual contiene 39 archivos en MySQL y 38 en cada uno de los otros tres motores. La cantidad de archivos debe distinguirse del número de ejecuciones verificadas.
 
 ## Resultado
 
-Se completó la ejecución y documentación de las 38 consultas para los cuatro motores, obteniendo evidencias de los resultados.
+El registro histórico documenta 38 consultas por motor y 152 ejecuciones. El inventario actual contiene 153 bloques de consulta, por lo que queda pendiente conciliar esta diferencia con las consultas y evidencias disponibles.
 
 Esta etapa permitió comprobar el comportamiento de los datos y aplicar diferentes operaciones de SQL sobre el modelo implementado.
 
@@ -606,7 +606,9 @@ Posteriormente se ejecutaron consultas para comprobar:
 
 ## 12.5 Verificación de consultas avanzadas
 
-Se ejecutaron 38 consultas en cada motor.
+El registro histórico de la etapa de consultas SQL avanzadas documenta 38 consultas por motor, para un total de 152 ejecuciones. El inventario actual de archivos contiene 153 bloques de consulta: 39 para MySQL y 38 para cada uno de los otros tres motores. Esta diferencia queda pendiente de conciliación con los registros y las evidencias disponibles.
+
+Las consultas documentadas abarcan filtros, agregaciones, relaciones entre tablas, subconsultas, CTE, funciones de ventana y operaciones relacionadas con usuarios, roles, seguimiento y facturación.
 
 La verificación incluyó:
 
@@ -651,7 +653,53 @@ También existen evidencias específicas de respaldo para algunos motores.
 
 ---
 
+## 12.8 Verificación de triggers
+
+La revisión estática de los archivos DDL del proyecto identificó 33 definiciones de triggers:
+
+* MySQL: 3 triggers de auditoría.
+* PostgreSQL: 10 triggers para actualizar el campo `updated_at`.
+* SQL Server: 10 triggers para actualizar el campo `updated_at`.
+* Oracle: 10 triggers para actualizar el campo `updated_at`.
+
+### Comportamiento identificado en el código fuente
+
+**MySQL**
+* `after_envio_insert`: registra en `auditoria` la creación de un envío.
+* `after_envio_update`: registra cambios en el estado del envío únicamente cuando `OLD.estado` y `NEW.estado` son distintos.
+* `after_paquete_insert`: registra en `auditoria` la creación de un paquete.
+
+**PostgreSQL**
+* La función `public.actualizar_updated_at()` asigna `CURRENT_TIMESTAMP` a `NEW.updated_at`.
+* Diez triggers `BEFORE UPDATE` utilizan esta función en las tablas definidas en el DDL.
+
+**SQL Server**
+* Diez triggers `AFTER UPDATE` actualizan `updated_at` mediante `SYSDATETIME()`.
+* El código incluye una comprobación de `TRIGGER_NESTLEVEL()` y procesa las filas afectadas mediante `inserted`.
+
+**Oracle**
+* Diez triggers `BEFORE UPDATE`, definidos por fila, asignan `CURRENT_TIMESTAMP` a `:NEW.updated_at`.
+* El DDL incluye instrucciones para habilitar los triggers.
+
+### Alcance y estado de la verificación
+
+Este inventario corresponde a la revisión de los archivos DDL. Por sí solo, no demuestra que los triggers estén instalados en las cuatro bases de datos, que estén habilitados en el entorno de ejecución ni que sus efectos se hayan probado.
+
+Para considerar la verificación funcional completa, deben revisarse las definiciones existentes en cada motor y comprobarse sus efectos con pruebas controladas, registrando los resultados como evidencias. Estas pruebas deberán realizarse únicamente en un entorno de pruebas o después de autorizar expresamente las operaciones necesarias. No se deben ejecutar inserciones o actualizaciones de prueba sobre datos reales sin autorización y respaldo adecuados.
+
 # 13. Evidencias
+
+## Evidencias de verificación de triggers
+
+La revisión estática de los triggers se documenta en la sección 12.8. Las siguientes capturas existentes de auditoría pueden servir como material de referencia, pero su existencia no demuestra por sí sola que se haya probado el comportamiento de los triggers:
+
+* MySQL: `evidencias/12-GUI/01-mysql-workbench/01-auditoria.png`
+* PostgreSQL: `evidencias/12-GUI/02-postgresql-pgadmin-4/01-auditoria.png`
+* SQL Server: `evidencias/12-GUI/03-sql-server-ssms/01-auditoria.png`
+* Oracle: `evidencias/12-GUI/04-oracle-sql-developer/01-auditoria.png`
+
+Las pruebas funcionales pendientes deberán documentarse por motor, indicando el trigger revisado, el escenario probado, el resultado esperado, el resultado observado y la ubicación de la evidencia.
+
 
 Las evidencias fueron organizadas para facilitar su revisión.
 
@@ -723,7 +771,7 @@ evidencias/10-verificacion-final/
 evidencias/11-consultas-avanzadas/
 ```
 
-Esta carpeta contiene las evidencias de las 38 consultas realizadas en cada motor.
+Esta carpeta contiene el inventario de evidencias de consultas SQL avanzadas: 39 archivos para MySQL y 38 para cada uno de los otros tres motores. La cantidad de archivos no demuestra por sí sola el número de ejecuciones realizadas.
 
 ---
 
@@ -796,8 +844,8 @@ Actualmente se cuenta con:
 * Evidencias de herramientas nativas.
 * Evidencias de respaldos.
 * Evidencias de verificación.
-* 38 consultas SQL por motor.
-* 152 ejecuciones documentadas de consultas.
+* Inventario actual de consultas: 39 bloques MySQL y 38 bloques por cada uno de los otros tres motores (153 bloques en total; no equivale por sí solo a ejecuciones verificadas).
+* El registro existente documenta 152 ejecuciones; este conteo queda pendiente de conciliación con el inventario actual de 153 bloques y sus evidencias.
 * Evidencias de las consultas.
 * Documentación de las consultas avanzadas.
 * Metodología MIRIA.
@@ -953,7 +1001,7 @@ Consultas SQL avanzadas
         ↓
 Adaptación por motor
         ↓
-Ejecución de 38 consultas
+Ejecución y documentación de consultas SQL
         ↓
 Obtención de evidencias
         ↓
@@ -1002,7 +1050,7 @@ El proyecto EnlaceExpress cuenta actualmente con cuatro implementaciones funcion
 
 Después de implementar las estructuras, se realizó la inserción de datos en los cuatro motores y posteriormente se desarrolló una etapa de consultas SQL avanzadas.
 
-Se ejecutaron **38 consultas en cada motor**, para un total de **152 ejecuciones documentadas**, realizando las adaptaciones necesarias según las características de cada sistema.
+El registro histórico documenta **38 consultas por motor, para un total de 152 ejecuciones**. El inventario actual contiene 153 bloques de consulta: 39 para MySQL y 38 para cada uno de los otros tres motores. La diferencia queda pendiente de conciliación con los registros y evidencias disponibles.
 
 Las consultas permitieron trabajar con filtros, agregaciones, relaciones entre tablas, subconsultas, CTE, funciones de ventana, consultas relacionadas con usuarios y roles, seguimiento, facturación y otras operaciones sobre los datos de EnlaceExpress.
 
