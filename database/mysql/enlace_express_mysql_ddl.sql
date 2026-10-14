@@ -506,6 +506,85 @@ CREATE TABLE `users` (
 --
 
 --
+
+--
+-- Triggers para mantener updated_at en las tablas principales
+--
+
+DELIMITER ;;
+
+CREATE TRIGGER `trg_contactos_updated_at`
+BEFORE UPDATE ON `contactos`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_direcciones_updated_at`
+BEFORE UPDATE ON `direcciones`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_empresas_updated_at`
+BEFORE UPDATE ON `empresas`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_envios_updated_at`
+BEFORE UPDATE ON `envios`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_facturas_updated_at`
+BEFORE UPDATE ON `facturas`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_mensajeros_updated_at`
+BEFORE UPDATE ON `mensajeros`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_paquetes_updated_at`
+BEFORE UPDATE ON `paquetes`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_resource_roles_updated_at`
+BEFORE UPDATE ON `resource_roles`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_resources_updated_at`
+BEFORE UPDATE ON `resources`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+CREATE TRIGGER `trg_rutas_updated_at`
+BEFORE UPDATE ON `rutas`
+FOR EACH ROW
+BEGIN
+    SET NEW.updated_at = CURRENT_TIMESTAMP;
+END;;
+
+DELIMITER ;
+
 -- Dumping routines for database 'enlace_express'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `buscar_envio` */;
