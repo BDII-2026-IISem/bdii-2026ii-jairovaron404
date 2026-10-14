@@ -1,4 +1,4 @@
-# Bitácora general del proyecto – EnlaceExpress
+# Proceso - Bitácora general del proyecto
 
 ## 1. Información general
 
