@@ -44,6 +44,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "apps.security.apps.SecurityConfig",
+    "apps.client.apps.ClientConfig",
+    "apps.product.apps.ProductConfig",
+    "apps.sale.apps.SaleConfig",
     "rest_framework",
     "drf_spectacular",
     "api.apps.ApiConfig",
@@ -80,6 +84,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
 DATABASES = database_from_environ(os.environ)
+
+AUTH_USER_MODEL = "security.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
