@@ -989,11 +989,29 @@ La implementación de este requisito se adapta a la arquitectura de EnlaceExpres
 * La variable `DB_ENGINE` es obligatoria. Si falta, está vacía o contiene un motor no admitido, la configuración genera `ImproperlyConfigured`.
 * Se incorporaron pruebas automatizadas para verificar el rechazo de valores ausentes o vacíos, además de la validación de motores no admitidos.
 * Se verificaron conexiones de solo lectura desde Django hacia los cuatro motores. Esta comprobación acredita conectividad, pero no demuestra por sí sola que todas las operaciones de escritura y migración sean compatibles.
-* En las verificaciones HTTP realizadas anteriormente, `/api/health/` y `/api/schema/` respondieron con HTTP 200. La ruta `/admin/` respondió con una redirección HTTP 302, esperada para una sesión no autenticada.
-* Las verificaciones automatizadas y de configuración deben repetirse antes de cerrar el requisito, dejando constancia de los resultados obtenidos.
+* La comprobación `python manage.py check` finalizó sin errores.
+* Las ocho pruebas automatizadas de `apps.security.tests` finalizaron correctamente, incluyendo la validación de `DB_ENGINE` y la configuración de los cuatro motores.
+* En la verificación HTTP, `/api/health/` y `/api/schema/` respondieron con HTTP 200. `/admin/` respondió con HTTP 302, una redirección esperada para una sesión no autenticada.
 * Las credenciales y los parámetros locales se mantienen en el archivo de entorno, que no debe incluirse en los commits.
 
 El ISS-01 establece la base de configuración del backend; no representa la finalización de todos los casos de uso ni la certificación completa de portabilidad entre los cuatro motores.
+
+## 21.2 ISS-02 — Estructura y registro de aplicaciones Django
+
+La revisión de ISS-02 se adaptó a la estructura existente de EnlaceExpress. No se recrearon aplicaciones ni se eliminaron migraciones previas para imitar literalmente la guía de referencia.
+
+* Se verificó la existencia de las aplicaciones `security`, `client`, `product` y `sale`.
+* Las clases `AppConfig` revisadas utilizan los nombres de paquete `apps.security`, `apps.client`, `apps.product` y `apps.sale`, con sus respectivas etiquetas y `BigAutoField`.
+* Las cuatro aplicaciones están registradas en `INSTALLED_APPS`, con `security` antes que las demás aplicaciones propias.
+* Se conservó `AUTH_USER_MODEL = "security.User"` y el modelo personalizado de usuario.
+* Se verificó que `client` dispone de un modelo `Client` y de una migración inicial aplicada en el entorno revisado.
+* La migración inicial de `security` también aparece aplicada en ese entorno. Estas migraciones existentes se conservaron.
+* `product` y `sale` tienen su estructura de aplicación, pero sus archivos `models.py` todavía no implementan modelos de negocio y sus pruebas actuales son plantillas vacías.
+* `python manage.py showmigrations security client product sale` mostró aplicadas las migraciones iniciales de `security` y `client`, y ninguna migración para `product` y `sale`.
+* `python manage.py makemigrations --check --dry-run` informó `No changes detected`. Esta comprobación no crea ni aplica migraciones y no implica que los modelos de negocio pendientes estén implementados.
+* La ejecución de `python manage.py test apps.client apps.product apps.sale apps.security --verbosity 2` finalizó correctamente con ocho pruebas aprobadas. Las pruebas encontradas pertenecen a `apps.security`; todavía no hay pruebas funcionales específicas para `client`, `product` o `sale` en ese resultado.
+
+**Resultado:** la estructura y el registro de aplicaciones de ISS-02 están verificados. La implementación de modelos de negocio, sus migraciones y sus pruebas funcionales se debe abordar en las etapas correspondientes, respetando el dominio logístico de EnlaceExpress.
 
 El flujo de trabajo realizado hasta el momento puede resumirse de la siguiente manera:
 
