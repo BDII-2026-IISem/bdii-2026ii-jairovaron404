@@ -59,6 +59,18 @@ class DatabaseSelectionTests(SimpleTestCase):
         with self.assertRaises(ImproperlyConfigured):
             database_from_environ({"DB_ENGINE": "sqlite"})
 
+    def test_missing_engine(self):
+        with self.assertRaisesMessage(
+            ImproperlyConfigured, "Falta la variable de entorno DB_ENGINE"
+        ):
+            database_from_environ({})
+
+    def test_blank_engine(self):
+        with self.assertRaisesMessage(
+            ImproperlyConfigured, "Falta la variable de entorno DB_ENGINE"
+        ):
+            database_from_environ({"DB_ENGINE": "   "})
+
     def test_missing_variable(self):
         env = self._env("postgresql")
         env["POSTGRES_DB"] = ""

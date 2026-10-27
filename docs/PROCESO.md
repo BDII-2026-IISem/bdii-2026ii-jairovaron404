@@ -851,6 +851,10 @@ Actualmente se cuenta con:
 * Metodología MIRIA.
 * Bitácora general.
 * Control de versiones mediante Git.
+* Backend Django en desarrollo, con selección del motor mediante `DB_ENGINE`.
+* Pruebas de configuración para los cuatro motores y rechazo de una variable `DB_ENGINE` ausente o vacía.
+* Conexiones de solo lectura verificadas desde Django hacia PostgreSQL, MySQL, SQL Server y Oracle.
+* La configuración y las pruebas automatizadas se han verificado; la compatibilidad completa de escrituras y migraciones por motor sigue pendiente.
 
 ---
 
@@ -976,6 +980,21 @@ Las actividades posteriores se continúan registrando en la documentación gener
 
 El proyecto ha avanzado desde la creación de las estructuras hasta la ejecución de operaciones sobre datos reales de prueba.
 
+## 21.1 ISS-01 — Configuración inicial y selección del motor en Django
+
+La implementación de este requisito se adapta a la arquitectura de EnlaceExpress y conserva las aplicaciones y rutas existentes del backend.
+
+* La selección del motor de base de datos se realiza mediante la variable de entorno `DB_ENGINE`.
+* Se admiten PostgreSQL, MySQL, SQL Server y Oracle, identificados como `postgresql`, `mysql`, `mssql` y `oracle`.
+* La variable `DB_ENGINE` es obligatoria. Si falta, está vacía o contiene un motor no admitido, la configuración genera `ImproperlyConfigured`.
+* Se incorporaron pruebas automatizadas para verificar el rechazo de valores ausentes o vacíos, además de la validación de motores no admitidos.
+* Se verificaron conexiones de solo lectura desde Django hacia los cuatro motores. Esta comprobación acredita conectividad, pero no demuestra por sí sola que todas las operaciones de escritura y migración sean compatibles.
+* En las verificaciones HTTP realizadas anteriormente, `/api/health/` y `/api/schema/` respondieron con HTTP 200. La ruta `/admin/` respondió con una redirección HTTP 302, esperada para una sesión no autenticada.
+* Las verificaciones automatizadas y de configuración deben repetirse antes de cerrar el requisito, dejando constancia de los resultados obtenidos.
+* Las credenciales y los parámetros locales se mantienen en el archivo de entorno, que no debe incluirse en los commits.
+
+El ISS-01 establece la base de configuración del backend; no representa la finalización de todos los casos de uso ni la certificación completa de portabilidad entre los cuatro motores.
+
 El flujo de trabajo realizado hasta el momento puede resumirse de la siguiente manera:
 
 ```text
@@ -1018,8 +1037,8 @@ La siguiente etapa consiste en continuar con las actividades definidas por el pr
 
 Entre las actividades previstas se encuentran:
 
-* Integración con NestJS.
-* Configuración de Sequelize.
+* Continuación del desarrollo del backend Django.
+* Configuración y validación de la persistencia en los cuatro motores.
 * Migraciones.
 * Seeders.
 * Conexión con los motores.

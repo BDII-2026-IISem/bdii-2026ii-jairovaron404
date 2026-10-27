@@ -9,7 +9,13 @@ ALLOWED_ENGINES = ("postgresql", "mysql", "mssql", "oracle")
 
 
 def database_from_environ(env):
-    engine = str(env.get("DB_ENGINE", "postgresql")).strip().lower()
+    engine_value = env.get("DB_ENGINE")
+    if engine_value is None or not str(engine_value).strip():
+        raise ImproperlyConfigured(
+            "Falta la variable de entorno DB_ENGINE. "
+            f"Valores permitidos: {', '.join(ALLOWED_ENGINES)}."
+        )
+    engine = str(engine_value).strip().lower()
     if engine not in ALLOWED_ENGINES:
         allowed = ", ".join(ALLOWED_ENGINES)
         raise ImproperlyConfigured(
