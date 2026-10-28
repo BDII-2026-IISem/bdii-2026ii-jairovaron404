@@ -1098,3 +1098,29 @@ docs/CONSULTAS-AVANZADAS.md
 ```
 
 La bitácora continuará actualizándose a medida que el proyecto avance hacia la integración con el backend y las siguientes etapas definidas.
+
+
+### ISS-03 — Usuario personalizado de EnlaceExpress
+
+**Implementación**
+
+- Se conserva `AUTH_USER_MODEL = "security.User"`.
+- El modelo `User` hereda de `AbstractUser` y utiliza la tabla física `users`.
+- Se mantienen los campos propios de EnlaceExpress: estado, avatar, fecha de creación y fecha de actualización.
+- Se creó una migración posterior a `0001_initial` para adaptar la tabla del usuario sin editar una migración ya aplicada.
+- La migración se aplicó en PostgreSQL, que es el motor configurado actualmente para Django.
+
+**Validación**
+
+- `python manage.py check`: correcto.
+- `python manage.py makemigrations --check --dry-run`: sin cambios pendientes.
+- `python manage.py test`: 9 pruebas aprobadas.
+- Las migraciones de `security` y `client` aparecen aplicadas.
+- La tabla `users` existe y `security_users` dejó de existir con ese nombre.
+
+**Evidencias**
+
+- `docs/evidencias/18-iss-03/verificacion-tecnica.txt`
+- `docs/evidencias/18-iss-03/verificacion-final.txt`
+
+**Alcance:** estas comprobaciones corresponden a PostgreSQL. La adaptación de la tabla de usuario no se ha validado todavía en MySQL, SQL Server ni Oracle.

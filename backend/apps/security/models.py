@@ -13,34 +13,38 @@ class StoreUserManager(UserManager):
         extra_fields.setdefault("status", RecordStatus.ACTIVE)
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
-        return super().create_superuser(username, email, password, **extra_fields)
+        return super().create_superuser(
+            username, email, password, **extra_fields
+        )
 
 
 class User(AbstractUser):
-    email = models.EmailField("correo electrónico", max_length=150, unique=True)
+    username = models.CharField(max_length=100, unique=True)
+    email = models.EmailField(max_length=150, unique=True)
+    password = models.CharField(max_length=255)
+
+    # El estado de negocio se conserva como texto.
     status = models.CharField(
         max_length=8,
         choices=RecordStatus.choices,
         default=RecordStatus.INACTIVE,
     )
+
+    # AbstractUser necesita un booleano independiente para autenticación.
+    is_active = models.BooleanField(default=True)
+
+    avatar = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = StoreUserManager()
 
     class Meta:
-        db_table = "security_users"
+        db_table = "users"
         verbose_name = "usuario"
         verbose_name_plural = "usuarios"
-        constraints = [
-            models.CheckConstraint(
-                condition=models.Q(status__in=RecordStatus.values),
-                name="users_status_valid",
-            )
-        ]
 
     def save(self, *args, **kwargs):
         if self.email:
             self.email = self.email.strip().lower()
-        self.is_active = self.status == RecordStatus.ACTIVE
         super().save(*args, **kwargs)
