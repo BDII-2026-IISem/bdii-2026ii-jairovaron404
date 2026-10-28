@@ -15,7 +15,6 @@ class Client(StoreLabModel):
         max_length=150,
         null=True,
         blank=True,
-        unique=True,
     )
 
     class Meta:
@@ -24,7 +23,17 @@ class Client(StoreLabModel):
         verbose_name_plural = "clientes"
         ordering = ["name", "id"]
         constraints = [
-            StoreLabModel.status_constraint("clients_status_valid")
+            StoreLabModel.status_constraint("clients_status_valid"),
+            models.UniqueConstraint(
+                fields=["email"],
+                name="uq_clients_email",
+            ),
+        ]
+        indexes = [
+            models.Index(
+                fields=["status"],
+                name="ix_clients_status",
+            ),
         ]
 
     def __str__(self):
